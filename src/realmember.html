@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAH-TEHILLAH Member Dashboard</title>
+<link rel="shortcut icon" href="/src/images/DAH-RL1.png" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    @keyframes popIn {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop {
+    animation: popIn 0.6s ease-out;
+}
+body{
+    font-family: Inter, sans-serif;
+    background: radial-gradient(circle at top, #064e3b, #000);
+    overflow-x:hidden;
+}
+
+/* glass effect */
+.glass{
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* gold glow */
+.glow-gold{
+    box-shadow: 0 0 25px rgba(212,175,55,0.25);
+}
+</style>
+</head>
+
+<body class="text-white">
+
+<!-- SUCCESS LOGIN OVERLAY -->
+
+
+<div id="successOverlay"
+     class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 backdrop-blur-xl">
+
+    <div class="glass text-center p-10 rounded-3xl shadow-2xl animate-pulse">
+
+        <div class="text-6xl mb-4">🎉</div>
+
+        <h1 class="text-3xl font-black text-green-300">
+            Login Successful
+        </h1>
+
+        <p class="text-gray-300 mt-3">
+            Welcome to DAH-TEHILLAH Member Portal
+        </p>
+
+        <div class="mt-6 w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
+
+    </div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="fixed top-0 left-0 w-full z-50">
+    <div class="glass mx-4 mt-4 rounded-2xl px-6 py-4 flex justify-between items-center">
+
+        <h1 class="font-bold text-lg tracking-wide text-yellow-400">
+            DAH-TEHILLAH DASHBOARD
+        </h1>
+
+        <button onclick="logout()"
+            class="px-4 py-2 rounded-xl bg-red-500/80 hover:bg-red-600 transition">
+            Logout
+        </button>
+    </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="pt-28 px-6 max-w-7xl mx-auto">
+
+    <!-- HERO -->
+    <section class="glass rounded-3xl p-8 glow-gold">
+
+        <h2 class="text-3xl font-bold text-green-300">
+            Welcome Back, Member 🌿
+        </h2>
+
+        <p class="text-gray-300 mt-2">
+            Exclusive access to DAH-TEHILLAH Farm Ventures dashboard.
+        </p>
+
+        <div class="mt-6 flex gap-4 flex-wrap">
+
+            <div class="glass px-6 py-4 rounded-2xl">
+                <p class="text-sm text-gray-300">Your Status</p>
+                <h3 class="text-xl font-bold text-yellow-400" id="roleText">Member</h3>
+            </div>
+
+            <!-- ONLY ADMIN SEES THIS -->
+            <div id="adminPanel" class="hidden glass px-6 py-4 rounded-2xl">
+                <p class="text-sm text-gray-300">Total Members Online</p>
+                <h3 class="text-xl font-bold text-green-300" id="memberCount">0</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DASHBOARD CARDS -->
+    <section class="grid md:grid-cols-3 gap-6 mt-10">
+
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+            <h3 class="text-yellow-400 font-bold">Investment</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Track your farm investment portfolio.
+            </p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+            <h3 class="text-yellow-400 font-bold">Farm Updates</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Real-time agricultural progress reports.
+            </p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+            <h3 class="text-yellow-400 font-bold">Training</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Access modern farming tutorials & guides.
+            </p>
+        </div>
+<br><br><br>
+    </section>
+<!-- MEMBER OPPORTUNITIES SECTION -->
+<section class="mt-14">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-yellow-400">
+            Member Opportunities
+        </h2>
+
+        <p class="text-gray-300 mt-3 max-w-2xl mx-auto">
+            Exclusive access to premium agricultural opportunities, investment updates, and farm participation benefits available to registered members.
+        </p>
+    </div>
+
+    <!-- Opportunity Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition duration-300">
+            <div class="text-4xl mb-3">💰</div>
+            <h3 class="text-xl font-bold text-green-300">Investment Plans</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Access structured farm investment packages with transparent ROI tracking.
+            </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition duration-300">
+            <div class="text-4xl mb-3">🌿</div>
+            <h3 class="text-xl font-bold text-green-300">Live Farm Updates</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Get real-time updates on crops, livestock, and ongoing farm projects.
+            </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition duration-300">
+            <div class="text-4xl mb-3">📊</div>
+            <h3 class="text-xl font-bold text-green-300">Profit Dashboard</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Monitor your earnings, dividends, and investment performance in real time.
+            </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition duration-300">
+            <div class="text-4xl mb-3">🚜</div>
+            <h3 class="text-xl font-bold text-green-300">Farm Participation</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Participate in seasonal farming activities and training sessions.
+            </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition duration-300">
+            <div class="text-4xl mb-3">📚</div>
+            <h3 class="text-xl font-bold text-green-300">Training Access</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Learn modern agricultural techniques and farm management systems.
+            </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition duration-300">
+            <div class="text-4xl mb-3">🤝</div>
+            <h3 class="text-xl font-bold text-green-300">Community Network</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Connect with investors, farmers, and agricultural experts.
+            </p>
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- FARM SEASONS + INTELLIGENCE SECTION -->
+<section class="mt-14">
+
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-5xl font-black text-yellow-400">
+            Agricultural Intelligence Center
+        </h2>
+
+        <p class="text-gray-300 mt-4 max-w-3xl mx-auto">
+            Real-time farming insights, seasonal guidance, and member-exclusive agricultural planning tools powered by DAH-TEHILLAH systems.
+        </p>
+    </div>
+
+    <!-- SEASON GRID -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Plant Season -->
+        <div class="glass p-6 rounded-2xl glow-gold hover:scale-105 transition">
+            <div class="text-4xl">🌱</div>
+            <h3 class="text-xl font-bold text-green-300 mt-3">Planting Season</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Best time for maize, vegetables, cassava, and legumes depending on rainfall cycle.
+            </p>
+            <div class="mt-4 text-xs text-yellow-400 font-semibold">
+                STATUS: ACTIVE WINDOW
+            </div>
+        </div>
+
+        <!-- Not Plant Season -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+            <div class="text-4xl">⛔</div>
+            <h3 class="text-xl font-bold text-red-300 mt-3">Restricted Planting</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Low rainfall or dry conditions — irrigation required before farming activities.
+            </p>
+            <div class="mt-4 text-xs text-red-400 font-semibold">
+                STATUS: CONTROLLED
+            </div>
+        </div>
+
+        <!-- Harvest Season -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+            <div class="text-4xl">🌾</div>
+            <h3 class="text-xl font-bold text-yellow-300 mt-3">Harvest Season</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Crops reaching maturity stage — collection, packaging, and distribution phase.
+            </p>
+            <div class="mt-4 text-xs text-green-400 font-semibold">
+                STATUS: PEAK OUTPUT
+            </div>
+        </div>
+
+        <!-- Idle Season -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+            <div class="text-4xl">🧭</div>
+            <h3 class="text-xl font-bold text-blue-300 mt-3">Preparation Season</h3>
+            <p class="text-gray-300 text-sm mt-2">
+                Soil testing, fertilization planning, and infrastructure maintenance period.
+            </p>
+            <div class="mt-4 text-xs text-blue-400 font-semibold">
+                STATUS: STRATEGIC PHASE
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BONUS INFO PANEL -->
+    <div class="mt-10 glass rounded-3xl p-8 text-center">
+
+        <h3 class="text-2xl font-bold text-green-300">
+            Member Farming Advisory
+        </h3>
+
+        <p class="text-gray-300 mt-3 max-w-2xl mx-auto">
+            DAH-TEHILLAH recommends crop rotation strategy every 2–3 cycles to improve soil fertility and maximize yield performance across all registered farms.
+        </p>
+
+        <button onclick="openCalendar()"
+        class="mt-6 px-6 py-3 bg-yellow-400 text-black font-bold rounded-xl hover:scale-105 transition">
+        View Full Farming Calendar
+        </button>
+
+    </div>
+
+<!-- FARMING CALENDAR MODAL -->
+<div id="calendarModal"
+     class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-xl z-[9999]">
+
+    <div class="glass w-[92%] md:w-[700px] rounded-3xl p-8 animate-pop relative">
+
+        <!-- CLOSE BUTTON -->
+        <button onclick="closeCalendar()"
+            class="absolute top-4 right-4 text-white text-2xl hover:text-red-400">
+            ✕
+        </button>
+
+        <h2 class="text-3xl font-black text-yellow-400 text-center">
+            🌾 Farming Calendar 2026
+        </h2>
+
+        <p class="text-gray-300 text-center mt-2">
+            Seasonal breakdown for optimized crop production
+        </p>
+
+        <div class="mt-8 space-y-4">
+
+            <div class="glass p-4 rounded-2xl">
+                <h3 class="text-green-300 font-bold">🌱 Planting Season</h3>
+                <p class="text-gray-300 text-sm">
+                    March – July: Rain-fed crops like maize, cassava, vegetables.
+                </p>
+            </div>
+
+            <div class="glass p-4 rounded-2xl">
+                <h3 class="text-red-300 font-bold">⛔ Dry Season Restriction</h3>
+                <p class="text-gray-300 text-sm">
+                    November – February: Irrigation required before any planting.
+                </p>
+            </div>
+
+            <div class="glass p-4 rounded-2xl">
+                <h3 class="text-yellow-300 font-bold">🌾 Harvest Season</h3>
+                <p class="text-gray-300 text-sm">
+                    August – October: Peak harvesting and distribution period.
+                </p>
+            </div>
+
+            <div class="glass p-4 rounded-2xl">
+                <h3 class="text-blue-300 font-bold">🧭 Preparation Phase</h3>
+                <p class="text-gray-300 text-sm">
+                    Soil testing, fertilization, and land restructuring activities.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="mt-6 text-center">
+            <button onclick="closeCalendar()"
+                class="px-6 py-3 bg-green-500 text-white font-bold rounded-xl hover:scale-105 transition">
+                Got it
+            </button>
+        </div>
+
+    </div>
+</div>
+
+</section>
+</main>
+
+<script>
+    
+function openCalendar() {
+    const modal = document.getElementById("calendarModal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+}
+
+function closeCalendar() {
+    const modal = document.getElementById("calendarModal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+}
+/* =========================
+   ACCESS CONTROL
+========================= */
+
+const access = localStorage.getItem("memberAccess");
+const role = localStorage.getItem("role") || "member";
+
+if(access !== "true"){
+    window.location.href = "/src/index.html";
+} else {
+    showLoginSuccess();
+}
+
+/* =========================
+   ROLE DISPLAY
+========================= */
+
+document.getElementById("roleText").innerText =
+    role === "admin" ? "Admin" : "Member";
+
+/* =========================
+   ADMIN PANEL VISIBILITY
+========================= */
+
+const adminPanel = document.getElementById("adminPanel");
+
+if(role === "admin"){
+    adminPanel.classList.remove("hidden");
+}
+
+/* =========================
+   FAKE LIVE MEMBER COUNT
+   (replace later with backend)
+========================= */
+
+let count = 128;
+
+if(role === "admin"){
+    setInterval(() => {
+        count += Math.floor(Math.random() * 3);
+        document.getElementById("memberCount").innerText = count;
+    }, 2000);
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+    localStorage.removeItem("memberAccess");
+    localStorage.removeItem("role");
+    window.location.href = "/src/index.html";
+}
+
+function showLoginSuccess(){
+
+    const overlay = document.getElementById("successOverlay");
+
+    // show overlay
+    overlay.classList.remove("hidden");
+    overlay.classList.add("flex");
+
+    // small delay then redirect
+    setTimeout(() => {
+        overlay.style.opacity = "0";
+        overlay.style.transition = "0.8s ease";
+
+        setTimeout(() => {
+            overlay.classList.add("hidden");
+        }, 800);
+
+    }, 2500); // wait 2.5 seconds before fading out
+}
+</script>
+
+</body>
+</html>

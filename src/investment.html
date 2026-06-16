@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAH-TEHILLAH FARM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="shortcut icon" href="/src/images/DAH-RL1.png" type="image/x-icon">
+<style>  
+.glass.scrolled {
+
+    background: rgba(20, 20, 20, 0.45);
+
+    backdrop-filter: blur(26px);
+    -webkit-backdrop-filter: blur(26px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    transform: scale(0.98);
+
+    transition: all 0.4s ease;
+}
+
+.glass.scrolled::before {
+    opacity: 0;
+}
+
+/* ========================================
+   NAVBAR ANIMATIONS
+======================================== */
+
+@keyframes floatingNav{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-2px);
+    }
+}
+
+@keyframes luxuryGlow{
+    0%,100%{
+        box-shadow:
+        0 8px 32px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    50%{
+        box-shadow:
+        0 12px 40px rgba(212,175,55,.18),
+        0 0 25px rgba(212,175,55,.12),
+        inset 0 1px 0 rgba(255,255,255,.15);
+    }
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-100%);
+    }
+
+    100%{
+        transform:translateX(300%);
+    }
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+    transition:all .4s ease;
+}
+
+.glass{
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+    animation:
+    floatingNav 5s ease-in-out infinite,
+    luxuryGlow 6s ease-in-out infinite;
+}
+
+.glass::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:50%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    animation:shine 8s linear infinite;
+}
+
+/* ========================================
+   SCROLL EFFECT
+======================================== */
+
+.navbar.scrolled{
+    background:rgba(0,0,0,.88);
+
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+
+    border-bottom:1px solid rgba(212,175,55,.25);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.4);
+}
+
+/* ========================================
+   DESKTOP NAV LINKS
+======================================== */
+
+.nav-link{
+    position:relative;
+    display:inline-block;
+    color:white;
+    font-weight:600;
+    transition:all .35s ease;
+}
+
+.nav-link:hover{
+    color:#facc15;
+    text-shadow:0 0 12px rgba(250,204,21,.4);
+    transform:translateY(-2px);
+}
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-6px;
+
+    width:0;
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #facc15,
+        transparent
+    );
+
+    border-radius:999px;
+
+    transform:translateX(-50%);
+    transition:width .4s ease;
+}
+
+.nav-link:hover::after{
+    width:100%;
+}
+
+.nav-link.active{
+    color:#facc15;
+}
+
+.nav-link.active::after{
+    width:100%;
+}
+
+/* ========================================
+   MOBILE LINKS
+======================================== */
+
+.mobile-link{
+    padding:16px 24px;
+    color:white;
+    font-weight:600;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.mobile-link:hover{
+    background:rgba(255,255,255,.05);
+    padding-left:32px;
+    color:#facc15;
+}
+
+    .footer-link{
+    color:#9ca3af;
+    transition:.3s;
+}
+
+.footer-link:hover{
+    color:#D4AF37;
+    padding-left:6px;
+}
+
+.social-icon{
+    padding:10px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.social-icon:hover{
+    background:#D4AF37;
+    color:black;
+    transform:translateY(-3px);
+}
+
+.glass-footer{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+}
+</style>
+</head>
+<body>
+    <!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+
+<div class="max-w-7xl mx-auto px-6">
+
+    <div id="glassNav" class="glass flex items-center justify-between mt-4 rounded-full px-6 py-4">
+
+       <!-- Logo -->
+    <a href="/src/index.html" class="flex items-center gap-2">
+
+    <!-- Logo Image -->
+    <img
+        src="/src/images/DAH-RL1.png"
+        alt="DAH-TEHILLAH FARM VENTURES Logo"
+        class="w-10 md:w-12 h-auto object-contain flex-shrink-0">
+
+    <!-- Company Name -->
+    <div class="leading-tight">
+        <h1 class="text-white font-bold text-sm md:text-base">
+            DAH-TEHILLAH
+        </h1>
+
+        <p class="text-yellow-400 text-[10px] md:text-xs uppercase tracking-wider">
+            Farm Ventures
+        </p>
+    </div>
+
+</a>
+
+      <!-- Desktop Menu -->
+
+<div class="hidden lg:flex items-center gap-6">
+
+    <a href="/src/index.html" class="nav-link">Home</a>
+
+    <a href="/src/about.html" class="nav-link">About</a>
+
+    <a href="/src/services.html" class="nav-link">Services</a>
+
+    <a href="/src/investment.html" class="nav-link" style="color: gold;">Investment</a>
+
+    <a href="/src/membership.html" class="nav-link">Membership</a>
+
+    <a href="/src/bookings.html" class="nav-link">Bookings</a>
+
+    <a href="/src/contact.html" class="nav-link">Contact</a>
+
+</div>
+
+        <!-- Desktop Button -->
+
+        <div class="hidden lg:block">
+
+<a href="/src/investment.html"
+class="bg-gradient-to-r from-yellow-500 to-yellow-400
+text-black px-6 py-3 rounded-full font-bold
+hover:scale-105 hover:shadow-[0_0_25px_rgba(250,204,21,0.6)]
+transition-all duration-300">
+Invest Now
+    </a>
+</div>
+
+        <!-- Mobile Menu Button -->
+
+<button id="menuBtn" class="lg:hidden text-white">
+
+<svg id="menuIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8 transition-all duration-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+
+        <path id="menuPath"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+
+    </svg>
+
+</button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobileMenu"
+        class="hidden glass mt-4 rounded-3xl overflow-hidden">
+
+        <div class="flex flex-col">
+
+            <a href="/src/index.html" class="mobile-link">Home</a>
+
+            <a href="/src/about.html" class="mobile-link">About</a>
+
+            <a href="/src/services.html" class="mobile-link">Services</a>
+
+            <a href="/src/investment.html" class="mobile-link" style ="color: gold;">Investment</a>
+
+            <a href="/src/membership.html" class="mobile-link">Membership</a>
+
+            <a href="/src/bookings.html" class="mobile-link">Bookings</a>
+
+            <a href="/src/contact.html" class="mobile-link">Contact</a>
+
+            <a href="/src/investment.html"
+                class="bg-yellow-500 text-black text-center py-4 font-bold">
+
+                Invest Now
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</nav>
+<!-- HERO SECTION -->
+<section class="relative h-screen overflow-hidden">
+
+    <!-- Background Video -->
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover">
+
+        <source src="/src/images/inves-bg.mp4" type="video/mp4">
+
+    </video>
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+<br><br>
+    <!-- Content -->
+    <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
+
+        <div class="max-w-4xl">
+
+            <span class="bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-full border border-yellow-500/30">
+                Agricultural Investment Opportunity
+            </span>
+
+            <h1 class="hero-title text-5xl md:text-7xl font-black text-white mt-6 leading-tight">
+
+                Grow Wealth Through
+                <span class="text-yellow-400">
+                    Smart Farming Investments
+                </span>
+
+            </h1>
+
+            <p class="text-gray-300 text-lg md:text-xl mt-6 max-w-3xl mx-auto">
+
+                Join DAH-TEHILLAH FARM VENTURES and invest in
+                profitable agricultural projects while supporting
+                sustainable food production and community growth.
+
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-10">
+
+                <a href="/src/contact.html"
+                class="bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition">
+
+                    Invest Now
+
+                </a>
+
+                <a href="/src/contact.html"
+                class="border border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LIVESTOCK INVESTMENT SECTION -->
+
+<section class="relative py-24 bg-gradient-to-b from-white via-green-50 to-yellow-50 overflow-hidden">
+
+    <!-- Background Decorations -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-green-200/30 rounded-full blur-[120px]"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-yellow-200/30 rounded-full blur-[120px]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+
+            <span class="inline-block px-5 py-2 rounded-full bg-green-100 text-green-700 font-semibold">
+                Agricultural Investment
+            </span>
+
+            <h2 class="mt-6 text-4xl md:text-5xl font-black text-green-900">
+
+                Livestock We Invest In
+
+            </h2>
+
+            <p class="mt-5 text-gray-600 max-w-3xl mx-auto text-lg">
+
+                Invest confidently in carefully selected livestock businesses
+                with high market demand, sustainable production and long-term
+                profitability.
+
+            </p>
+
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+
+            <!-- Goat -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/ani-1.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                    <h3 class="text-2xl font-bold text-green-900">
+                        Goat Farming
+                    </h3>
+
+                    <p class="mt-2 text-gray-600">
+                        High-demand meat production with excellent investment returns.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- GOAT POULTRY -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/ani-2.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                    <h3 class="text-2xl font-bold text-green-900">
+                        Goat Rearing
+                    </h3>
+
+                    <p class="mt-2 text-gray-600">
+                        Healthy goat production with strong market demand.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- SINGLE COW -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/ani-3.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                   <h3 class="text-2xl font-bold text-green-900">
+                    Single Cow
+                    </h3>
+
+                <p class="mt-2 text-gray-600">
+                    Healthy cattle for profitable investment.
+                </p>
+
+                </div>
+
+            </div>
+
+            <!-- COW -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/ani-4.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                   <h3 class="text-2xl font-bold text-green-900">
+                    Cow Farming
+                   </h3>
+
+                <p class="mt-2 text-gray-600">
+                    Healthy cattle raised for quality meat and dairy production.
+                </p>
+                </div>
+
+            </div>
+
+            <!-- Camel -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/camel.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                    <h3 class="text-2xl font-bold text-green-900">
+                        Camel
+                    </h3>
+
+                    <p class="mt-2 text-gray-600">
+                        Premium livestock investment with growing regional demand.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- HEN POULTRY -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/ani-5.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                    <h3 class="text-2xl font-bold text-green-900">
+                     Hen Farming
+                    </h3>
+
+                    <p class="mt-2 text-gray-600">
+                    Quality layer hens for profitable egg production.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- HEN -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/ani-6.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                   <h3 class="text-2xl font-bold text-green-900">
+                     Hen Poultry
+                    </h3>
+
+                    <p class="mt-2 text-gray-600">
+                        Egg and meat production with reliable commercial returns.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SNAILS -->
+            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+                <div class="overflow-hidden">
+
+                    <img src="/src/images/ani-7.avif"
+                    class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+                </div>
+
+                <div class="p-5 text-center">
+
+                    <h3 class="text-2xl font-bold text-green-900"> Snail Farming </h3>
+                     <p class="mt-2 text-gray-600"> Low-cost production with premium export opportunities. </p>
+
+                </div>
+
+            </div>
+
+           <!-- RAM -->
+<div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+
+    <div class="overflow-hidden">
+
+        <img src="/src/images/ani-8.avif"
+        class="h-64 w-full object-cover group-hover:scale-110 duration-500">
+
+    </div>
+
+    <div class="p-5 text-center">
+
+        <h3 class="text-2xl font-bold text-green-900">
+            Ram Farming
+        </h3>
+
+        <p class="mt-2 text-gray-600">
+            Healthy ram production with strong market demand.
+        </p>
+
+    </div>
+
+</div>
+            <!-- Agro Investment -->
+            <div class="group bg-gradient-to-br from-green-700 to-yellow-500 rounded-3xl overflow-hidden text-white flex flex-col justify-center items-center p-8 hover:scale-105 duration-500 shadow-xl">
+
+                <i class="fas fa-seedling text-6xl mb-6"></i>
+
+                <h3 class="text-3xl font-black">
+                    Invest Today
+                </h3>
+
+                <p class="mt-4 text-center text-white/90">
+
+                    Diversify your portfolio through profitable agricultural opportunities.
+
+                </p>
+
+                <a href="/src/contact.html"
+                class="mt-8 bg-white text-green-800 px-6 py-3 rounded-full font-bold hover:bg-yellow-100 transition">
+
+                    Get Started
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INVESTMENT SECTION -->
+<section id="investment"
+class="relative overflow-hidden py-24 bg-gradient-to-b from-green-50 via-white to-yellow-50">
+
+    <!-- Background Decorations -->
+    <div class="absolute top-0 left-0 w-72 h-72 bg-green-200/40 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-72 h-72 bg-yellow-200/40 blur-[120px] rounded-full"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+
+            <h2 class="text-4xl md:text-5xl font-black text-green-900">
+                Current Investment Projects
+            </h2>
+
+            <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
+                Explore our active agricultural projects and choose the investment
+                opportunity that aligns with your financial goals.
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <div class="glass-footer rounded-3xl overflow-hidden reveal">
+
+                <video autoplay muted loop playsinline
+                class="w-full h-72 object-cover">
+
+                    <source src="/src/images/invest1.mp4">
+
+                </video>
+
+                <div class="p-6">
+
+                    <span class="inline-block mb-3 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
+                        Investment Opportunity
+                    </span>
+
+                    <h3 class="text-green-900 text-2xl font-bold">
+                        Poultry Farming
+                    </h3>
+
+                    <p class="text-gray-600 mt-3">
+                        Invest in large-scale poultry production with strong
+                        market demand, sustainable operations and excellent
+                        growth potential.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-footer rounded-3xl overflow-hidden reveal">
+
+                <video autoplay muted loop playsinline
+                class="w-full h-72 object-cover">
+
+                    <source src="/src/images/invest2.mp4">
+
+                </video>
+
+                <div class="p-6">
+
+                    <span class="inline-block mb-3 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
+                        Investment Opportunity
+                    </span>
+
+                    <h3 class="text-green-900 text-2xl font-bold">
+                        Crop Cultivation
+                    </h3>
+
+                    <p class="text-gray-600 mt-3">
+                        Participate in commercial crop production focused on
+                        food security, profitability and long-term sustainability.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-footer rounded-3xl overflow-hidden reveal">
+
+                <video autoplay muted loop playsinline
+                class="w-full h-72 object-cover">
+
+                    <source src="/src/images/invest3.mp4">
+
+                </video>
+
+                <div class="p-6">
+
+                    <span class="inline-block mb-3 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
+                        Investment Opportunity
+                    </span>
+
+                    <h3 class="text-green-900 text-2xl font-bold">
+                        Livestock Development
+                    </h3>
+
+                    <p class="text-gray-600 mt-3">
+                        Support livestock expansion projects designed for
+                        scalability, efficiency and premium investment returns.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHY INVEST WITH US -->
+<section
+class="relative overflow-hidden py-24 bg-gradient-to-b from-white via-green-50 to-yellow-50">
+
+    <!-- Background Decorations -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-green-200/30 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-yellow-200/30 blur-[120px] rounded-full"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+
+            <span class="text-yellow-600 font-bold uppercase tracking-widest">
+                Why Choose Us
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-black text-green-900 mt-4">
+                Why Invest With Us?
+            </h2>
+
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8">
+
+            <div class="glass-footer p-8 rounded-3xl text-center">
+
+                <i class="fas fa-chart-line text-yellow-500 text-5xl"></i>
+
+                <h3 class="text-green-900 font-bold mt-5 text-xl">
+                    High Returns
+                </h3>
+
+                <p class="text-gray-600 mt-3">
+                    Strong agricultural returns backed by growing market demand.
+                </p>
+
+            </div>
+
+            <div class="glass-footer p-8 rounded-3xl text-center">
+
+                <i class="fas fa-shield-alt text-yellow-500 text-5xl"></i>
+
+                <h3 class="text-green-900 font-bold mt-5 text-xl">
+                    Secure Investment
+                </h3>
+
+                <p class="text-gray-600 mt-3">
+                    Structured projects with transparency and accountability.
+                </p>
+
+            </div>
+
+            <div class="glass-footer p-8 rounded-3xl text-center">
+
+                <i class="fas fa-leaf text-yellow-500 text-5xl"></i>
+
+                <h3 class="text-green-900 font-bold mt-5 text-xl">
+                    Sustainable Farming
+                </h3>
+
+                <p class="text-gray-600 mt-3">
+                    Environmentally responsible agricultural practices.
+                </p>
+
+            </div>
+
+            <div class="glass-footer p-8 rounded-3xl text-center">
+
+                <i class="fas fa-handshake text-yellow-500 text-5xl"></i>
+
+                <h3 class="text-green-900 font-bold mt-5 text-xl">
+                    Trusted Partnership
+                </h3>
+
+                <p class="text-gray-600 mt-3">
+                    Long-term relationships built on trust and performance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA SECTION -->
+<section
+class="relative overflow-hidden py-24 bg-gradient-to-r from-green-100 via-white to-yellow-100">
+
+    <div class="absolute top-0 left-0 w-96 h-96 bg-green-300/20 blur-[150px] rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-300/20 blur-[150px] rounded-full"></div>
+
+    <div class="relative max-w-5xl mx-auto px-6">
+
+        <div class="glass-footer rounded-[40px] p-12 text-center">
+
+            <span class="text-yellow-600 font-bold uppercase tracking-widest">
+                Start Today
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-black text-green-900 mt-4">
+                Ready To Start Investing?
+            </h2>
+
+            <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+                Speak with our investment advisors and discover the best
+                agricultural opportunities available today.
+            </p>
+
+            <div class="mt-10">
+
+                <a href="/src/contact.html"
+                class="inline-flex items-center gap-3
+                bg-gradient-to-r
+                from-green-700
+                to-yellow-500
+                text-white
+                px-10
+                py-4
+                rounded-full
+                font-bold
+                shadow-lg
+                hover:scale-105
+                hover:shadow-xl
+                transition-all duration-300">
+
+                    <i class="fas fa-seedling"></i>
+
+                    Start Investing
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="relative bg-black text-white overflow-hidden">
+
+    <!-- Background Glow -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-green-600/10 blur-[140px] rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/10 blur-[140px] rounded-full"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+
+        <!-- Top Footer -->
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+
+            <!-- Company Info -->
+            <div>
+
+                <div class="flex items-center gap-3">
+
+                <img
+                    src="/src/images/DAH-RL1.png"
+                    alt="DAH-TEHILLAH FARM VENTURES Logo"
+                    class="w-10 md:w-12 h-auto object-contain flex-shrink-0">
+
+                    <div>
+                        <h3 class="font-black text-xl">
+                            DAH-TEHILLAH
+                        </h3>
+
+                        <p class="text-yellow-400 text-sm">
+                            FARM VENTURES
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="mt-6 text-gray-400 leading-relaxed">
+                    A premium agricultural ecosystem blending farming,
+                    tourism, innovation, education and investment
+                    opportunities for sustainable growth.
+                </p>
+
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">
+                    Quick Links
+                </h4>
+
+                <ul class="space-y-3">
+
+                    <li><a href="/src/index.html" class="footer-link">Home</a></li>
+
+                    <li><a href="/src/about.html" class="footer-link">About</a></li>
+
+                    <li><a href="/src/services.html" class="footer-link">Services</a></li>
+
+                    <li><a href="/src/investment.html" class="footer-link" style="color: gold;">Investment</a></li>
+
+                    <li><a href="/src/membership.html" class="footer-link">Membership</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- More Links -->
+            <div>
+
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">
+                    Explore
+                </h4>
+
+                <ul class="space-y-3">
+
+                    <li><a href="/src/bookings.html" class="footer-link">Bookings</a></li>
+
+                    <li><a href="/src/contact.html" class="footer-link">Contact</a></li>
+
+                 
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+            <div>
+
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">
+                    Contact Us
+                </h4>
+
+                <div class="space-y-4 text-gray-400">
+
+                    <p>
+                        Address: 2B, Tatiana court, Ikota Lagos
+                    </p>
+
+                    <p>
+                        📞 +234 913 877 4140
+                    </p>
+
+                    <p>
+                        ✉️ da-tehillahfarms@gmail.com
+                    </p>
+
+                </div>
+
+               <div class="flex items-center gap-4 mt-8">
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-facebook-f"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-instagram"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-whatsapp"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-x-twitter"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-youtube"></i>
+
+    </a>
+
+</div>
+        </div>
+
+        </div>
+
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-white/10 mt-16 pt-8">
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+
+                <p class="text-gray-500 text-center md:text-left">
+                    © 2026 DAH-TEHILLAH FARM VENTURES. All Rights Reserved.
+                </p>
+
+                <p class="text-xs text-gray-500 text-center">
+                Developed by
+                <a href="https://wa.me/2349050766830"
+                target="_blank"
+                class="text-[#D4AF37] font-bold hover:text-yellow-400 transition-all duration-300">
+                SAMMY TECH
+                </a>
+             </p>    
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.from(".hero-title",{y:80,opacity:0,duration:1.4});
+gsap.utils.toArray(".reveal").forEach(el=>{
+ gsap.to(el,{opacity:1,y:0,duration:1,
+ scrollTrigger:{trigger:el,start:"top 80%"}});
+});
+
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuPath = document.getElementById('menuPath');
+
+let isOpen = false;
+
+menuBtn.addEventListener('click', () => {
+
+    mobileMenu.classList.toggle('hidden');
+
+    if (!isOpen) {
+
+        // Change Hamburger → X
+
+        menuPath.setAttribute(
+            "d",
+            "M6 6L18 18M18 6L6 18"
+        );
+
+        isOpen = true;
+
+    } else {
+
+        // Change X → Hamburger
+
+        menuPath.setAttribute(
+            "d",
+            "M4 6h16M4 12h16M4 18h16"
+        );
+
+        isOpen = false;
+    }
+});
+
+if (!isOpen) {
+
+    menuIcon.classList.add("rotate-180");
+
+    menuPath.setAttribute(
+        "d",
+        "M6 6L18 18M18 6L6 18"
+    );
+
+} else {
+
+    menuIcon.classList.remove("rotate-180");
+
+    menuPath.setAttribute(
+        "d",
+        "M4 6h16M4 12h16M4 18h16"
+    );
+}
+
+// Smooth Scroll
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener('click', function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute('href'))
+.scrollIntoView({
+
+behavior:'smooth'
+
+});
+
+mobileMenu.classList.add('hidden');
+
+});
+
+});
+
+const glassNav = document.getElementById("glassNav");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 80) {
+
+        glassNav.classList.add("scrolled");
+
+    } else {
+
+        glassNav.classList.remove("scrolled");
+
+    }
+
+});
+</script>
+</body>
+</html>

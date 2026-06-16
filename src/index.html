@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAH-TEHILLAH FARM</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="shortcut icon" href="/src/images/DAH-RL1.png" type="image/x-icon">
+<style>
+
+/* ========================================
+   GLOBAL STYLES
+======================================== */
+
+body{
+    font-family:Inter,sans-serif;
+    background:#f8faf8;
+}
+
+/* ========================================
+   LUXURY ANIMATIONS
+======================================== */
+
+@keyframes floatingNav{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-2px);
+    }
+}
+
+@keyframes luxuryGlow{
+    0%,100%{
+        box-shadow:
+        0 8px 32px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    50%{
+        box-shadow:
+        0 12px 40px rgba(212,175,55,.18),
+        0 0 25px rgba(212,175,55,.12),
+        inset 0 1px 0 rgba(255,255,255,.15);
+    }
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-100%);
+    }
+
+    100%{
+        transform:translateX(300%);
+    }
+}
+
+/* ========================================
+   GLASSMORPHISM NAVBAR
+======================================== */
+
+.glass{
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(10,10,10,.35);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+    transition:all .4s ease;
+
+    animation:
+    floatingNav 5s ease-in-out infinite,
+    luxuryGlow 6s ease-in-out infinite;
+}
+
+/* Existing Glass Styles Preserved */
+
+.glass{
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.glass{
+    backdrop-filter:blur(25px);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+}
+
+/* Luxury Shine Effect */
+
+.glass::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:50%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    animation:shine 8s linear infinite;
+}
+
+/* ========================================
+   SCROLL EFFECTS
+======================================== */
+
+.navbar-scrolled .glass{
+    background:rgba(8,8,8,.65);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    box-shadow:
+    0 12px 40px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+.scrolled{
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(30px);
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero{
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.55)
+    ),
+    url('/src/images/bg-images-DAH-TEHILLAH.avif');
+
+    background-size:cover;
+    background-position:center;
+}
+
+/* ========================================
+   GRADIENTS
+======================================== */
+
+.gradient{
+    background:
+    linear-gradient(
+        135deg,
+        #0f6d36,
+        #d4af37
+    );
+}
+
+/* ========================================
+   REVEAL ANIMATION
+======================================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+}
+
+/* NAV LINK BASE */
+.nav-link{
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-weight: 600;
+    transition: all 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.nav-link:hover{
+    color: #facc15;
+    text-shadow: 0 0 12px rgba(250,204,21,0.4);
+    transform: translateY(-2px);
+}
+
+/* UNDERLINE */
+.nav-link::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #facc15,
+        transparent
+    );
+
+    border-radius: 999px;
+
+    transform: translateX(-50%);
+    transition: width 0.4s ease;
+}
+
+/* EXPAND ON HOVER */
+.nav-link:hover::after{
+    width: 100%;
+}
+
+/* ACTIVE STATE */
+.nav-link.active{
+    color: #facc15;
+}
+
+.nav-link.active::after{
+    width: 100%;
+}
+
+/* ========================================
+   MOBILE LINKS
+======================================== */
+
+.mobile-link{
+    padding:18px 24px;
+    color:white;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+    transition:all .3s ease;
+}
+
+.mobile-link{
+    padding:16px 24px;
+    color:white;
+    font-weight:600;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.mobile-link:hover{
+    background:rgba(255,255,255,.05);
+    color:#facc15;
+    padding-left:30px;
+
+    text-shadow:
+    0 0 12px rgba(250,204,21,.4);
+}
+
+.mobile-link:hover{
+    background:rgba(255,255,255,.05);
+    padding-left:32px;
+    color:#facc15;
+}
+
+/* Hero Animation */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.animate-fadeUp{
+    animation:fadeUp 1.2s ease forwards;
+}
+
+/* Hero Title */
+
+.hero-title{
+    text-shadow:
+    0 5px 25px rgba(0,0,0,.3);
+}
+
+/* Glass Effect */
+
+.glass{
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+}
+
+/* Floating Background Effect */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(250,204,21,.15),
+        transparent 70%
+    );
+
+    top:-150px;
+    right:-150px;
+
+    animation:floatGlow 8s ease-in-out infinite;
+}
+
+@keyframes floatGlow{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(30px);
+    }
+}
+
+/* =========================
+   LUXURY GLASS CARD
+========================= */
+
+.glass-card{
+    position:relative;
+
+    padding:40px;
+    border-radius:32px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+
+    transition:all .5s ease;
+}
+
+.glass-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,0.2),
+    0 0 30px rgba(212,175,55,0.15);
+}
+
+/* =========================
+   IOS STYLE GLASS
+========================= */
+
+.glass{
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* =========================
+   FLOATING ANIMATION
+========================= */
+
+@keyframes luxuryFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+.glass-card{
+    animation:luxuryFloat 8s ease-in-out infinite;
+}
+
+/* Gold Text */
+
+.luxury-gold{
+    background:linear-gradient(
+        135deg,
+        #D4AF37,
+        #F7E27E,
+        #D4AF37
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Badge */
+
+.luxury-badge{
+    padding:12px 24px;
+
+    border-radius:999px;
+
+    background:rgba(22,101,52,.06);
+
+    border:1px solid rgba(22,101,52,.12);
+
+    color:#166534;
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+
+    backdrop-filter:blur(20px);
+}
+
+/* Glass Card */
+
+.luxury-card{
+    position:relative;
+
+    padding:40px;
+
+    border-radius:32px;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+
+    transition:.5s ease;
+}
+
+/* Gold Top Line */
+
+.luxury-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:120px;
+    height:3px;
+
+    background:#D4AF37;
+
+    border-radius:999px;
+}
+
+/* Hover Effect */
+
+.luxury-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
+}
+
+/* Floating Animation */
+
+@keyframes luxuryFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.luxury-card{
+    animation:luxuryFloat 8s ease-in-out infinite;
+}
+
+/* Badge */
+
+.service-badge{
+    padding:12px 28px;
+    border-radius:999px;
+    background:rgba(22,101,52,.08);
+    border:1px solid rgba(22,101,52,.12);
+    color:#166534;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+/* Gold Text */
+
+.luxury-gold{
+    background:linear-gradient(
+        135deg,
+        #D4AF37,
+        #F7E27E,
+        #D4AF37
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Service Cards */
+
+.service-card{
+    background:rgba(255,255,255,.8);
+    backdrop-filter:blur(30px);
+
+    padding:35px;
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+
+    transition:.5s ease;
+}
+
+.service-card:hover{
+    transform:translateY(-12px);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
+}
+
+.service-icon{
+    width:70px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:32px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #166534,
+        #D4AF37
+    );
+
+    margin-bottom:20px;
+}
+
+.service-card h3{
+    font-size:24px;
+    font-weight:800;
+    color:#111827;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#6B7280;
+    line-height:1.8;
+}
+
+/* Blog Badge */
+
+.blog-badge{
+    padding:12px 24px;
+    border-radius:999px;
+
+    background:rgba(22,101,52,.06);
+
+    border:1px solid rgba(22,101,52,.12);
+
+    color:#166534;
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+/* Blog Card */
+
+.blog-card{
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:white;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+
+    transition:.5s ease;
+}
+
+.blog-card:hover{
+    transform:translateY(-12px);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
+}
+
+/* Blog Image */
+
+.blog-image{
+    width:100%;
+    height:260px;
+
+    object-fit:cover;
+
+    transition:.6s ease;
+}
+
+.blog-card:hover .blog-image{
+    transform:scale(1.08);
+}
+
+/* Category */
+
+.blog-category{
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:#166534;
+
+    color:white;
+
+    font-size:12px;
+    font-weight:600;
+}
+
+/* Title */
+
+.blog-title{
+    font-size:24px;
+    font-weight:800;
+
+    color:#111827;
+
+    margin-top:18px;
+}
+
+/* Text */
+
+.blog-text{
+    color:#6b7280;
+
+    margin-top:12px;
+
+    line-height:1.8;
+}
+
+/* Link */
+
+.blog-link{
+    display:inline-block;
+
+    margin-top:20px;
+
+    color:#D4AF37;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.blog-link:hover{
+    transform:translateX(6px);
+}
+
+.booking-badge{
+    padding:12px 24px;
+    border-radius:999px;
+    background:rgba(22,101,52,.08);
+    border:1px solid rgba(22,101,52,.12);
+    color:#166534;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.booking-card{
+    padding:50px;
+    border-radius:32px;
+
+    background:rgba(255,255,255,.8);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+
+    transition:.5s ease;
+}
+
+.booking-card:hover{
+    transform:translateY(-8px);
+}
+
+.booking-btn-primary{
+    display:block;
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+        135deg,
+        #166534,
+        #D4AF37
+    );
+
+    color:white;
+    font-weight:700;
+
+    transition:.4s ease;
+}
+
+.booking-btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.booking-btn-secondary{
+    display:block;
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:white;
+
+    border:1px solid #e5e7eb;
+
+    color:#111827;
+    font-weight:700;
+
+    transition:.4s ease;
+}
+
+.booking-btn-secondary:hover{
+    background:#f9fafb;
+}
+
+.luxury-gold{
+    background:linear-gradient(
+        135deg,
+        #D4AF37,
+        #F7E27E,
+        #D4AF37
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.footer-link{
+    color:#9ca3af;
+    transition:.3s;
+}
+
+.footer-link:hover{
+    color:#D4AF37;
+    padding-left:6px;
+}
+
+.social-icon{
+    padding:10px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.social-icon:hover{
+    background:#D4AF37;
+    color:black;
+    transform:translateY(-3px);
+}
+
+.glass-footer{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+
+<div class="max-w-7xl mx-auto px-6">
+
+    <div class="glass flex items-center justify-between mt-4 rounded-full px-6 py-4">
+
+       <!-- Logo -->
+    <a href="/src/index.html" class="flex items-center gap-2">
+
+    <!-- Logo Image -->
+    <img
+        src="/src/images/DAH-RL1.png"
+        alt="DAH-TEHILLAH FARM VENTURES Logo"
+        class="w-10 md:w-12 h-auto object-contain flex-shrink-0">
+
+    <!-- Company Name -->
+    <div class="leading-tight">
+        <h1 class="text-white font-bold text-sm md:text-base">
+            DAH-TEHILLAH
+        </h1>
+
+        <p class="text-yellow-400 text-[10px] md:text-xs uppercase tracking-wider">
+            Farm Ventures
+        </p>
+    </div>
+
+</a>
+
+      <!-- Desktop Menu -->
+
+<div class="hidden lg:flex items-center gap-6">
+
+    <a href="/src/index.html" class="nav-link" style="color: gold;">Home</a>
+
+    <a href="/src/about.html" class="nav-link">About</a>
+
+    <a href="/src/services.html" class="nav-link">Services</a>
+
+    <a href="/src/investment.html" class="nav-link">Investment</a>
+
+    <a href="/src/membership.html" class="nav-link">Membership</a>
+
+    <a href="/src/bookings.html" class="nav-link">Bookings</a>
+
+    <a href="/src/contact.html" class="nav-link">Contact</a>
+
+</div>
+
+        <!-- Desktop Button -->
+
+        <div class="hidden lg:block">
+
+<a href="/src/investment.html"
+class="bg-gradient-to-r from-yellow-500 to-yellow-400
+text-black px-6 py-3 rounded-full font-bold
+hover:scale-105 hover:shadow-[0_0_25px_rgba(250,204,21,0.6)]
+transition-all duration-300">
+Invest Now
+    </a>
+</div>
+
+        <!-- Mobile Menu Button -->
+
+<button id="menuBtn" class="lg:hidden text-white">
+
+<svg id="menuIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8 transition-all duration-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+
+        <path id="menuPath"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+
+    </svg>
+
+</button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobileMenu"
+        class="hidden glass mt-4 rounded-3xl overflow-hidden">
+
+        <div class="flex flex-col">
+
+            <a href="/src/index.html" class="mobile-link">Home</a>
+
+            <a href="/src/about.html" class="mobile-link">About</a>
+
+            <a href="/src/services.html" class="mobile-link">Services</a>
+
+            <a href="/src/investment.html" class="mobile-link">Investment</a>
+
+            <a href="/src/membership.html" class="mobile-link">Membership</a>
+
+            <a href="/src/bookings.html" class="mobile-link">Bookings</a>
+
+            <a href="/src/contact.html" class="mobile-link">Contact</a>
+
+            <a href="/src/investment.html"
+                class="bg-yellow-500 text-black text-center py-4 font-bold">
+
+                Invest Now
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</nav>
+
+<section class="hero min-h-screen flex items-center relative overflow-hidden text-white">
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+
+        <div class="max-w-4xl animate-fadeUp">
+
+            <!-- Badge -->
+
+            <div class="inline-flex items-center gap-2 glass px-5 py-2 rounded-full mb-6 mt-6">
+
+                <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+
+                <span class="text-sm font-medium tracking-wide ">
+                    Premium Farm Tourism & Investment
+                </span>
+
+            </div>
+
+            <!-- Heading -->
+
+            <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight font-semibold">
+
+                The Future Grows Here
+
+                <span class="text-yellow-400 block">
+                    Experience More On Agriculture 
+                </span>
+
+            </h1>
+
+            <!-- Description -->
+
+            <p class="mt-6 text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed">
+
+               Where agriculture, innovation, and opportunity come together.
+
+            </p>
+
+            <!-- Buttons -->
+
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+
+                <a href="/src/investment.html"
+                    class="group bg-gradient-to-r from-yellow-500 to-yellow-400 text-black px-8 py-4 rounded-full font-bold text-center hover:scale-105 transition-all duration-500 hover:shadow-[0_0_30px_rgba(250,204,21,0.5)]">
+
+                    Invest Now
+
+                </a>
+
+                <a href="/src/membership.html"
+                    class="glass px-8 py-4 rounded-full text-center font-semibold hover:bg-white/10 transition-all duration-500 hover:scale-105">
+
+                    Become a Member
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- About Section -->
+
+<section id="about" class="relative py-24 lg:py-32 overflow-hidden bg-white reveal">
+
+    <!-- Soft Luxury Background Glows -->
+
+    <div class="absolute top-0 left-0 w-[500px] h-[500px]
+    bg-green-600/10 rounded-full blur-[150px]"></div>
+
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px]
+    bg-yellow-500/10 rounded-full blur-[150px]"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+
+        <!-- Badge -->
+
+        <div class="flex justify-center mb-8">
+
+            <div class="luxury-badge">
+
+                ABOUT DAH-TEHILLAH FARM VENTURES
+
+            </div>
+
+        </div>
+
+        <!-- Heading -->
+
+        <h2 class="text-center font-black leading-tight">
+
+            <span class="block text-4xl md:text-5xl lg:text-6xl text-gray-900">
+
+                Growing Wealth Through
+
+            </span>
+
+            <span class="block text-4xl md:text-5xl lg:text-6xl luxury-gold mt-2">
+
+                Agriculture & Innovation
+
+            </span>
+
+        </h2>
+
+        <!-- Description Card -->
+
+        <div class="luxury-card mt-14 max-w-4xl mx-auto">
+
+            <p class="text-lg md:text-xl leading-loose text-center text-gray-700">
+
+                <span class="text-green-700 font-bold">
+
+                    DAH-TEHILLAH FARM VENTURES
+
+                </span>
+
+                is a premium agricultural ecosystem that blends
+                modern farming, tourism, agribusiness education,
+                innovation, and investment opportunities to create
+                sustainable growth, economic empowerment, and
+                long-term wealth creation for individuals and communities.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCES & SERVICES -->
+
+<section id="services" class="relative py-28 lg:py-36 overflow-hidden bg-white reveal">
+
+```
+<!-- Background Effects -->
+
+<div class="absolute top-0 left-0 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[180px]"></div>
+
+<div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-400/10 rounded-full blur-[180px]"></div>
+
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <!-- Section Badge -->
+
+    <div class="flex justify-center mb-6">
+
+        <div class="service-badge">
+            EXPERIENCE • EXPLORE • INVEST
+        </div>
+
+    </div>
+
+    <!-- Heading -->
+
+    <h2 class="text-center max-w-5xl mx-auto">
+
+        <span class="block text-4xl md:text-5xl lg:text-7xl font-black text-gray-900">
+           The Future Grows Here
+        </span>
+
+        <span class="block mt-2 text-4xl md:text-5xl lg:text-7xl font-black luxury-gold">
+           Experience More On Agriculture
+        </span>
+
+    </h2>
+
+    <!-- Description -->
+
+    <p class="text-center text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-8 leading-relaxed">
+
+        Discover a luxurious fusion of farming, tourism,
+        innovation, education and investment opportunities
+        at AgriTech City — where nature meets technology
+        and every visit becomes an unforgettable experience.
+
+    </p>
+
+    <!-- Service Cards -->
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+
+        <div class="service-card">
+            <div class="service-icon">🌾</div>
+            <h3>Farm Tours</h3>
+            <p>Explore modern farms, crop fields and agricultural innovations through guided premium tours.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🐄</div>
+            <h3>Livestock Experience</h3>
+            <p>Interact with livestock operations and learn sustainable animal production techniques.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🚜</div>
+            <h3>Smart Farming</h3>
+            <p>Experience technology-driven agriculture powered by innovation and automation.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">💰</div>
+            <h3>Investment Opportunities</h3>
+            <p>Participate in agricultural projects designed for long-term growth and sustainability.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🎓</div>
+            <h3>Training & Mentorship</h3>
+            <p>Gain practical agricultural knowledge through expert-led programs and workshops.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🏕️</div>
+            <h3>Nature Retreats</h3>
+            <p>Relax, reconnect and enjoy premium eco-tourism experiences surrounded by nature.</p>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+
+<section class="py-24 reveal">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <!-- Main Card -->
+        <div class="gradient text-white rounded-[40px] p-12 md:p-16 shadow-2xl relative overflow-hidden">
+
+            <!-- Decorative glow elements (optional luxury touch) -->
+            <div class="absolute -top-20 -right-20 w-72 h-72 bg-white/10 blur-3xl rounded-full"></div>
+            <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full"></div>
+
+            <!-- Content -->
+            <div class="relative z-10">
+
+                <h2 class="text-3xl md:text-5xl font-black leading-tight">
+                    Investment Opportunities
+                </h2>
+
+                <p class="mt-5 text-white/80 text-base md:text-lg max-w-2xl leading-relaxed">
+                    Secure agricultural investments with professional management, structured farming systems, and fully transparent reporting designed for long-term growth.
+                </p>
+
+                <!-- CTA -->
+                <div class="mt-10">
+                    <a href="/src/investment.html"
+                        class="inline-flex items-center justify-center bg-white text-green-800 px-8 py-4 rounded-full font-bold hover:scale-105 transition-all duration-300 shadow-lg">
+                        Investment Portal
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="membership" class="py-24 bg-white reveal">
+<div class="max-w-6xl mx-auto px-6 text-center">
+<h2 class="text-5xl font-black text-green-800">Membership Network</h2>
+<p class="mt-6">Join our community of farmers, investors and innovators.</p>
+<a href="/src/membership.html" class="inline-block mt-8 bg-yellow-500 px-8 py-4 rounded-full font-bold">Join Membership</a>
+</div>
+</section>
+
+<section class="py-24 reveal">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 text-center">
+
+        <div>
+            <h3 class="counter text-5xl font-black text-green-700" data-target="10000" data-suffix="+">0</h3>
+            <p>Acres Managed</p>
+        </div>
+
+        <div>
+            <h3 class="counter text-5xl font-black text-green-700" data-target="5000" data-suffix="+">0</h3>
+            <p>Members</p>
+        </div>
+
+        <div>
+            <h3 class="counter text-5xl font-black text-green-700" data-target="100" data-suffix="+">0</h3>
+            <p>Projects</p>
+        </div>
+
+        <div>
+            <h3 class="counter text-5xl font-black text-green-700" data-target="95" data-suffix="%">0</h3>
+            <p>Satisfaction</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- LATEST BLOGS -->
+
+<section id="blogs" class="relative py-24 lg:py-32 bg-white overflow-hidden reveal">
+
+```
+<!-- Background Glow -->
+
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[180px]"></div>
+
+<div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-400/10 rounded-full blur-[180px]"></div>
+
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <!-- Section Badge -->
+
+    <div class="flex justify-center mb-6">
+
+        <div class="blog-badge">
+            INSIGHTS • NEWS • INNOVATION
+        </div>
+
+    </div>
+
+    <!-- Heading -->
+
+    <h2 class="text-center text-4xl md:text-5xl lg:text-6xl font-black text-gray-900">
+
+        Latest From Our
+
+        <span class="luxury-gold block">
+            Knowledge Hub
+        </span>
+
+    </h2>
+
+    <p class="text-center text-gray-600 max-w-3xl mx-auto mt-6 text-lg">
+
+        Stay informed with expert insights, agricultural innovations,
+        investment opportunities, and sustainable farming practices.
+
+    </p>
+
+    <!-- Blog Cards -->
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+
+        <!-- Blog 1 -->
+
+        <article class="blog-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854"
+                alt=""
+                class="blog-image">
+
+            <div class="p-7">
+
+                <span class="blog-category">
+                    Farming
+                </span>
+
+                <h3 class="blog-title">
+                    Modern Farming Trends Shaping The Future
+                </h3>
+
+                <p class="blog-text">
+                    Explore the latest agricultural technologies
+                    transforming productivity and sustainability.
+                </p>
+
+                <a href="/src/services.html" class="blog-link">
+                    Read Article →
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- Blog 2 -->
+
+        <article class="blog-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a"
+                alt=""
+                class="blog-image">
+
+            <div class="p-7">
+
+                <span class="blog-category">
+                    Investment
+                </span>
+
+                <h3 class="blog-title">
+                    Why Agricultural Investment Is Growing
+                </h3>
+
+                <p class="blog-text">
+                    Learn how agriculture continues to provide
+                    long-term value and wealth creation.
+                </p>
+
+                <a href="/src/services.html" class="blog-link">
+                    Read Article →
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- Blog 3 -->
+
+        <article class="blog-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab"
+                alt=""
+                class="blog-image">
+
+            <div class="p-7">
+
+                <span class="blog-category">
+                    Innovation
+                </span>
+
+                <h3 class="blog-title">
+                    AgriTech Innovations Transforming Farming
+                </h3>
+
+                <p class="blog-text">
+                    Discover smart technologies reshaping
+                    the future of food production.
+                </p>
+
+                <a href="/src/services.html" class="blog-link">
+                    Read Article →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+
+<!-- BOOKINGS -->
+
+<section id="bookings" class="relative py-24 lg:py-32 bg-[#F8FAF8] overflow-hidden reveal">
+
+```
+<!-- Background Glow -->
+
+<div class="absolute top-0 left-0 w-[450px] h-[450px] bg-green-500/10 rounded-full blur-[180px]"></div>
+
+<div class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-yellow-400/10 rounded-full blur-[180px]"></div>
+
+<div class="max-w-6xl mx-auto px-6 relative z-10">
+
+    <!-- Badge -->
+
+    <div class="flex justify-center mb-6">
+
+        <div class="booking-badge">
+            BOOK • VISIT • EXPLORE
+        </div>
+
+    </div>
+
+    <!-- Heading -->
+
+    <h2 class="text-center text-4xl md:text-5xl lg:text-6xl font-black text-gray-900">
+
+        Plan Your
+
+        <span class="block luxury-gold">
+            Next Experience
+        </span>
+
+    </h2>
+
+    <!-- Description -->
+
+    <p class="mt-6 text-center text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+
+        Reserve your spot for farm tours, educational programs,
+        corporate events, retreats, and unforgettable agricultural experiences.
+
+    </p>
+
+    <!-- Booking Card -->
+
+    <div class="booking-card mt-14">
+
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+
+            <div>
+
+                <h3 class="text-3xl font-black text-gray-900">
+
+                    Experience Agriculture Beyond The Ordinary
+
+                </h3>
+
+                <p class="mt-5 text-gray-600 leading-loose">
+
+                    Whether you're planning a family visit,
+                    school excursion, corporate retreat,
+                    training session, or special event,
+                    we provide a unique environment where
+                    learning, innovation, and nature come together.
+
+                </p>
+
+            </div>
+
+            <div class="flex flex-col gap-4">
+
+                <a href="/src/bookings.html"
+                class="booking-btn-primary">
+
+                    Book A Tour
+
+                </a>
+
+                <a href="/src/bookings.html"
+                class="booking-btn-secondary">
+
+                    Schedule Training
+
+                </a>
+
+                <a href="/src/bookings.html"
+                class="booking-btn-secondary">
+
+                    Host An Event
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+
+<section id="contact" class="gradient py-24 text-white reveal">
+    <div class="max-w-5xl mx-auto text-center px-6">
+
+        <h2 class="text-3xl md:text-5xl font-black">
+            Contact Us
+        </h2>
+
+        <p class="mt-6 text-white/80 text-lg">
+            2B, Tatiana Court, Ikota, Lagos
+        </p>
+
+        <p class="text-white/70">
+            info@dahtehillahfarms.com
+        </p>
+
+        <!-- CTA BUTTON -->
+        <div class="mt-10">
+            <a href="/src/contact.html"
+               class="inline-flex items-center justify-center bg-white text-green-900 px-8 py-4 rounded-full font-bold hover:scale-105 transition-all duration-300 shadow-lg">
+                Visit Full Contact Page
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative bg-black text-white overflow-hidden">
+
+    <!-- Background Glow -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-green-600/10 blur-[140px] rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/10 blur-[140px] rounded-full"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+
+        <!-- Top Footer -->
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+
+            <!-- Company Info -->
+            <div>
+
+                <div class="flex items-center gap-3">
+
+                <img
+                    src="/src/images/DAH-RL1.png"
+                    alt="DAH-TEHILLAH FARM VENTURES Logo"
+                    class="w-10 md:w-12 h-auto object-contain flex-shrink-0">
+
+                    <div>
+                        <h3 class="font-black text-xl">
+                            DAH-TEHILLAH
+                        </h3>
+
+                        <p class="text-yellow-400 text-sm">
+                            FARM VENTURES
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="mt-6 text-gray-400 leading-relaxed">
+                    A premium agricultural ecosystem blending farming,
+                    tourism, innovation, education and investment
+                    opportunities for sustainable growth.
+                </p>
+
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">
+                    Quick Links
+                </h4>
+
+                <ul class="space-y-3">
+
+                    <li><a href="/src/index.html" class="footer-link" style="color: gold;">Home</a></li>
+
+                    <li><a href="/src/about.html" class="footer-link">About</a></li>
+
+                    <li><a href="/src/services.html" class="footer-link">Services</a></li>
+
+                    <li><a href="/src/investment.html" class="footer-link">Investment</a></li>
+
+                    <li><a href="/src/membership.html" class="footer-link">Membership</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- More Links -->
+            <div>
+
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">
+                    Explore
+                </h4>
+
+                <ul class="space-y-3">
+
+                    <li><a href="/src/bookings.html" class="footer-link">Bookings</a></li>
+
+                    <li><a href="/src/contact.html" class="footer-link">Contact</a></li>
+
+                 
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+            <div>
+
+                <h4 class="text-xl font-bold mb-6 text-yellow-400">
+                    Contact Us
+                </h4>
+
+                <div class="space-y-4 text-gray-400">
+
+                    <p>
+                        Address: 2B, Tatiana court, Ikota Lagos
+                    </p>
+
+                    <p>
+                        📞 +234 913 877 4140
+                    </p>
+
+                    <p>
+                        ✉️ da-tehillahfarms@gmail.com
+                    </p>
+
+                </div>
+
+               <div class="flex items-center gap-4 mt-8">
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-facebook-f"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-instagram"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-whatsapp"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-x-twitter"></i>
+
+    </a>
+
+    <a href="#"
+    class="w-12 h-12 flex items-center justify-center rounded-full
+    bg-white/5 border border-white/10 text-[#D4AF37]
+    hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-yellow-400
+    hover:text-black hover:-translate-y-1 hover:scale-110
+    transition-all duration-300 shadow-lg">
+
+        <i class="fab fa-youtube"></i>
+
+    </a>
+
+</div>
+        </div>
+
+        </div>
+
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-white/10 mt-16 pt-8">
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+
+                <p class="text-gray-500 text-center md:text-left">
+                    © 2026 DAH-TEHILLAH FARM VENTURES. All Rights Reserved.
+                </p>
+
+                <p class="text-xs text-gray-500 text-center">
+                Developed by
+                <a href="https://wa.me/2349050766830"
+                target="_blank"
+                class="text-[#D4AF37] font-bold hover:text-yellow-400 transition-all duration-300">
+                SAMMY TECH
+                </a>
+             </p>    
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.from(".hero-title",{y:80,opacity:0,duration:1.4});
+gsap.utils.toArray(".reveal").forEach(el=>{
+ gsap.to(el,{opacity:1,y:0,duration:1,
+ scrollTrigger:{trigger:el,start:"top 80%"}});
+});
+
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuPath = document.getElementById('menuPath');
+
+let isOpen = false;
+
+menuBtn.addEventListener('click', () => {
+
+    mobileMenu.classList.toggle('hidden');
+
+    if (!isOpen) {
+
+        // Change Hamburger → X
+
+        menuPath.setAttribute(
+            "d",
+            "M6 6L18 18M18 6L6 18"
+        );
+
+        isOpen = true;
+
+    } else {
+
+        // Change X → Hamburger
+
+        menuPath.setAttribute(
+            "d",
+            "M4 6h16M4 12h16M4 18h16"
+        );
+
+        isOpen = false;
+    }
+});
+
+if (!isOpen) {
+
+    menuIcon.classList.add("rotate-180");
+
+    menuPath.setAttribute(
+        "d",
+        "M6 6L18 18M18 6L6 18"
+    );
+
+} else {
+
+    menuIcon.classList.remove("rotate-180");
+
+    menuPath.setAttribute(
+        "d",
+        "M4 6h16M4 12h16M4 18h16"
+    );
+}
+
+// Smooth Scroll
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener('click', function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute('href'))
+.scrollIntoView({
+
+behavior:'smooth'
+
+});
+
+mobileMenu.classList.add('hidden');
+
+});
+
+});
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+        navbar.classList.add("navbar-scrolled");
+    }else{
+        navbar.classList.remove("navbar-scrolled");
+    }
+
+});
+
+function animateCounter(el) {
+    const target = +el.getAttribute("data-target");
+    const suffix = el.getAttribute("data-suffix") || "";
+    let count = 0;
+
+    const speed = target / 120; // animation speed control
+
+    function update() {
+        count += speed;
+
+        if (count < target) {
+            el.innerText = Math.floor(count) + suffix;
+            requestAnimationFrame(update);
+        } else {
+            el.innerText = target + suffix;
+        }
+    }
+
+    update();
+}
+
+/* Trigger only when section is visible */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll(".counter").forEach(counter => {
+                animateCounter(counter);
+            });
+            observer.disconnect(); // run once
+        }
+    });
+}, {
+    threshold: 0.4
+});
+
+observer.observe(document.querySelector(".reveal"));
+</script>
+</body>
+</html>

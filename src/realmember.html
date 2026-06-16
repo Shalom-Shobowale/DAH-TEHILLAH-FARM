@@ -379,7 +379,7 @@ const access = localStorage.getItem("memberAccess");
 const role = localStorage.getItem("role") || "member";
 
 if(access !== "true"){
-    window.location.href = "/src/index.html";
+    window.location.href = "index.html";
 } else {
     showLoginSuccess();
 }
@@ -422,7 +422,7 @@ if(role === "admin"){
 function logout(){
     localStorage.removeItem("memberAccess");
     localStorage.removeItem("role");
-    window.location.href = "/src/index.html";
+    window.location.href = "index.html";
 }
 
 function showLoginSuccess(){

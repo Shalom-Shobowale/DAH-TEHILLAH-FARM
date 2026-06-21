@@ -52,51 +52,103 @@ body{
 </head>
 
 <body class="text-white">
-    
 
-<button id="adminBtn"
-    class="hidden px-4 py-2 bg-yellow-500 text-black rounded-xl"
-    onclick="openAdminModal()">
-    Admin Panel
-</button>
-
-   <!-- ADMIN MODAL (KEEP ONLY THIS ONE) -->
+<!-- ADMIN LOGIN MODAL -->
 <div id="adminModal"
-     class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-xl z-[9999]">
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 mt-10">
 
-  <div class="glass w-[95%] max-w-lg p-6 rounded-2xl animate-pop">
+    <div class="bg-white rounded-2xl w-full max-w-md p-8 shadow-2xl">
 
-    <h2 class="text-xl font-bold text-yellow-400">Admin Control Panel</h2>
+        <div class="text-center">
 
-    <p class="text-gray-300 text-sm mt-2">
-      Create users or admins
-    </p>
+            <div class="text-5xl mb-4">
+                🔒
+            </div>
 
-    <input id="newEmail" placeholder="Email"
-      class="w-full mt-4 p-3 rounded-xl bg-black/30 border border-white/10">
+            <h2 class="text-2xl font-bold text-gray-800">
+                Administrator Access
+            </h2>
 
-    <input id="newPassword" placeholder="Password"
-      class="w-full mt-3 p-3 rounded-xl bg-black/30 border border-white/10">
+            <p class="text-gray-500 mt-2">
+                Enter your administrator passcode.
+            </p>
 
-    <select id="newRole"
-      class="w-full mt-3 p-3 rounded-xl bg-black/30 border border-white/10">
-      <option value="member">Member</option>
-      <option value="admin">Admin</option>
-    </select>
+        </div>
 
-    <button onclick="createUser()"
-      class="w-full mt-5 bg-green-500 py-3 rounded-xl font-bold">
-      Create User
-    </button>
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter Passcode"
+            class="w-full mt-6 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-600 text-gray-600">
 
-    <button onclick="closeAdminModal()"
-      class="w-full mt-3 bg-red-500 py-2 rounded-xl">
-      Close
-    </button>
+        <p id="adminError"
+            class="text-red-500 text-sm mt-2 hidden">
+            Incorrect passcode.
+        </p>
 
-  </div>
+        <div class="flex gap-3 mt-8">
+
+            <button
+                onclick="closeAdminModal()"
+                class="flex-1 border border-gray-300 rounded-xl py-3 hover:bg-gray-100 text-gray-400">
+
+                Cancel
+
+            </button>
+
+            <button
+                onclick="verifyAdmin()"
+                class="flex-1 bg-green-700 text-white rounded-xl py-3 hover:bg-green-800">
+
+                Login
+
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
 
+
+<!-- MEMBER WELCOME NOTIFICATION -->
+<div id="memberWelcome"
+    class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-lg z-[99999]">
+
+    <div class="glass max-w-lg w-[92%] p-8 rounded-3xl text-center animate-pop">
+
+        <div class="text-7xl mb-4">🎉</div>
+
+        <h2 class="text-3xl font-black text-green-300">
+            Congratulations!
+        </h2>
+
+        <h3 class="text-xl mt-2 text-yellow-400">
+            Welcome to DA-TEHILLAH FARMS
+        </h3>
+
+        <p class="text-gray-300 mt-5 leading-7">
+            Dear
+            <span id="memberWelcomeName"
+                class="font-bold text-yellow-400"></span>,
+            <br><br>
+
+            Your membership has been successfully verified.
+
+            You are now an official <b>DA-TEHILLAH FARMS Real Member.</b>
+
+            You can now enjoy exclusive investment opportunities, premium agricultural resources, members-only updates, and personalized support.
+
+            We appreciate your trust and wish you success on your investment journey.
+        </p>
+
+        <button onclick="closeWelcomeNotification()"
+            class="mt-8 px-8 py-3 bg-green-500 hover:bg-green-600 rounded-xl font-bold">
+            Continue
+        </button>
+
+    </div>
+</div>    
 
 <!-- SUCCESS LOGIN OVERLAY -->
 
@@ -123,17 +175,36 @@ body{
 
 <!-- ================= NAVBAR ================= -->
 <header class="fixed top-0 left-0 w-full z-50">
-    <div class="glass mx-4 mt-4 rounded-2xl px-6 py-4 flex justify-between items-center">
+ <div class="glass mx-4 mt-4 rounded-2xl px-4 sm:px-6 py-4">
 
-        <h1 class="font-bold text-lg tracking-wide text-yellow-400">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+        <!-- Title -->
+        <h1 class="font-bold text-lg sm:text-xl tracking-wide text-yellow-400 text-center sm:text-left">
             DA-TEHILLAH DASHBOARD
         </h1>
 
-        <button onclick="logout()"
-            class="px-4 py-2 rounded-xl bg-red-500/80 hover:bg-red-600 transition">
-            Logout
-        </button>
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
+
+            <button
+                onclick="openAdminModal()"
+                class="bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 rounded-xl font-semibold transition text-sm w-full sm:w-auto">
+                🔒 Admin
+            </button>
+
+            <button
+                onclick="logout()"
+                class="bg-red-500/80 hover:bg-red-600 text-white px-5 py-2.5 rounded-xl font-semibold transition text-sm w-full sm:w-auto">
+                Logout
+            </button>
+
+        </div>
+
     </div>
+
+</div>
+
 </header>
 
 <!-- ================= MAIN ================= -->
@@ -256,6 +327,8 @@ body{
                 <p class="text-sm text-gray-300">Total Members Online</p>
                 <h3 class="text-xl font-bold text-green-300" id="memberCount">0</h3>
             </div>
+
+            
 
         </div>
     </section>
@@ -513,130 +586,201 @@ body{
 
 
 <script>
-/* =========================================================
-   LOAD LOCAL DATABASE
-========================================================= */
-let usersDB = JSON.parse(localStorage.getItem("usersDB")) || [];
 
-
-/* =========================================================
-   AUTH CHECK (BLOCK UNAUTHORIZED ACCESS)
-========================================================= */
 if (localStorage.getItem("memberAccess") !== "true") {
-    window.location.href = "index.html";
+    window.location.href = "membership.html";
 }
 
+const email = localStorage.getItem("memberEmail");
+const usersDB = JSON.parse(localStorage.getItem("usersDB")) || [];
 
-/* =========================================================
-   ROLE SYSTEM CONFIG
-========================================================= */
-const SUPER_ADMINS = [
-    "samuelore547@gmail.com",
-    "samuelore242@icloud.com"
-];
+const user = usersDB.find(u => u.email === email);
+
+const welcome = document.getElementById("welcomeMember");
+if (welcome) welcome.innerText = "Welcome " + (user?.email || "Member");
+
+
+/* =========================
+   CONFIGURATION
+========================= */
+
+const ADMIN_PASSCODE = "DA2026ADMIN";
 
 const ADMINS = [
+    "samuelore547@gmail.com",
+    "samuelore242@icloud.com",
     "motunrayoogundele3@gmail.com",
     "solaniyen30@gmail.com"
 ];
 
+/* =========================
+   AUTH CHECK
+========================= */
 
-/* =========================================================
-   GET & CLEAN CURRENT USER EMAIL
-========================================================= */
-let currentEmail = localStorage.getItem("memberEmail");
-
-if (currentEmail) {
-    currentEmail = currentEmail.trim().toLowerCase();
-} else {
-    currentEmail = "";
+if (localStorage.getItem("memberAccess") !== "true") {
+    window.location.href = "index.html";
 }
 
+/* =========================
+   USER DATA
+========================= */
 
-/* =========================================================
-   DETERMINE USER ROLE
-========================================================= */
+let currentEmail = (localStorage.getItem("memberEmail") || "").trim().toLowerCase();
+let currentName = localStorage.getItem("memberName") || "Member";
+
+/* =========================
+   ROLE SYSTEM (ADMIN ONLY)
+========================= */
+
 let role = "member";
 
-if (SUPER_ADMINS.includes(currentEmail)) {
-    role = "superadmin";
-} 
-else if (ADMINS.includes(currentEmail)) {
+if (ADMINS.includes(currentEmail)) {
     role = "admin";
 }
 
+/* =========================
+   ADMIN MODAL
+========================= */
 
-/* =========================================================
-   DEBUG (REMOVE IN PRODUCTION LATER)
-========================================================= */
-console.log("EMAIL:", currentEmail);
-console.log("ROLE:", role);
+function openAdminModal() {
+    const modal = document.getElementById("adminModal");
 
+    if (!modal) return;
 
-/* =========================================================
-   DOM INITIALIZATION
-========================================================= */
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    const input = document.getElementById("adminPassword");
+    const error = document.getElementById("adminError");
+
+    if (input) input.value = "";
+    if (error) error.classList.add("hidden");
+}
+
+function closeAdminModal() {
+    const modal = document.getElementById("adminModal");
+
+    if (!modal) return;
+
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+}
+
+function verifyAdmin() {
+    const input = document.getElementById("adminPassword");
+    const error = document.getElementById("adminError");
+
+    if (!input) return;
+
+    const password = input.value;
+
+    if (password === ADMIN_PASSCODE) {
+        window.location.href = "admin.html";
+    } else {
+        if (error) error.classList.remove("hidden");
+    }
+}
+
+/* =========================
+   EVENT HANDLERS
+========================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    const adminBtn = document.getElementById("adminBtn");
+    /* ENTER KEY SUPPORT */
+    const input = document.getElementById("adminPassword");
 
-    /* ================= SHOW ADMIN BUTTON ================= */
-    if (adminBtn && (role === "admin" || role === "superadmin")) {
-        adminBtn.classList.remove("hidden");
-        adminBtn.style.display = "inline-block";
+    if (input) {
+        input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") verifyAdmin();
+        });
     }
 
+    /* CLOSE MODAL ON OUTSIDE CLICK */
+    const modal = document.getElementById("adminModal");
 
-    /* ================= SET ROLE TEXT ================= */
+    if (modal) {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeAdminModal();
+        });
+    }
+
+    /* ROLE DISPLAY */
     const roleText = document.getElementById("roleText");
 
     if (roleText) {
-        if (role === "superadmin") {
-            roleText.innerText = "Super Admin";
-        } 
-        else if (role === "admin") {
-            roleText.innerText = "Admin";
-        } 
-        else {
-            roleText.innerText = "Member";
-        }
+        roleText.innerText = role === "admin" ? "Admin" : "Verified Member";
     }
 
+    /* WELCOME TEXT */
+    const welcome1 = document.getElementById("welcomeMember");
+    const welcome2 = document.getElementById("welcomeMember2");
 
-    /* ================= WELCOME USER NAME ================= */
-    const name = localStorage.getItem("memberName");
-
-    if (name) {
-        const welcomeEl = document.getElementById("welcomeMember");
-
-        if (welcomeEl) {
-            welcomeEl.innerHTML =
-                `WELCOME <span style="color:#D4AF37">${name}</span> TO DA-TEHILLAH FARMS`;
-        }
+    if (welcome1) {
+        welcome1.innerHTML =
+            `WELCOME <span style="color:#D4AF37">${currentName}</span> TO DA-TEHILLAH FARMS`;
     }
 
+    if (welcome2) {
+        welcome2.innerHTML =
+            `<span class="text-4xl font-black text-white">${currentName}</span>`;
+    }
 
-    /* ================= OPTIONAL FUNCTION CALL ================= */
-    if (typeof updateMemberCount === "function") {
-        updateMemberCount();
+    /* WELCOME POPUP (ONCE ONLY) */
+    const email = localStorage.getItem("memberEmail");
+
+    if (email && localStorage.getItem("welcomeShown_" + email) !== "true") {
+        setTimeout(showWelcomeNotification, 800);
     }
 });
 
+/* =========================
+   WELCOME POPUP
+========================= */
+
+function showWelcomeNotification() {
+    const popup = document.getElementById("memberWelcome");
+
+    if (!popup) return;
+
+    const nameEl = document.getElementById("memberWelcomeName");
+
+    if (nameEl) nameEl.textContent = currentName;
+
+    popup.classList.remove("hidden");
+    popup.classList.add("flex");
+}
+
+function closeWelcomeNotification() {
+    const popup = document.getElementById("memberWelcome");
+
+    if (popup) {
+        popup.classList.add("hidden");
+        popup.classList.remove("flex");
+    }
+
+    const email = localStorage.getItem("memberEmail");
+
+    if (email) {
+        localStorage.setItem("welcomeShown_" + email, "true");
+    }
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
 function logout() {
-    // visual feedback (optional)
-    document.body.style.opacity = "0.4";
+    document.body.style.opacity = "0.5";
 
     setTimeout(() => {
-        // clear ONLY auth-related keys (safer than localStorage.clear())
         localStorage.removeItem("memberEmail");
         localStorage.removeItem("memberAccess");
         localStorage.removeItem("memberName");
 
-        // redirect to login
         window.location.href = "index.html";
     }, 300);
 }
 </script>
-
 </body>
 </html>

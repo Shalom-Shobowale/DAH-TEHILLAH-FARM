@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - DA-TEHILLAH</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white p-6">
+
+<!-- HEADER -->
+<div class="max-w-2xl mx-auto text-center mb-10">
+    <h1 class="text-3xl font-bold text-yellow-400">ADMIN DASHBOARD</h1>
+    <p class="text-gray-400 mt-2">Create and manage members</p>
+</div>
+<!-- LOGOUT BUTTON -->
+<div class="max-w-2xl mx-auto mb-6 text-right">
+    <button onclick="logout()"
+        class="bg-red-500 hover:bg-red-600 px-5 py-2 rounded-xl font-bold">
+        Logout
+    </button>
+</div>
+
+<!-- CREATE USER FORM -->
+<div class="max-w-2xl mx-auto bg-white/10 p-6 rounded-2xl border border-white/10">
+
+    <h2 class="text-xl font-bold text-green-400 mb-4">Create New Member</h2>
+
+    <input id="newEmail" type="email"
+        placeholder="Member Email"
+        class="w-full p-3 mb-3 rounded-xl bg-black/30 border border-white/10 text-white">
+
+    <input id="newPassword" type="text"
+        placeholder="Temporary Password"
+        class="w-full p-3 mb-3 rounded-xl bg-black/30 border border-white/10 text-white">
+
+    <button onclick="createUser()"
+        class="w-full bg-green-500 py-3 rounded-xl font-bold hover:bg-green-600">
+        Create Member
+    </button>
+
+</div>
+
+<!-- USERS LIST -->
+<div class="max-w-2xl mx-auto mt-10">
+    <h2 class="text-xl font-bold text-yellow-400 mb-4">All Members</h2>
+    <div id="usersList" class="space-y-3"></div>
+</div>
+
+<script>
+
+/* =========================
+   DATABASE
+========================= */
+let usersDB = JSON.parse(localStorage.getItem("usersDB")) || [];
+
+/* =========================
+   CREATE MEMBER ONLY
+========================= */
+function createUser() {
+
+    const email = document.getElementById("newEmail").value.trim().toLowerCase();
+    const password = document.getElementById("newPassword").value.trim();
+
+    if (!email || !password) {
+        alert("Fill all fields");
+        return;
+    }
+
+    if (usersDB.find(u => u.email === email)) {
+        alert("User already exists");
+        return;
+    }
+
+    const newUser = {
+        id: "USER-" + Date.now(),
+        email,
+        password,
+        role: "member",
+        status: "approved",
+        createdAt: new Date().toISOString()
+    };
+
+    usersDB.push(newUser);
+    localStorage.setItem("usersDB", JSON.stringify(usersDB));
+
+    sendWelcomeEmail(email, password);
+
+    document.getElementById("newEmail").value = "";
+    document.getElementById("newPassword").value = "";
+
+    renderUsers();
+}
+
+function logout() {
+    // optional: clear admin session flag if you use one
+    localStorage.removeItem("adminAccess");
+
+    // redirect
+    window.location.href = "realmember.html";
+}
+
+/* =========================
+   EMAIL SIMULATION
+========================= */
+function sendWelcomeEmail(email, password) {
+
+    const subject = "Welcome to DA-TEHILLAH FARMS";
+    const body =
+`Hello,
+
+Your account has been created.
+
+Email: ${email}
+Password: ${password}
+
+Login using your details.
+
+Regards,
+DA-TEHILLAH FARMS`;
+
+    window.open(
+        `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    );
+}
+
+/* =========================
+   RENDER USERS
+========================= */
+function renderUsers() {
+
+    const container = document.getElementById("usersList");
+    container.innerHTML = "";
+
+    if (usersDB.length === 0) {
+        container.innerHTML = "<p class='text-gray-400'>No members yet.</p>";
+        return;
+    }
+
+    usersDB.forEach((user, index) => {
+
+        container.innerHTML += `
+        <div class="p-4 bg-white/10 rounded-xl border border-white/10">
+            <p><b>Email:</b> ${user.email}</p>
+            <p><b>Status:</b> ${user.status}</p>
+            <p class="text-gray-400 text-sm">${user.createdAt}</p>
+
+            <button onclick="deleteUser(${index})"
+                class="mt-2 bg-red-500 px-3 py-1 rounded-lg text-sm">
+                Delete
+            </button>
+        </div>
+        `;
+    });
+}
+
+/* =========================
+   DELETE USER
+========================= */
+function deleteUser(index) {
+    usersDB.splice(index, 1);
+    localStorage.setItem("usersDB", JSON.stringify(usersDB));
+    renderUsers();
+}
+
+/* =========================
+   INIT
+========================= */
+renderUsers();
+
+</script>
+
+</body>
+</html>

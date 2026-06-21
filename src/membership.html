@@ -1081,42 +1081,38 @@ const MEMBERS = [
 
 ];
 
-function verifyMember(){
+function verifyMember() {
 
-const email=document.getElementById("memberEmail").value.trim().toLowerCase();
+    const email = document.getElementById("memberEmail").value.trim().toLowerCase();
+    const password = document.getElementById("memberCode").value.trim();
+    const error = document.getElementById("errorMsg");
 
-const code=document.getElementById("memberCode").value.trim();
+    const usersDB = JSON.parse(localStorage.getItem("usersDB")) || [];
 
-const error=document.getElementById("errorMsg");
+    const user = usersDB.find(u =>
+        u.email === email &&
+        u.password === password
+    );
 
-const member=MEMBERS.find(m=>
+    if (!user) {
+        error.innerText = "Invalid email or password";
+        error.classList.remove("hidden");
+        return;
+    }
 
-m.email.toLowerCase()===email &&
+    if (user.status !== "approved") {
+        error.innerText = "Account not approved yet";
+        error.classList.remove("hidden");
+        return;
+    }
 
-m.code===code &&
+    // LOGIN SUCCESS
+    localStorage.setItem("memberAccess", "true");
+    localStorage.setItem("memberEmail", user.email);
+    localStorage.setItem("memberName", user.name || user.email);
+    localStorage.setItem("memberRole", user.role);
 
-m.status==="approved"
-
-);
-
-if(member){
-
-localStorage.setItem("memberAccess","true");
-
-localStorage.setItem("memberName",member.name);
-
-localStorage.setItem("memberRole",member.role);
-
-localStorage.setItem("memberID",member.id);
-
-window.location.href="realmember.html";
-
-}else{
-
-error.classList.remove("hidden");
-
-}
-
+    window.location.href = "realmember.html";
 }
 
 function openModal() {

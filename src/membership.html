@@ -298,64 +298,109 @@
             <!-- Scrollable Form -->
             <div class="max-h-[70vh] overflow-y-auto">
 
-                <form id="registerForm" class="grid gap-5 p-6 md:grid-cols-2">
+               <form id="registerForm" class="grid gap-5 p-6 md:grid-cols-2">
 
-    <input id="fullname" type="text" placeholder="Full Name"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
+    <!-- FULL NAME -->
+    <div class="md:col-span-2">
+        <input id="fullname" type="text" placeholder="Full Name"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+        <p id="fullnameError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    <input id="phone" type="tel" placeholder="Phone Number (e.g. +2348012345678 or +1 202 555 0123)"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
+    <!-- PHONE -->
+    <div class="md:col-span-2">
+        <input id="phone" type="tel" placeholder="Phone Number"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+        <p id="phoneError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    <input id="email" type="email" placeholder="Email Address"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
+    <!-- EMAIL -->
+    <div class="md:col-span-2">
+        <input id="email" type="email" placeholder="Email Address"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+        <p id="emailError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    <select id="gender"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    <!-- GENDER -->
+    <div>
+        <select id="gender"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Prefer not to say</option>
+        </select>
+        <p id="genderError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-        <option value="">Select Gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Prefer not to say</option>
+    <!-- OCCUPATION -->
+    <div>
+        <input id="occupation" type="text" placeholder="Occupation"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+        <p id="occupationError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    </select>
+    <!-- COUNTRY -->
+    <div>
+        <input id="country" type="text" placeholder="Country"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+        <p id="countryError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    <input id="occupation" type="text" placeholder="Occupation"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    <!-- STATE -->
+    <div>
+        <input id="state" type="text" placeholder="State"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+        <p id="stateError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    <input id="country" type="text" placeholder="Country (e.g USA, UK, Nigeria)"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    <!-- CITY -->
+    <div>
+        <input id="city" type="text" placeholder="City"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+        <p id="cityError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    <input id="state" type="text" placeholder="State / Region / Province"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    <!-- ADDRESS -->
+    <div class="md:col-span-2">
+        <input id="address" type="text" placeholder="Street Address (Optional)"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    </div>
 
-    <input id="city" type="text" placeholder="City"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    <!-- ZIP -->
+    <div class="md:col-span-2">
+        <input id="zipcode" type="text" placeholder="ZIP / Postal Code (Optional)"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    </div>
 
-    <input id="address" type="text" placeholder="Street Address (Optional)"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
+    <!-- INVESTMENT -->
+    <div class="md:col-span-2">
+        <select id="investment"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="">Investment Interest</option>
+            <option>Crop Farming</option>
+            <option>Animal Investment</option>
+            <option>General Investment</option>
+        </select>
+        <p id="investmentError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
-    <input id="zipcode" type="text" placeholder="ZIP / Postal Code"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
+    <!-- REFERRAL -->
+    <div class="md:col-span-2">
+        <input id="referral" type="text" placeholder="Referral Code (Optional)"
+            class="w-full rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
+    </div>
 
-    <select id="investment"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
-
-        <option value="">Investment Interest</option>
-        <option>Crop Farming</option>
-        <option>Animal Investment</option>
-        <option>General Investment</option>
-
-    </select>
-
-    <input id="referral" type="text" placeholder="Referral Code (Optional)"
-        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
-
-    <label class="flex items-center gap-3 md:col-span-2">
-        <input id="agree" type="checkbox" class="h-5 w-5 accent-amber-500">
-        <span class="text-sm text-gray-300">
-            I confirm that all information provided is correct.
-        </span>
-    </label>
+    <!-- AGREEMENT -->
+    <div class="md:col-span-2">
+        <label class="flex items-center gap-3">
+            <input id="agree" type="checkbox" class="h-5 w-5 accent-amber-500">
+            <span class="text-sm text-gray-300">
+                I confirm that all information provided is correct.
+            </span>
+        </label>
+        <p id="agreeError" class="text-red-400 text-xs mt-1 hidden"></p>
+    </div>
 
 </form>
             </div>
@@ -1095,6 +1140,22 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
+        // RESET ERRORS
+        const errorIds = [
+            "fullnameError","phoneError","emailError",
+            "genderError","occupationError",
+            "countryError","stateError","cityError",
+            "investmentError","agreeError"
+        ];
+
+        errorIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.innerText = "";
+                el.classList.add("hidden");
+            }
+        });
+
         // GET VALUES
         const fullname = document.getElementById("fullname").value.trim();
         const phone = document.getElementById("phone").value.trim();
@@ -1104,79 +1165,61 @@ document.addEventListener("DOMContentLoaded", function () {
         const country = document.getElementById("country").value.trim();
         const state = document.getElementById("state").value.trim();
         const city = document.getElementById("city").value.trim();
-        const address = document.getElementById("address").value.trim();
-        const zipcode = document.getElementById("zipcode").value.trim();
         const investment = document.getElementById("investment").value;
-        const referral = document.getElementById("referral").value.trim();
         const agree = document.getElementById("agree");
 
-        // EMPTY VALIDATION
-        if (!fullname || !phone || !email || !gender || !occupation || !country || !state || !city || !investment) {
-            alert("⚠️ Please fill all required fields.");
-            return;
+        let valid = true;
+
+        function error(id, msg) {
+            const el = document.getElementById(id);
+            el.innerText = msg;
+            el.classList.remove("hidden");
+            valid = false;
         }
 
-        // NAME VALIDATION
-        if (fullname.length < 3) {
-            alert("⚠️ Enter a valid full name.");
-            return;
-        }
+        // VALIDATIONS
+        if (!fullname || fullname.length < 3)
+            error("fullnameError", "Enter your full name (min 3 characters)");
 
-        // GLOBAL PHONE VALIDATION
         const cleanPhone = phone.replace(/\s/g, "");
-        if (!/^\+?[0-9]{7,15}$/.test(cleanPhone)) {
-            alert("⚠️ Enter valid international phone (e.g +2348012345678)");
-            return;
-        }
+        if (!/^\+?[0-9]{7,15}$/.test(cleanPhone))
+            error("phoneError", "Enter valid phone number");
 
-        // EMAIL VALIDATION
-        if (!/^\S+@\S+\.\S+$/.test(email)) {
-            alert("⚠️ Enter valid email address.");
-            return;
-        }
+        if (!/^\S+@\S+\.\S+$/.test(email))
+            error("emailError", "Enter valid email address");
 
-        // COUNTRY VALIDATION
-        if (country.length < 2) {
-            alert("⚠️ Enter a valid country name.");
-            return;
-        }
+        if (!gender) error("genderError", "Select your gender");
 
-        // ZIP OPTIONAL VALIDATION
-        if (zipcode && zipcode.length < 3) {
-            alert("⚠️ Enter a valid ZIP / Postal code.");
-            return;
-        }
+        if (!occupation) error("occupationError", "Enter your occupation");
 
-        // AGREEMENT CHECK
-        if (!agree.checked) {
-            alert("⚠️ You must agree to continue.");
-            return;
-        }
+        if (!country) error("countryError", "Country is required");
 
-        // WHATSAPP MESSAGE
+        if (!state) error("stateError", "State is required");
+
+        if (!city) error("cityError", "City is required");
+
+        if (!investment)
+            error("investmentError", "Select investment type");
+
+        if (!agree)
+            error("agreeError", "You must agree before submitting");
+
+        if (!valid) return;
+
+        // SUCCESS → WHATSAPP
         const message =
-`🌿 NEW INTERNATIONAL REGISTRATION
+`🌿 NEW REGISTRATION
 
-👤 Name: ${fullname}
-📱 Phone: ${phone}
-📧 Email: ${email}
+👤 ${fullname}
+📱 ${phone}
+📧 ${email}
+🌍 ${country}, ${state}, ${city}
+💼 ${investment}`;
 
-🌍 Country: ${country}
-🏠 State: ${state}
-🏙️ City: ${city}
-📍 Address: ${address || "N/A"}
-📮 ZIP Code: ${zipcode || "N/A"}
-
-💼 Occupation: ${occupation}
-🌾 Investment: ${investment}
-🎁 Referral: ${referral || "None"}
-
-✅ Status: Pending Approval`;
-
-        const url = "https://wa.me/2349138774140?text=" + encodeURIComponent(message);
-
-        window.open(url, "_blank");
-
+        window.open(
+            "https://wa.me/2349138774140?text=" + encodeURIComponent(message),
+            "_blank"
+        );
     });
 
 });

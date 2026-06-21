@@ -393,6 +393,9 @@
   .my-8 {
     margin-block: calc(var(--spacing) * 8);
   }
+  .mt-1 {
+    margin-top: var(--spacing);
+  }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }

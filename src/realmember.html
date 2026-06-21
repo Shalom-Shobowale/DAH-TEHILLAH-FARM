@@ -52,6 +52,51 @@ body{
 </head>
 
 <body class="text-white">
+    
+
+<button id="adminBtn"
+    class="hidden px-4 py-2 bg-yellow-500 text-black rounded-xl"
+    onclick="openAdminModal()">
+    Admin Panel
+</button>
+
+   <!-- ADMIN MODAL (KEEP ONLY THIS ONE) -->
+<div id="adminModal"
+     class="fixed inset-0 hidden items-center justify-center bg-black/70 backdrop-blur-xl z-[9999]">
+
+  <div class="glass w-[95%] max-w-lg p-6 rounded-2xl animate-pop">
+
+    <h2 class="text-xl font-bold text-yellow-400">Admin Control Panel</h2>
+
+    <p class="text-gray-300 text-sm mt-2">
+      Create users or admins
+    </p>
+
+    <input id="newEmail" placeholder="Email"
+      class="w-full mt-4 p-3 rounded-xl bg-black/30 border border-white/10">
+
+    <input id="newPassword" placeholder="Password"
+      class="w-full mt-3 p-3 rounded-xl bg-black/30 border border-white/10">
+
+    <select id="newRole"
+      class="w-full mt-3 p-3 rounded-xl bg-black/30 border border-white/10">
+      <option value="member">Member</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button onclick="createUser()"
+      class="w-full mt-5 bg-green-500 py-3 rounded-xl font-bold">
+      Create User
+    </button>
+
+    <button onclick="closeAdminModal()"
+      class="w-full mt-3 bg-red-500 py-2 rounded-xl">
+      Close
+    </button>
+
+  </div>
+</div>
+
 
 <!-- SUCCESS LOGIN OVERLAY -->
 
@@ -148,6 +193,7 @@ body{
             Verified Member
         </span>
 
+       
     </div>
 
 </div>
@@ -160,9 +206,7 @@ body{
         </h2>
 
         <!-- Dynamic Name -->
-        <h1 id="welcomeMember"
-            class="mt-2 text-2xl font-bold text-[#C3A15A] sm:text-3xl">
-        </h1>
+       <h1 id="welcomeMember2"></h1>
 
         <!-- Description -->
         <p class="mt-4 max-w-2xl text-sm leading-7 text-gray-400">
@@ -176,6 +220,8 @@ body{
             member resources, exclusive benefits, and personalized support.
 
         </p>
+
+        
 
     </div>
 
@@ -465,100 +511,130 @@ body{
 </section>
 </main>
 
+
 <script>
-    
-function openCalendar() {
-    const modal = document.getElementById("calendarModal");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-}
+/* =========================================================
+   LOAD LOCAL DATABASE
+========================================================= */
+let usersDB = JSON.parse(localStorage.getItem("usersDB")) || [];
 
-function closeCalendar() {
-    const modal = document.getElementById("calendarModal");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-}
-/* =========================
-   ACCESS CONTROL
-========================= */
 
-const access = localStorage.getItem("memberAccess");
-const role = localStorage.getItem("role") || "member";
-
-if(access !== "true"){
+/* =========================================================
+   AUTH CHECK (BLOCK UNAUTHORIZED ACCESS)
+========================================================= */
+if (localStorage.getItem("memberAccess") !== "true") {
     window.location.href = "index.html";
+}
+
+
+/* =========================================================
+   ROLE SYSTEM CONFIG
+========================================================= */
+const SUPER_ADMINS = [
+    "samuelore547@gmail.com",
+    "samuelore242@icloud.com"
+];
+
+const ADMINS = [
+    "motunrayoogundele3@gmail.com",
+    "solaniyen30@gmail.com"
+];
+
+
+/* =========================================================
+   GET & CLEAN CURRENT USER EMAIL
+========================================================= */
+let currentEmail = localStorage.getItem("memberEmail");
+
+if (currentEmail) {
+    currentEmail = currentEmail.trim().toLowerCase();
 } else {
-    showLoginSuccess();
+    currentEmail = "";
 }
 
-/* =========================
-   ROLE DISPLAY
-========================= */
 
-document.getElementById("roleText").innerText =
-    role === "admin" ? "Admin" : "Member";
+/* =========================================================
+   DETERMINE USER ROLE
+========================================================= */
+let role = "member";
 
-/* =========================
-   ADMIN PANEL VISIBILITY
-========================= */
-
-const adminPanel = document.getElementById("adminPanel");
-
-if(role === "admin"){
-    adminPanel.classList.remove("hidden");
+if (SUPER_ADMINS.includes(currentEmail)) {
+    role = "superadmin";
+} 
+else if (ADMINS.includes(currentEmail)) {
+    role = "admin";
 }
 
-/* =========================
-   FAKE LIVE MEMBER COUNT
-   (replace later with backend)
-========================= */
 
-let count = 128;
+/* =========================================================
+   DEBUG (REMOVE IN PRODUCTION LATER)
+========================================================= */
+console.log("EMAIL:", currentEmail);
+console.log("ROLE:", role);
 
-if(role === "admin"){
-    setInterval(() => {
-        count += Math.floor(Math.random() * 3);
-        document.getElementById("memberCount").innerText = count;
-    }, 2000);
-}
 
-/* =========================
-   LOGOUT
-========================= */
+/* =========================================================
+   DOM INITIALIZATION
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-function logout(){
-    localStorage.removeItem("memberAccess");
-    localStorage.removeItem("role");
-    window.location.href = "index.html";
-}
+    const adminBtn = document.getElementById("adminBtn");
 
-function showLoginSuccess(){
+    /* ================= SHOW ADMIN BUTTON ================= */
+    if (adminBtn && (role === "admin" || role === "superadmin")) {
+        adminBtn.classList.remove("hidden");
+        adminBtn.style.display = "inline-block";
+    }
 
-    const overlay = document.getElementById("successOverlay");
 
-    // show overlay
-    overlay.classList.remove("hidden");
-    overlay.classList.add("flex");
+    /* ================= SET ROLE TEXT ================= */
+    const roleText = document.getElementById("roleText");
 
-    // small delay then redirect
+    if (roleText) {
+        if (role === "superadmin") {
+            roleText.innerText = "Super Admin";
+        } 
+        else if (role === "admin") {
+            roleText.innerText = "Admin";
+        } 
+        else {
+            roleText.innerText = "Member";
+        }
+    }
+
+
+    /* ================= WELCOME USER NAME ================= */
+    const name = localStorage.getItem("memberName");
+
+    if (name) {
+        const welcomeEl = document.getElementById("welcomeMember");
+
+        if (welcomeEl) {
+            welcomeEl.innerHTML =
+                `WELCOME <span style="color:#D4AF37">${name}</span> TO DA-TEHILLAH FARMS`;
+        }
+    }
+
+
+    /* ================= OPTIONAL FUNCTION CALL ================= */
+    if (typeof updateMemberCount === "function") {
+        updateMemberCount();
+    }
+});
+
+function logout() {
+    // visual feedback (optional)
+    document.body.style.opacity = "0.4";
+
     setTimeout(() => {
-        overlay.style.opacity = "0";
-        overlay.style.transition = "0.8s ease";
+        // clear ONLY auth-related keys (safer than localStorage.clear())
+        localStorage.removeItem("memberEmail");
+        localStorage.removeItem("memberAccess");
+        localStorage.removeItem("memberName");
 
-        setTimeout(() => {
-            overlay.classList.add("hidden");
-        }, 800);
-
-    }, 2500); // wait 2.5 seconds before fading out
-}
-
-const memberName = localStorage.getItem("memberName");
-
-if (memberName) {
-
-    document.getElementById("welcomeMember").innerHTML =
-        `WELCOME <span style="color:#D4AF37;text-transform:uppercase;">${memberName}</span> TO THE REAL MEMBERS OF DA-TEHILLAH FARMS `;
-
+        // redirect to login
+        window.location.href = "index.html";
+    }, 300);
 }
 </script>
 

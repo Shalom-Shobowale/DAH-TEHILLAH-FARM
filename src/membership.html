@@ -300,85 +300,64 @@
 
                 <form id="registerForm" class="grid gap-5 p-6 md:grid-cols-2">
 
-                    <input
-                        id="fullname"
-                        type="text"
-                        placeholder="Full Name"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <input id="fullname" type="text" placeholder="Full Name"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
 
-                    <input
-                        id="phone"
-                        type="tel"
-                        placeholder="Phone Number"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <input id="phone" type="tel" placeholder="Phone Number (e.g. +2348012345678 or +1 202 555 0123)"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
 
-                    <input
-                        id="email"
-                        type="email"
-                        placeholder="Email Address"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <input id="email" type="email" placeholder="Email Address"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
 
-                    <select
-                        id="gender"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <select id="gender"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
 
-                        <option value="">Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Prefer not to say</option>
 
-                    </select>
+    </select>
 
-                    <input
-                        id="state"
-                        type="text"
-                        placeholder="State"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <input id="occupation" type="text" placeholder="Occupation"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
 
-                    <input
-                        id="city"
-                        type="text"
-                        placeholder="City"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <input id="country" type="text" placeholder="Country (e.g USA, UK, Nigeria)"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
 
-                    <input
-                        id="occupation"
-                        type="text"
-                        placeholder="Occupation"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <input id="state" type="text" placeholder="State / Region / Province"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
 
-                    <select
-                        id="investment"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500">
+    <input id="city" type="text" placeholder="City"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500">
 
-                        <option value="">Investment Interest</option>
-                        <option>Poultry Farming </option>
-                        <option>Crop Farming </option>
-                        <option>Livestock</option>
-                        <option>General Investment</option>
+    <input id="address" type="text" placeholder="Street Address (Optional)"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
 
-                    </select>
+    <input id="zipcode" type="text" placeholder="ZIP / Postal Code"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
 
-                    <input
-                        id="referral"
-                        type="text"
-                        placeholder="Referral Code (Optional)"
-                        class="rounded-xl bg-[#16211B] p-4 text-white outline-none transition focus:ring-2 focus:ring-amber-500 md:col-span-2">
+    <select id="investment"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
 
-                    <label class="flex items-center gap-3 md:col-span-2">
+        <option value="">Investment Interest</option>
+        <option>Crop Farming</option>
+        <option>Animal Investment</option>
+        <option>General Investment</option>
 
-                        <input
-                            id="agree"
-                            type="checkbox"
-                            class="h-5 w-5 rounded accent-amber-500">
+    </select>
 
-                        <span class="text-sm text-gray-300">
-                            I confirm the information provided is correct.
-                        </span>
+    <input id="referral" type="text" placeholder="Referral Code (Optional)"
+        class="rounded-xl bg-[#16211B] p-4 text-white outline-none focus:ring-2 focus:ring-amber-500 md:col-span-2">
 
-                    </label>
+    <label class="flex items-center gap-3 md:col-span-2">
+        <input id="agree" type="checkbox" class="h-5 w-5 accent-amber-500">
+        <span class="text-sm text-gray-300">
+            I confirm that all information provided is correct.
+        </span>
+    </label>
 
-                </form>
-
+</form>
             </div>
 
             <!-- Sticky Footer -->
@@ -697,13 +676,13 @@ Invest Now
             </div>
 
             <!-- Card 4 -->
-            <!-- <div class="group bg-yellow-50 border border-yellow-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2">
-                <div class="text-3xl mb-4">📊</div>
-                <h3 class="text-xl font-semibold text-green-900 mb-2">Investment Transparency</h3>
-                <p class="text-gray-600 text-sm">
-                    Full visibility into FARMS operations, financial reports, and growth tracking.
-                </p>
-            </div> -->
+            <div class="group bg-yellow-50 border border-yellow-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2">
+            <div class="text-3xl mb-4">🐟</div>
+            <h3 class="text-xl font-semibold text-green-900 mb-2">Cold Room & Fisheries</h3>
+            <p class="text-gray-600 text-sm">
+             Supplying fresh frozen fish and seafood with modern cold storage facilities that guarantee quality, freshness, and customer satisfaction.
+             </p>
+            </div>
 
             <!-- Card 5 -->
             <div class="group bg-green-50 border border-green-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2">
@@ -726,8 +705,6 @@ Invest Now
         </div>
     </div>
 </section>
-
-
 
 <!-- FOOTER -->
 <footer class="relative bg-black text-white overflow-hidden">
@@ -942,6 +919,47 @@ Ogun state
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
+const registrations=
+JSON.parse(localStorage.getItem("pendingRegistrations")) || [];
+
+registrations.push({
+
+id:Date.now(),
+
+fullname,
+
+phone,
+
+email,
+
+country,
+
+state,
+
+city,
+
+address,
+
+zipcode,
+
+occupation,
+
+investment,
+
+referral,
+
+status:"pending",
+
+date:new Date().toLocaleString()
+
+});
+
+localStorage.setItem(
+"pendingRegistrations",
+JSON.stringify(registrations)
+);
+
+
 // ================= NAVBAR SCROLL =================
 const navbar = document.getElementById("navbar");
 
@@ -987,49 +1005,74 @@ function openWhatsApp() {
 
 // ================= AUTH SYSTEM =================
 
-// ONLY ALLOWED EMAILS
-const approvedEmails = [
-    "samuelore547@gmail.com",
-    "samuelore242@icloud.com",
-    "motunrayoogundele3@gmail.com",
-    "solaniyen30@gmail.com"
-];
+const MEMBERS = [
 
-// MEMBERSHIP CODES
-const validCodes = [
-    "DHT-7X91-ZG2026",
-    "FARMS-88QZ-INVEST",
-    "GOLD-5521-MEMBER"
-];
+{
+    id:"DTF-0001",
+    name:"Samuel Ore",
+    email:"samuelore547@gmail.com",
+    code:"DHT-7X91-ZG2026",
+    role:"superadmin",
+    status:"approved"
+},
 
-// VERIFY MEMBER
-function verifyMember() {
-    const email = document.getElementById("memberEmail").value.trim().toLowerCase();
-    const code = document.getElementById("memberCode").value.trim();
-    const errorMsg = document.getElementById("errorMsg");
+{
+    id:"DTF-0002",
+    name:"Samuel Ore 2",
+    email:"samuelore242@icloud.com",
+    code:"FARMS-88QZ-INVEST",
+    role:"admin",
+    status:"approved"
+},
 
-    const emailValid = approvedEmails.includes(email);
-    const codeValid = validCodes.includes(code);
-
-   if (emailValid && codeValid) {
-
-    // Get the user's name from the email
-    const userName = email.split("@")[0];
-
-    // Save access
-    localStorage.setItem("memberAccess", "true");
-
-    // Save the user's name
-    localStorage.setItem("memberName", userName);
-
-    // Open the member page
-    window.location.href = "realmember.html";
-
-} else {
-    errorMsg.classList.remove("hidden");
-}
+{
+    id:"DTF-0003",
+    name:"Motunrayo Ogundele",
+    email:"motunrayoogundele3@gmail.com",
+    code:"GOLD-5521-MEMBER",
+    role:"member",
+    status:"approved"
 }
 
+];
+
+function verifyMember(){
+
+const email=document.getElementById("memberEmail").value.trim().toLowerCase();
+
+const code=document.getElementById("memberCode").value.trim();
+
+const error=document.getElementById("errorMsg");
+
+const member=MEMBERS.find(m=>
+
+m.email.toLowerCase()===email &&
+
+m.code===code &&
+
+m.status==="approved"
+
+);
+
+if(member){
+
+localStorage.setItem("memberAccess","true");
+
+localStorage.setItem("memberName",member.name);
+
+localStorage.setItem("memberRole",member.role);
+
+localStorage.setItem("memberID",member.id);
+
+window.location.href="realmember.html";
+
+}else{
+
+error.classList.remove("hidden");
+
+}
+
+}
 
 function openModal() {
     document.getElementById("registerModal").classList.remove("hidden");
@@ -1049,8 +1092,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const form = document.getElementById("registerForm");
 
-    if (!form) return;
-
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -1059,60 +1100,83 @@ document.addEventListener("DOMContentLoaded", function () {
         const phone = document.getElementById("phone").value.trim();
         const email = document.getElementById("email").value.trim();
         const gender = document.getElementById("gender").value;
+        const occupation = document.getElementById("occupation").value.trim();
+        const country = document.getElementById("country").value.trim();
         const state = document.getElementById("state").value.trim();
         const city = document.getElementById("city").value.trim();
-        const occupation = document.getElementById("occupation").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const zipcode = document.getElementById("zipcode").value.trim();
         const investment = document.getElementById("investment").value;
         const referral = document.getElementById("referral").value.trim();
         const agree = document.getElementById("agree");
 
-        // EMPTY CHECK
-        if (!fullname || !phone || !email || !gender || !state || !city || !occupation || !investment) {
-            alert("⚠️ Please fill in all required fields.");
+        // EMPTY VALIDATION
+        if (!fullname || !phone || !email || !gender || !occupation || !country || !state || !city || !investment) {
+            alert("⚠️ Please fill all required fields.");
             return;
         }
 
-        // VALIDATION
-        if (fullname.length < 5) {
-            alert("⚠️ Full name must be at least 5 characters.");
+        // NAME VALIDATION
+        if (fullname.length < 3) {
+            alert("⚠️ Enter a valid full name.");
             return;
         }
 
-        if (!/^0\d{10}$/.test(phone)) {
-            alert("⚠️ Enter a valid Nigerian phone number.");
+        // GLOBAL PHONE VALIDATION
+        const cleanPhone = phone.replace(/\s/g, "");
+        if (!/^\+?[0-9]{7,15}$/.test(cleanPhone)) {
+            alert("⚠️ Enter valid international phone (e.g +2348012345678)");
             return;
         }
 
+        // EMAIL VALIDATION
         if (!/^\S+@\S+\.\S+$/.test(email)) {
-            alert("⚠️ Enter a valid email address.");
+            alert("⚠️ Enter valid email address.");
             return;
         }
 
+        // COUNTRY VALIDATION
+        if (country.length < 2) {
+            alert("⚠️ Enter a valid country name.");
+            return;
+        }
+
+        // ZIP OPTIONAL VALIDATION
+        if (zipcode && zipcode.length < 3) {
+            alert("⚠️ Enter a valid ZIP / Postal code.");
+            return;
+        }
+
+        // AGREEMENT CHECK
         if (!agree.checked) {
-            alert("⚠️ You must agree before submitting.");
+            alert("⚠️ You must agree to continue.");
             return;
         }
 
-        // MESSAGE
+        // WHATSAPP MESSAGE
         const message =
-`🌿 NEW MEMBERSHIP REGISTRATION
+`🌿 NEW INTERNATIONAL REGISTRATION
 
-👤 Full Name: ${fullname}
+👤 Name: ${fullname}
 📱 Phone: ${phone}
 📧 Email: ${email}
-🚻 Gender: ${gender}
+
+🌍 Country: ${country}
 🏠 State: ${state}
 🏙️ City: ${city}
+📍 Address: ${address || "N/A"}
+📮 ZIP Code: ${zipcode || "N/A"}
+
 💼 Occupation: ${occupation}
 🌾 Investment: ${investment}
 🎁 Referral: ${referral || "None"}
 
-✅ Status: Ready for approval`;
+✅ Status: Pending Approval`;
 
-        // WHATSAPP LINK
         const url = "https://wa.me/2349138774140?text=" + encodeURIComponent(message);
 
         window.open(url, "_blank");
+
     });
 
 });

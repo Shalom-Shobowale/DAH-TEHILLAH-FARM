@@ -243,6 +243,218 @@
 </style>
 </head>
 <body>
+    <!-- INVESTMENT MODAL -->
+
+<div id="investModal"
+class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden justify-center items-center z-50 p-5 mt-20">
+<div class="bg-white rounded-3xl w-full max-w-6xl max-h-[90vh] overflow-y-auto shadow-2xl">
+
+<div class="sticky top-0 bg-green-700 text-white flex justify-between items-center px-8 py-5 rounded-t-3xl">
+
+<h2 class="text-3xl font-bold">
+Our Investment Opportunities
+</h2>
+
+<button onclick="closeInvestModal()"
+class="text-4xl hover:text-yellow-300">
+&times;
+</button>
+
+</div>
+
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 p-8">
+
+<!-- CARD -->
+<div class="border rounded-2xl p-6 hover:shadow-xl transition">
+<h3 class="text-xl font-bold text-green-700">🌱 Plantain Suckers Package</h3>
+
+<ul class="mt-4 space-y-2 text-gray-700">
+<li><strong>Tenure:</strong> 6 Months</li>
+<li><strong>Per Slot:</strong> ₦2.5 Million</li>
+<li><strong>Admin Fee:</strong> ₦15,000</li>
+<li><strong>Returns:</strong> 5% Monthly</li>
+
+</ul>
+
+
+</div>
+
+<!-- CARD -->
+
+<div class="border rounded-2xl p-6 hover:shadow-xl transition">
+<h3 class="text-xl font-bold text-green-700">🐏 Ram Project</h3>
+
+<ul class="mt-4 space-y-2">
+<li><strong>Tenure:</strong> 6 Months</li>
+<li><strong>Per Slot:</strong> ₦5 Million</li>
+<li><strong>Admin Fee:</strong> ₦20,000</li>
+<li><strong>Returns:</strong> 5% Monthly</li>
+
+</ul>
+
+
+</div>
+
+<!-- CARD -->
+
+<div class="border rounded-2xl p-6 hover:shadow-xl transition">
+<h3 class="text-xl font-bold text-green-700">🚜 Super Smart Farmers</h3>
+
+<ul class="mt-4 space-y-2">
+<li><strong>Tenure:</strong> 6 Months</li>
+<li><strong>Per Slot:</strong> ₦10 Million</li>
+<li><strong>Admin Fee:</strong> ₦50,000</li>
+<li><strong>Returns:</strong> 5% Monthly</li>
+
+</ul>
+
+
+</div>
+
+<!-- CARD -->
+
+<div class="border rounded-2xl p-6 hover:shadow-xl transition">
+<h3 class="text-xl font-bold text-green-700">🐖 Pig Project</h3>
+
+<ul class="mt-4 space-y-2">
+<li>Tenure: 6 Months</li>
+<li>Per Slot: ₦10 Million</li>
+<li>Admin Fee: ₦50,000</li>
+<li>Returns: 5% Monthly</li>
+
+</ul>
+
+
+</div>
+
+<!-- CARD -->
+
+<div class="border rounded-2xl p-6 hover:shadow-xl transition">
+<h3 class="text-xl font-bold text-green-700">🌾 Rice Investment</h3>
+
+<ul class="mt-4 space-y-2">
+<li>Tenure: 6 Months</li>
+<li>Per Slot: ₦5 Million</li>
+<li>Admin Fee: ₦20,000</li>
+<li>Returns: 5% Monthly</li>
+
+</ul>
+
+
+</div>
+
+<!-- CARD -->
+
+<div class="border rounded-2xl p-6 hover:shadow-xl transition">
+<h3 class="text-xl font-bold text-green-700">🍅 Green House Project</h3>
+
+<ul class="mt-4 space-y-2">
+<li>Tomatoes & Bell Pepper</li>
+<li>Tenure: 6 Months</li>
+<li>Per Slot: ₦10 Million</li>
+<li>Admin Fee: ₦50,000</li>
+<li>Returns: 5% Monthly</li>
+</ul>
+
+
+</div>
+
+<!-- Remaining Packages -->
+
+<div class="border rounded-2xl p-6 hover:shadow-xl">
+<h3 class="font-bold text-xl text-green-700">🌿 Cassava Project</h3>
+<p class="mt-3">₦10M • 6 Months • 5% Monthly</p>
+
+</div>
+
+<div class="border rounded-2xl p-6 hover:shadow-xl">
+<h3 class="font-bold text-xl text-green-700">🌴 Palm Tree Scheme</h3>
+<p class="mt-3">₦10M • 6 Months • 5% Monthly</p>
+
+</div>
+
+<div class="border rounded-2xl p-6 hover:shadow-xl">
+<h3 class="font-bold text-xl text-green-700">🥜 Cashew Package</h3>
+<p class="mt-3">₦10M • 6 Months • 5% Monthly</p>
+
+</div>
+
+<div class="border rounded-2xl p-6 hover:shadow-xl">
+<h3 class="font-bold text-xl text-green-700">🐟 Fish Project</h3>
+<p class="mt-3">₦10M • 6 Months • 5% Monthly</p>
+
+</div>
+
+<div class="border rounded-2xl p-6 hover:shadow-xl">
+<h3 class="font-bold text-xl text-green-700">❄ Frozen Foods Project</h3>
+<p class="mt-3">₦10M • 6 Months • 5% Monthly</p>
+
+</div>
+
+<div class="border rounded-2xl p-6 hover:shadow-xl">
+<h3 class="font-bold text-xl text-green-700">🐓 Poultry Farming</h3>
+<p class="mt-3">₦10M • 6 Months • 5% Monthly</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div id="learnModal"
+class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden justify-center items-center z-50 p-5 mt-40">
+
+<div class="bg-white max-w-3xl w-full rounded-3xl p-10 relative">
+
+<button onclick="closeLearnModal()"
+class="absolute top-5 right-6 text-4xl text-gray-600 hover:text-red-500">
+&times;
+</button>
+
+<h2 class="text-3xl font-bold text-green-700 mb-5">
+Why Invest With Us?
+</h2>
+
+<p class="text-gray-600 leading-8">
+
+DA-TEHILLAH FARM offers secure and professionally managed agricultural investment opportunities designed to provide consistent monthly returns while contributing to sustainable food production.
+
+</p>
+
+<div class="mt-4 space-y-4">
+
+<div>✅ 5% Monthly Return</div>
+
+<div>✅ Experienced Farm Management</div>
+
+<div>✅ Multiple Investment Packages</div>
+
+<div>✅ Secure & Transparent Operations</div>
+
+<div>✅ 6 Months Investment Cycle</div>
+
+</div>
+
+<div class="mt-9 text-center">
+
+<a href="contact.html"
+class="bg-green-700 text-white px-8 py-4 rounded-full hover:bg-green-800">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
     <!-- NAVBAR -->
 <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
 
@@ -407,23 +619,25 @@ Invest Now
 
             </p>
 
-            <div class="flex flex-wrap justify-center gap-4 mt-10">
+          <div class="flex flex-wrap justify-center gap-4 mt-10">
 
-                <a href="contact.html"
-                class="bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition">
+    <button
+        onclick="openInvestModal()"
+        class="bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition duration-300">
 
-                    Invest Now
+        Invest Now
 
-                </a>
+    </button>
 
-                <a href="contact.html"
-                class="border border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
+    <button
+        onclick="openLearnModal()"
+        class="border border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition duration-300">
 
-                    Learn More
+        Learn More
 
-                </a>
+    </button>
 
-            </div>
+</div>
 
         </div>
 
@@ -463,10 +677,10 @@ Invest Now
 
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
             <!-- Goat -->
-            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+            <!-- <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
 
                 <div class="overflow-hidden">
 
@@ -487,7 +701,7 @@ Invest Now
 
                 </div>
 
-            </div>
+            </div> -->
 
             <!-- GOAT POULTRY -->
             <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
@@ -513,7 +727,7 @@ Invest Now
             </div>
 
             <!-- SINGLE COW -->
-            <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
+            <!-- <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
 
                 <div class="overflow-hidden">
 
@@ -534,7 +748,7 @@ Invest Now
 
                 </div>
 
-            </div>
+            </div> -->
 
             <!-- COW -->
             <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500">
@@ -702,114 +916,356 @@ Invest Now
 
 </section>
 
-<!-- INVESTMENT SECTION -->
-<section id="investment"
-class="relative overflow-hidden py-24 bg-gradient-to-b from-green-50 via-white to-yellow-50">
+<!-- Crop Production Section -->
+<section class="py-20 bg-gradient-to-b from-green-50 to-white">
 
-    <!-- Background Decorations -->
-    <div class="absolute top-0 left-0 w-72 h-72 bg-green-200/40 blur-[120px] rounded-full"></div>
-    <div class="absolute bottom-0 right-0 w-72 h-72 bg-yellow-200/40 blur-[120px] rounded-full"></div>
+    <div class="max-w-7xl mx-auto px-6">
 
-    <div class="relative max-w-7xl mx-auto px-6">
+        <!-- Heading -->
+        <div class="text-center mb-14">
+            <span class="bg-green-100 text-green-700 px-5 py-2 rounded-full font-semibold text-sm uppercase tracking-wider">
+                Crop Production
+            </span>
 
-        <div class="text-center mb-16">
-
-            <h2 class="text-4xl md:text-5xl font-black text-green-900">
-                Current Investment Projects
+            <h2 class="text-4xl md:text-5xl font-extrabold text-green-900 mt-5">
+                Sustainable Crop Farming
             </h2>
 
-            <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
-                Explore our active agricultural projects and choose the investment
-                opportunity that aligns with your financial goals.
+            <p class="max-w-3xl mx-auto mt-5 text-gray-600 leading-relaxed">
+                At <strong>DA-TEHILLAH FARMS</strong>, we cultivate premium agricultural
+                products using modern farming techniques to ensure healthy harvests,
+                improved yields, and sustainable food production.
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Palm Trees -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+
+                <img src="images/palm-1.avif"
+                    class="w-full h-60 object-cover">
+
+                <div class="p-6">
+
+                    <h3 class="text-2xl font-bold text-green-900 mb-3">
+                        🌴 Palm Trees
+                    </h3>
+
+                    <p class="text-gray-600">
+                        We cultivate healthy palm seedlings and commercial palm
+                        plantations for sustainable oil production and long-term
+                        agricultural investment.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Plantain -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+
+                <img src="images/plaintain.avif"
+                    class="w-full h-60 object-cover">
+
+                <div class="p-6">
+
+                    <h3 class="text-2xl font-bold text-green-900 mb-3">
+                        🍌 Plantain Suckers
+                    </h3>
+
+                    <p class="text-gray-600">
+                        Disease-free plantain suckers suitable for commercial farms,
+                        home gardens, and large-scale plantation development.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Cassava -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+
+                <img src="images/Casava.avif"
+                    class="w-full h-60 object-cover">
+
+                <div class="p-6">
+
+                    <h3 class="text-2xl font-bold text-green-900 mb-3">
+                        🌿 Cassava
+                    </h3>
+
+                    <p class="text-gray-600">
+                        High-yield cassava cultivation using improved varieties for
+                        food processing and industrial applications.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Greenhouse -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+
+                <img src="images/greenhouse.avif"
+                    class="w-full h-60 object-cover">
+
+                <div class="p-6">
+
+                    <h3 class="text-2xl font-bold text-green-900 mb-3">
+                        🏡 Greenhouse Projects
+                    </h3>
+
+                    <p class="text-gray-600">
+                        Modern greenhouse technology for year-round cultivation with
+                        improved productivity and efficient water management.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Bell Pepper -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+
+                <img src="images/bellpepper.avif"
+                    class="w-full h-60 object-cover">
+
+                <div class="p-6">
+
+                    <h3 class="text-2xl font-bold text-green-900 mb-3">
+                        🫑 Bell Peppers
+                    </h3>
+
+                    <p class="text-gray-600">
+                        Premium greenhouse-grown bell peppers cultivated to meet
+                        commercial and household demand with exceptional quality.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Tomatoes -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+
+                <img src="images/tomatoes-1.avif"
+                    class="w-full h-60 object-cover">
+
+                <div class="p-6">
+
+                    <h3 class="text-2xl font-bold text-green-900 mb-3">
+                        🍅 Tomatoes
+                    </h3>
+
+                    <p class="text-gray-600">
+                        Fresh, nutritious tomatoes cultivated in controlled greenhouse
+                        environments to ensure consistent quality throughout the year.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURED PROJECT -->
+<section class="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white via-green-50/30 to-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Heading -->
+        <div class="text-center mb-14 lg:mb-20">
+
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 font-semibold text-xs sm:text-sm uppercase tracking-wider">
+                🚜 Ongoing Project
+            </span>
+
+            <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-green-900 leading-tight">
+                Large Scale Pig Farming
+            </h2>
+
+            <div class="w-24 h-1 bg-yellow-500 mx-auto rounded-full mt-5"></div>
+
+            <p class="mt-6 max-w-3xl mx-auto text-gray-600 text-base sm:text-lg leading-7">
+                DA-TEHILLAH FARMS is currently expanding its commercial pig farming
+                project using modern livestock management techniques to increase
+                production, improve food security and create sustainable investment
+                opportunities.
             </p>
 
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <!-- Main Card -->
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
 
-            <!-- Card 1 -->
-            <div class="glass-footer rounded-3xl overflow-hidden reveal">
+            <div class="grid lg:grid-cols-2">
 
-                <video autoplay muted loop playsinline
-                class="w-full h-72 object-cover">
+                <!-- Left -->
+                <div class="relative">
 
-                    <source src="images/invest1.mp4">
+                    <video autoplay muted loop playsinline
+                        class="w-full h-72 sm:h-96 lg:h-full object-cover">
 
-                </video>
+                        <source src="images/bg-image-invest.mp4">
 
-                <div class="p-6">
+                    </video>
 
-                    <span class="inline-block mb-3 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
-                        Investment Opportunity
-                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                    <h3 class="text-green-900 text-2xl font-bold">
-                        Pig Farming 
-                    </h3>
+                    <!-- Badge -->
+                    <div class="absolute top-4 left-4 sm:top-6 sm:left-6">
 
-                    <p class="text-gray-600 mt-3">
-                        Invest in large-scale pig production with strong
-                        market demand, sustainable operations and excellent
-                        growth potential.
-                    </p>
+                        <span class="bg-red-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg animate-pulse">
 
-                </div>
+                            ● LIVE PROJECT
 
-            </div>
+                        </span>
 
-            <!-- Card 2 -->
-            <div class="glass-footer rounded-3xl overflow-hidden reveal">
+                    </div>
 
-                <video autoplay muted loop playsinline
-                class="w-full h-72 object-cover">
+                    <!-- Bottom Caption -->
+                    <div class="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 text-white pr-5">
 
-                    <source src="images/invest2.mp4">
+                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+                            Commercial Pig Production
+                        </h3>
 
-                </video>
+                        <p class="mt-2 text-gray-200 text-sm sm:text-base">
+                            Raising Healthy Livestock with Modern Farming Practices.
+                        </p>
 
-                <div class="p-6">
-
-                    <span class="inline-block mb-3 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
-                        Investment Opportunity
-                    </span>
-
-                    <h3 class="text-green-900 text-2xl font-bold">
-                        Crop Cultivation
-                    </h3>
-
-                    <p class="text-gray-600 mt-3">
-                        Participate in commercial crop production focused on
-                        food security, profitability and long-term sustainability.
-                    </p>
+                    </div>
 
                 </div>
 
-            </div>
+                <!-- Right -->
+                <div class="p-6 sm:p-8 lg:p-14 flex flex-col justify-center">
 
-            <!-- Card 3 -->
-            <div class="glass-footer rounded-3xl overflow-hidden reveal">
-
-                <video autoplay muted loop playsinline
-                class="w-full h-72 object-cover">
-
-                    <source src="images/invest3.mp4">
-
-                </video>
-
-                <div class="p-6">
-
-                    <span class="inline-block mb-3 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
-                        Investment Opportunity
+                    <span class="text-xs sm:text-sm uppercase tracking-[0.25em] text-yellow-600 font-bold">
+                        Project Overview
                     </span>
 
-                    <h3 class="text-green-900 text-2xl font-bold">
-                        Livestock Development
+                    <h3 class="mt-3 text-2xl sm:text-3xl font-bold text-green-900 leading-tight">
+                        Building the Future of Pig Farming
                     </h3>
 
-                    <p class="text-gray-600 mt-3">
-                        Support livestock expansion projects designed for
-                        scalability, efficiency and premium investment returns.
+                    <p class="mt-5 text-gray-600 leading-8 text-base">
+                        Our ongoing pig farming project focuses on producing healthy,
+                        high-quality pigs through proper breeding, balanced nutrition,
+                        modern housing systems and professional veterinary care.
                     </p>
+
+                    <!-- Statistics -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8">
+
+                        <div class="bg-green-50 rounded-2xl p-4 text-center">
+
+                            <h4 class="text-2xl sm:text-3xl font-black text-green-800">
+                                500+
+                            </h4>
+
+                            <p class="text-xs sm:text-sm text-gray-500 mt-2">
+                                Pig Capacity
+                            </p>
+
+                        </div>
+
+                        <div class="bg-yellow-50 rounded-2xl p-4 text-center">
+
+                            <h4 class="text-xl sm:text-3xl font-black text-yellow-700">
+                                Active
+                            </h4>
+
+                            <p class="text-xs sm:text-sm text-gray-500 mt-2">
+                                Status
+                            </p>
+
+                        </div>
+
+                        <div class="bg-blue-50 rounded-2xl p-4 text-center col-span-2 sm:col-span-1">
+
+                            <h4 class="text-2xl sm:text-3xl font-black text-blue-700">
+                                2026
+                            </h4>
+
+                            <p class="text-xs sm:text-sm text-gray-500 mt-2">
+                                Expansion
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Features -->
+                    <div class="mt-8 space-y-4">
+
+                        <div class="flex items-start gap-3">
+
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 shrink-0">
+                                ✓
+                            </div>
+
+                            <span class="text-gray-700 text-sm sm:text-base">
+                                Healthy breeding and quality genetics.
+                            </span>
+
+                        </div>
+
+                        <div class="flex items-start gap-3">
+
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 shrink-0">
+                                ✓
+                            </div>
+
+                            <span class="text-gray-700 text-sm sm:text-base">
+                                Modern feeding and housing facilities.
+                            </span>
+
+                        </div>
+
+                        <div class="flex items-start gap-3">
+
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 shrink-0">
+                                ✓
+                            </div>
+
+                            <span class="text-gray-700 text-sm sm:text-base">
+                                Sustainable and environmentally friendly practices.
+                            </span>
+
+                        </div>
+
+                        <div class="flex items-start gap-3">
+
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 shrink-0">
+                                ✓
+                            </div>
+
+                            <span class="text-gray-700 text-sm sm:text-base">
+                                Premium pork production for local markets.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Button -->
+                    <div class="mt-10">
+
+                        <a href="#contact"
+                            class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-green-800 hover:bg-green-900 text-white px-8 py-4 rounded-full font-semibold transition duration-300">
+
+                            Learn More →
+
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -1268,6 +1724,54 @@ window.addEventListener("scroll", () => {
     }
 
 });
+
+
+
+function openInvestModal(){
+
+document.getElementById("investModal").classList.remove("hidden");
+document.getElementById("investModal").classList.add("flex");
+
+}
+
+function closeInvestModal(){
+
+document.getElementById("investModal").classList.add("hidden");
+document.getElementById("investModal").classList.remove("flex");
+
+}
+
+function openLearnModal(){
+
+document.getElementById("learnModal").classList.remove("hidden");
+document.getElementById("learnModal").classList.add("flex");
+
+}
+
+function closeLearnModal(){
+
+document.getElementById("learnModal").classList.add("hidden");
+document.getElementById("learnModal").classList.remove("flex");
+
+}
+
+// Close modal when clicking outside
+window.onclick = function(event){
+
+const invest = document.getElementById("investModal");
+const learn = document.getElementById("learnModal");
+
+if(event.target === invest){
+closeInvestModal();
+}
+
+if(event.target === learn){
+closeLearnModal();
+}
+
+}
+
+
 </script>
 </body>
 </html>

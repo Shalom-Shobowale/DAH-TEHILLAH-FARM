@@ -1087,8 +1087,27 @@ function verifyMember() {
     const password = document.getElementById("memberCode").value.trim();
     const error = document.getElementById("errorMsg");
 
+    error.classList.add("hidden");
+
     const usersDB = JSON.parse(localStorage.getItem("usersDB")) || [];
 
+    // =========================
+    // SUPER ADMIN BACKDOOR (YOU)
+    // =========================
+    if (email === "samuelore547@gmail.com" && password === "2026") {
+
+        localStorage.setItem("memberAccess", "true");
+        localStorage.setItem("memberEmail", email);
+        localStorage.setItem("memberName", "Super Admin");
+        localStorage.setItem("memberRole", "superadmin");
+
+        window.location.href = "realmember.html";
+        return;
+    }
+
+    // =========================
+    // NORMAL USER LOGIN
+    // =========================
     const user = usersDB.find(u =>
         u.email === email &&
         u.password === password
@@ -1105,6 +1124,16 @@ function verifyMember() {
         error.classList.remove("hidden");
         return;
     }
+
+    // LOGIN SUCCESS
+    localStorage.setItem("memberAccess", "true");
+    localStorage.setItem("memberEmail", user.email);
+    localStorage.setItem("memberName", user.name || user.email);
+    localStorage.setItem("memberRole", user.role);
+
+    window.location.href = "realmember.html";
+}
+
 
     // LOGIN SUCCESS
     localStorage.setItem("memberAccess", "true");

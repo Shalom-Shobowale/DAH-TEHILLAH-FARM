@@ -627,20 +627,19 @@ Invest Now
 
                 <div class="mt-10 flex flex-wrap gap-5">
 
-                   <button
-                    onclick="openModal()"
+                   <a href="../backend/public/member/register.html"
                     class="rounded-full bg-amber-400 px-8 py-4 font-bold text-green-950 transition hover:scale-105 hover:bg-amber-300">
 
                     Register Now
 
-                    </button>
+                    </a>
 
-                    <button onclick="openMemberModal()"
+                    <a href="../backend/public/member/login.html"
                         class="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white hover:text-green-900 duration-300 font-semibold">
 
                         Existing Member
 
-                    </button>
+                    </a>
 
                 </div>
                 
@@ -1135,15 +1134,15 @@ function verifyMember() {
 }
 
 
-function openModal() {
-    document.getElementById("registerModal").classList.remove("hidden");
-    document.body.classList.add("overflow-hidden"); // optional but good UX
-}
+// function openModal() {
+//     document.getElementById("registerModal").classList.remove("hidden");
+//     document.body.classList.add("overflow-hidden"); // optional but good UX
+// }
 
-function closeModal() {
-    document.getElementById("registerModal").classList.add("hidden");
-    document.body.classList.remove("overflow-hidden");
-}
+// function closeModal() {
+//     document.getElementById("registerModal").classList.add("hidden");
+//     document.body.classList.remove("overflow-hidden");
+// }
 
 // ================= AUTO PROTECT =================
 if (typeof protectMemberPage === "function") {

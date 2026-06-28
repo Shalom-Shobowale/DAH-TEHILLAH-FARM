@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Plans - DA-TEHILLAH FARM VENTURES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#14532D",
+              accent: "#FACC15",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex min-h-screen">
+      <aside class="bg-primary w-64 min-h-screen p-6 fixed left-0 top-0">
+        <div class="mb-8">
+          <div class="flex items-center space-x-3">
+            <div
+              class="bg-accent w-10 h-10 rounded-full flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-white font-bold">DA-TEHILLAH</h1>
+              <p class="text-accent text-xs">FARM VENTURES</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="space-y-2">
+          <a
+            href="dashboard.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              />
+            </svg>
+            Dashboard
+          </a>
+          <a
+            href="members.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+              />
+            </svg>
+            Members
+          </a>
+          <a
+            href="investments.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            Investments
+          </a>
+          <a
+            href="plans.html"
+            class="flex items-center px-4 py-3 bg-primary/50 text-white rounded-lg border-l-4 border-accent"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+            Plans
+          </a>
+          <a
+            href="payment-accounts.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+              />
+            </svg>
+            Payment Accounts
+          </a>
+          <a
+            href="activity-logs.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+            Activity Logs
+          </a>
+        </nav>
+
+        <div class="absolute bottom-6 left-6 right-6">
+          <button
+            onclick="logout()"
+            class="w-full flex items-center px-4 py-3 text-white/70 hover:bg-red-600 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <main class="flex-1 ml-64 p-8">
+        <header class="flex justify-between items-center mb-8">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-800">Investment Plans</h1>
+            <p class="text-gray-500">Create and manage investment plans</p>
+          </div>
+          <button
+            onclick="openModal()"
+            class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-800 transition"
+          >
+            + Add New Plan
+          </button>
+        </header>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="plansGrid"
+        >
+          <div class="col-span-full text-center py-8 text-gray-500">
+            Loading...
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div
+      id="planModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
+    >
+      <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold text-gray-800" id="modalTitle">
+            Add New Plan
+          </h2>
+          <button
+            onclick="closeModal()"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <form id="planForm" class="space-y-4">
+          <input type="hidden" id="planId" />
+
+          <!-- Plan Name -->
+          <div>
+            <label class="block text-gray-700 text-sm font-semibold mb-2">
+              Plan Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              required
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+            />
+          </div>
+
+          <!-- Description -->
+          <div>
+            <label class="block text-gray-700 text-sm font-semibold mb-2">
+              Description
+            </label>
+            <textarea
+              id="description"
+              rows="3"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+            ></textarea>
+          </div>
+
+          <!-- Pricing -->
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-700 text-sm font-semibold mb-2">
+                Slot Price (₦)
+              </label>
+              <input
+                type="number"
+                id="slot_price"
+                required
+                min="0"
+                class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+              />
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-semibold mb-2">
+                Admin Fee (₦)
+              </label>
+              <input
+                type="number"
+                id="admin_fee"
+                required
+                min="0"
+                class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+              />
+            </div>
+          </div>
+
+          <!-- ROI + Duration -->
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-700 text-sm font-semibold mb-2">
+                ROI (%)
+              </label>
+              <input
+                type="number"
+                id="roi_percentage"
+                required
+                min="0"
+                max="100"
+                class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+              />
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-semibold mb-2">
+                Duration (months)
+              </label>
+              <input
+                type="number"
+                id="duration_months"
+                required
+                min="1"
+                class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+              />
+            </div>
+          </div>
+
+          <!-- Max Slots -->
+          <div>
+            <label class="block text-gray-700 text-sm font-semibold mb-2">
+              Max Slots (optional)
+            </label>
+            <input
+              type="number"
+              id="max_slots"
+              min="1"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+            />
+          </div>
+
+          <!-- Status -->
+          <div>
+            <label class="block text-gray-700 text-sm font-semibold mb-2">
+              Status
+            </label>
+            <select
+              id="status"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
+            >
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex space-x-4 pt-4">
+            <button
+              type="button"
+              onclick="closeModal()"
+              class="flex-1 bg-gray-200 py-2 rounded-lg font-semibold"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              class="flex-1 bg-primary text-white py-2 rounded-lg font-semibold"
+            >
+              Save Plan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const API_BASE = "http://localhost:3000";
+
+      function checkAuth() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const token = localStorage.getItem("accessToken");
+        if (!user || !token || user.role !== "admin") {
+          window.location.href = "login.html";
+        }
+      }
+
+      async function fetchPlans() {
+        const token = localStorage.getItem("accessToken");
+
+        try {
+          const response = await fetch(`${API_BASE}/api/admin/plans`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            renderPlans(data.data);
+          } else {
+            alert(data.message || "Failed to load plans");
+          }
+        } catch (error) {
+          console.error("Error fetching plans:", error);
+        }
+      }
+
+      function renderPlans(plans) {
+        const grid = document.getElementById("plansGrid");
+
+        if (!plans.length) {
+          grid.innerHTML = `<div class="col-span-full text-center py-8 text-gray-500">No plans found</div>`;
+          return;
+        }
+
+        grid.innerHTML = plans
+          .map(
+            (plan) => `
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="p-6">
+                    
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="px-3 py-1 text-xs rounded-full font-semibold 
+                            ${plan.status === "active" ? "bg-green-100 text-green-800" : "bg-gray-200 text-gray-700"}">
+                            ${plan.status}
+                        </span>
+
+                        <div class="space-x-2">
+                            <button onclick='loadPlanForEdit("${plan.id}")' class="text-primary text-sm hover:underline">
+                                Edit
+                            </button>
+                            <button onclick='deletePlan("${plan.id}")' class="text-red-500 text-sm hover:underline">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">${plan.name}</h3>
+
+                    <p class="text-gray-500 text-sm mb-4">
+                        ${plan.description || "No description"}
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 border-t pt-4">
+                        <div>
+                            <p class="text-xs text-gray-400">Amount</p>
+                            <p class="font-bold text-primary">
+                                ₦${Number(plan.slot_price).toLocaleString()}
+                            </p>
+                        </div>
+
+                        <div>
+                            <p class="text-xs text-gray-400">ROI</p>
+                            <p class="font-bold text-accent">
+                                ${plan.roi_percentage}%
+                            </p>
+                        </div>
+
+                        <div class="col-span-2">
+                            <p class="text-xs text-gray-400">Duration</p>
+                            <p class="font-semibold">
+                                ${plan.duration_months} months
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `,
+          )
+          .join("");
+      }
+
+      function openModal(plan = null) {
+        const modal = document.getElementById("planModal");
+        const title = document.getElementById("modalTitle");
+
+        if (plan) {
+          title.textContent = "Edit Plan";
+
+          document.getElementById("planId").value = plan.id;
+
+          document.getElementById("name").value = plan.name;
+          document.getElementById("description").value = plan.description || "";
+
+          document.getElementById("slot_price").value = plan.slot_price;
+          document.getElementById("admin_fee").value = plan.admin_fee || 0;
+
+          document.getElementById("roi_percentage").value = plan.roi_percentage;
+          document.getElementById("duration_months").value =
+            plan.duration_months;
+
+          document.getElementById("max_slots").value = plan.max_slots || "";
+
+          document.getElementById("status").value = plan.status;
+        } else {
+          title.textContent = "Add New Plan";
+
+          document.getElementById("planForm").reset();
+          document.getElementById("planId").value = "";
+        }
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("planModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      // FIXED: single plan load (instead of fetching all again)
+      async function loadPlanForEdit(id) {
+        const token = localStorage.getItem("accessToken");
+
+        try {
+          const response = await fetch(`${API_BASE}/api/admin/plans`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            const plan = data.data.find((p) => p.id === id);
+            if (plan) openModal(plan);
+          }
+        } catch (err) {
+          alert("Failed to load plan");
+        }
+      }
+
+      async function deletePlan(id) {
+        if (!confirm("Are you sure you want to delete this plan?")) return;
+
+        const token = localStorage.getItem("accessToken");
+
+        try {
+          const response = await fetch(`${API_BASE}/api/admin/plans/${id}`, {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            alert("Plan deleted");
+            fetchPlans();
+          } else {
+            alert(data.message || "Delete failed");
+          }
+        } catch (error) {
+          alert("Error deleting plan");
+        }
+      }
+
+      document
+        .getElementById("planForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const token = localStorage.getItem("accessToken");
+          const planId = document.getElementById("planId").value;
+
+          // FIXED FIELD MAPPING (backend-compatible)
+          const payload = {
+            name: document.getElementById("name").value,
+            description: document.getElementById("description").value,
+            slot_price: parseFloat(document.getElementById("slot_price").value),
+            admin_fee: parseFloat(document.getElementById("admin_fee").value),
+            roi_percentage: parseFloat(
+              document.getElementById("roi_percentage").value,
+            ),
+            duration_months: parseInt(
+              document.getElementById("duration_months").value,
+            ),
+            max_slots: document.getElementById("max_slots").value
+              ? parseInt(document.getElementById("max_slots").value)
+              : null,
+            status: document.getElementById("status").value,
+          };
+
+          try {
+            const url = planId
+              ? `${API_BASE}/api/admin/plans/${planId}`
+              : `${API_BASE}/api/admin/plans`;
+
+            const method = planId ? "PUT" : "POST";
+
+            const response = await fetch(url, {
+              method,
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify(payload),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+              alert(planId ? "Plan updated" : "Plan created");
+              closeModal();
+              fetchPlans();
+            } else {
+              alert(data.message || "Failed to save plan");
+            }
+          } catch (error) {
+            console.error(error);
+            alert("Server error while saving plan");
+          }
+        });
+
+      function logout() {
+        localStorage.clear();
+        window.location.href = "login.html";
+      }
+
+      checkAuth();
+      fetchPlans();
+    </script>
+  </body>
+</html>

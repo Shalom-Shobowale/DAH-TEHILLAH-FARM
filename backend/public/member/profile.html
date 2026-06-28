@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - DA-TEHILLAH FARM VENTURES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#14532D',
+                        accent: '#FACC15',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <aside class="bg-primary w-64 min-h-screen p-6 fixed left-0 top-0">
+            <div class="mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-accent w-10 h-10 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-white font-bold">DA-TEHILLAH</h1>
+                        <p class="text-accent text-xs">FARM VENTURES</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    Dashboard
+                </a>
+                <a href="investments.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    My Investments
+                </a>
+                <a href="plans.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                    Investment Plans
+                </a>
+                <a href="notifications.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    Notifications
+                </a>
+                <a href="profile.html" class="flex items-center px-4 py-3 bg-primary/50 text-white rounded-lg border-l-4 border-accent">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    Profile
+                </a>
+            </nav>
+
+            <div class="absolute bottom-6 left-6 right-6">
+                <button onclick="logout()" class="w-full flex items-center px-4 py-3 text-white/70 hover:bg-red-600 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="flex-1 ml-64 p-8">
+            <header class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-800">My Profile</h1>
+                <p class="text-gray-500">Manage your account settings</p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6">Profile Information</h2>
+
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold" id="avatarLarge">M</div>
+                        <div>
+                            <p class="text-xl font-bold text-gray-800" id="profileName">Member</p>
+                            <span id="statusBadge" class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">Approved</span>
+                        </div>
+                    </div>
+
+                    <form id="profileForm" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-semibold mb-2">Full Name</label>
+                            <input type="text" id="full_name" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
+                            <input type="email" id="email" disabled
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-semibold mb-2">Phone Number</label>
+                            <input type="tel" id="phone"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div id="profileMessage" class="hidden"></div>
+                        <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-green-800 transition">Update Profile</button>
+                    </form>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6">Change Password</h2>
+
+                    <form id="passwordForm" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-semibold mb-2">Current Password</label>
+                            <input type="password" id="current_password" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-semibold mb-2">New Password</label>
+                            <input type="password" id="new_password" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <p class="text-xs text-gray-500 mt-1">Min 8 chars, uppercase, lowercase, number & special char</p>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-semibold mb-2">Confirm New Password</label>
+                            <input type="password" id="confirm_password" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div id="passwordMessage" class="hidden"></div>
+                        <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-green-800 transition">Change Password</button>
+                    </form>
+
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <h3 class="font-semibold text-gray-800 mb-2">Account Status</h3>
+                        <p class="text-sm text-gray-600">Account Created: <span id="createdDate">-</span></p>
+                        <p class="text-sm text-gray-600">Last Updated: <span id="updatedDate">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const token = localStorage.getItem('accessToken');
+            if (!user || !token || user.role !== 'member') {
+                window.location.href = 'login.html';
+            }
+        }
+
+        async function fetchProfile() {
+            const token = localStorage.getItem('accessToken');
+            try {
+                const response = await fetch('http://localhost:3000/api/member/profile', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await response.json();
+                if (data.success) {
+                    populateProfile(data.data);
+                }
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+            }
+        }
+
+        function populateProfile(user) {
+            document.getElementById('full_name').value = user.full_name;
+            document.getElementById('email').value = user.email;
+            document.getElementById('phone').value = user.phone || '';
+            document.getElementById('profileName').textContent = user.full_name;
+            document.getElementById('avatarLarge').textContent = user.full_name.charAt(0).toUpperCase();
+            document.getElementById('createdDate').textContent = new Date(user.created_at).toLocaleDateString();
+
+            const statusBadge = document.getElementById('statusBadge');
+            switch(user.status) {
+                case 'approved':
+                    statusBadge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800';
+                    statusBadge.textContent = 'Approved';
+                    break;
+                case 'pending':
+                    statusBadge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800';
+                    statusBadge.textContent = 'Pending';
+                    break;
+                case 'suspended':
+                    statusBadge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800';
+                    statusBadge.textContent = 'Suspended';
+                    break;
+            }
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const token = localStorage.getItem('accessToken');
+            const msgDiv = document.getElementById('profileMessage');
+
+            try {
+                const response = await fetch('http://localhost:3000/api/member/profile', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        full_name: document.getElementById('full_name').value,
+                        phone: document.getElementById('phone').value
+                    })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    msgDiv.className = 'bg-green-100 text-green-700 px-4 py-3 rounded-lg text-sm';
+                    msgDiv.textContent = 'Profile updated successfully';
+                    msgDiv.classList.remove('hidden');
+
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    user.full_name = document.getElementById('full_name').value;
+                    localStorage.setItem('user', JSON.stringify(user));
+
+                    document.getElementById('profileName').textContent = user.full_name;
+                    document.getElementById('avatarLarge').textContent = user.full_name.charAt(0).toUpperCase();
+                } else {
+                    msgDiv.className = 'bg-red-100 text-red-700 px-4 py-3 rounded-lg text-sm';
+                    msgDiv.textContent = data.message || 'Failed to update profile';
+                    msgDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                msgDiv.className = 'bg-red-100 text-red-700 px-4 py-3 rounded-lg text-sm';
+                msgDiv.textContent = 'Network error';
+                msgDiv.classList.remove('hidden');
+            }
+        });
+
+        document.getElementById('passwordForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const token = localStorage.getItem('accessToken');
+            const msgDiv = document.getElementById('passwordMessage');
+
+            const newPassword = document.getElementById('new_password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            if (newPassword !== confirmPassword) {
+                msgDiv.className = 'bg-red-100 text-red-700 px-4 py-3 rounded-lg text-sm';
+                msgDiv.textContent = 'Passwords do not match';
+                msgDiv.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/member/change-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        current_password: document.getElementById('current_password').value,
+                        new_password: newPassword
+                    })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    msgDiv.className = 'bg-green-100 text-green-700 px-4 py-3 rounded-lg text-sm';
+                    msgDiv.textContent = 'Password changed successfully';
+                    msgDiv.classList.remove('hidden');
+                    document.getElementById('passwordForm').reset();
+                } else {
+                    msgDiv.className = 'bg-red-100 text-red-700 px-4 py-3 rounded-lg text-sm';
+                    msgDiv.textContent = data.message || 'Failed to change password';
+                    msgDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                msgDiv.className = 'bg-red-100 text-red-700 px-4 py-3 rounded-lg text-sm';
+                msgDiv.textContent = 'Network error';
+                msgDiv.classList.remove('hidden');
+            }
+        });
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        checkAuth();
+        fetchProfile();
+    </script>
+</body>
+</html>

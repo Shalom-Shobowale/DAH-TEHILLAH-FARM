@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Plans - DA-TEHILLAH FARM VENTURES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#14532D",
+              accent: "#FACC15",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex min-h-screen">
+      <aside class="bg-primary w-64 min-h-screen p-6 fixed left-0 top-0">
+        <div class="mb-8">
+          <div class="flex items-center space-x-3">
+            <div
+              class="bg-accent w-10 h-10 rounded-full flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-white font-bold">DA-TEHILLAH</h1>
+              <p class="text-accent text-xs">FARM VENTURES</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="space-y-2">
+          <a
+            href="dashboard.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              />
+            </svg>
+            Dashboard
+          </a>
+          <a
+            href="investments.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            My Investments
+          </a>
+          <a
+            href="plans.html"
+            class="flex items-center px-4 py-3 bg-primary/50 text-white rounded-lg border-l-4 border-accent"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+              />
+            </svg>
+            Investment Plans
+          </a>
+          <a
+            href="notifications.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+            Notifications
+          </a>
+          <a
+            href="profile.html"
+            class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+            Profile
+          </a>
+        </nav>
+
+        <div class="absolute bottom-6 left-6 right-6">
+          <button
+            onclick="logout()"
+            class="w-full flex items-center px-4 py-3 text-white/70 hover:bg-red-600 hover:text-white rounded-lg transition"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <main class="flex-1 ml-64 p-8">
+        <header class="mb-8">
+          <h1 class="text-3xl font-bold text-gray-800">Investment Plans</h1>
+          <p class="text-gray-500">
+            Choose a plan that fits your investment goals
+          </p>
+        </header>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="plansGrid"
+        >
+          <div class="col-span-full text-center py-8 text-gray-500">
+            Loading plans...
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div
+      id="investModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
+    >
+      <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold text-gray-800">
+            Invest in <span id="modalPlanTitle"></span>
+          </h2>
+          <button
+            onclick="closeModal()"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div id="paymentInfo" class="bg-gray-50 rounded-lg p-4 mb-4 hidden">
+          <p class="text-sm text-gray-600 mb-2">Make payment to:</p>
+          <p class="font-semibold text-gray-800" id="bankName"></p>
+          <p class="text-gray-600" id="accountName"></p>
+          <p
+            class="font-mono text-lg font-bold text-primary"
+            id="accountNumber"
+          ></p>
+        </div>
+
+        <form id="investForm" class="space-y-4">
+          <input type="hidden" id="planId" />
+          <div>
+            <label class="block text-gray-700 text-sm font-semibold mb-2"
+              >Number of Slots</label
+            >
+            <input
+              type="number"
+              id="slots"
+              required
+              min="1"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-700 text-sm font-semibold mb-2"
+              >Proof of Payment (jpg, png, pdf)</label
+            >
+            <input
+              type="file"
+              id="proof"
+              accept=".jpg,.jpeg,.png,.pdf"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+          <div
+            id="expectedReturn"
+            class="bg-accent/20 rounded-lg p-4 text-center hidden"
+          >
+            <p class="text-sm text-gray-600">Expected Return</p>
+            <p class="text-2xl font-bold text-primary" id="returnAmount">₦0</p>
+          </div>
+          <div class="flex space-x-4 pt-4">
+            <button
+              type="button"
+              onclick="closeModal()"
+              class="flex-1 bg-gray-200 text-gray-800 py-2 rounded-lg font-semibold hover:bg-gray-300 transition"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="flex-1 bg-primary text-white py-2 rounded-lg font-semibold hover:bg-green-800 transition"
+            >
+              Submit Investment
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function checkAuth() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const token = localStorage.getItem("accessToken");
+        if (!user || !token || user.role !== "member") {
+          window.location.href = "login.html";
+        }
+      }
+
+      let paymentAccount = null;
+
+      async function fetchPlans() {
+        const token = localStorage.getItem("accessToken");
+        try {
+          const [plansRes, accountRes] = await Promise.all([
+            fetch("http://localhost:3000/api/plans", {
+              headers: { Authorization: `Bearer ${token}` },
+            }),
+            fetch("http://localhost:3000/api/member/payment-account", {
+              headers: { Authorization: `Bearer ${token}` },
+            }),
+          ]);
+
+          const plansData = await plansRes.json();
+          const accountData = await accountRes.json();
+
+          if (plansData.success) {
+            renderPlans(plansData.data);
+          }
+
+          if (accountData.success) {
+            paymentAccount = accountData.data;
+          }
+        } catch (error) {
+          console.error("Error fetching plans:", error);
+        }
+      }
+
+      function renderPlans(plans) {
+        const grid = document.getElementById("plansGrid");
+        if (plans.length === 0) {
+          grid.innerHTML =
+            '<div class="col-span-full text-center py-8 text-gray-500">No plans available</div>';
+          return;
+        }
+
+        grid.innerHTML = plans
+          .map(
+            (plan) => `
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition">
+                    <div class="bg-primary p-4 text-center">
+                        <h3 class="text-xl font-bold text-white">${plan.name}</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 text-sm mb-4">${plan.description || "Professional investment plan"}</p>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Amount</span>
+                                <span class="font-bold text-primary">₦${parseFloat(plan.slot_price).toLocaleString()}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">ROI</span>
+                                <span class="font-bold text-accent">${plan.roi_percentage}%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Duration</span>
+                                <span class="font-semibold">${plan.duration_months} months</span>
+                            </div>
+                        </div>
+                     <button onclick="openInvestModal(
+  '${plan.id}',
+  '${plan.name}',
+  ${plan.slot_price},
+  ${plan.roi_percentage},
+  ${plan.duration_months}
+)"
+class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-green-800 transition">
+  Invest Now
+</button>
+                    </div>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      let selectedPlan = {};
+
+      function openInvestModal(id, name, slotPrice, roi, duration) {
+        selectedPlan = {
+          id,
+          slotPrice: Number(slotPrice),
+          roi: Number(roi),
+          duration: Number(duration),
+        };
+
+        document.getElementById("planId").value = id;
+        document.getElementById("modalPlanTitle").textContent = name;
+        document.getElementById("slots").value = 1;
+
+        if (paymentAccount) {
+          document.getElementById("bankName").textContent =
+            paymentAccount.bank_name;
+
+          document.getElementById("accountName").textContent =
+            paymentAccount.account_name;
+
+          document.getElementById("accountNumber").textContent =
+            paymentAccount.account_number;
+
+          document.getElementById("paymentInfo").classList.remove("hidden");
+        }
+
+        updateReturn();
+
+        const modal = document.getElementById("investModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("investModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.getElementById("investForm").reset();
+        document.getElementById("expectedReturn").classList.add("hidden");
+        selectedPlan = {};
+      }
+      function updateReturn() {
+        const slots = Number(document.getElementById("slots").value) || 1;
+
+        const investment = slots * selectedPlan.slotPrice;
+
+        const monthlyReturn = (investment * selectedPlan.roi) / 100;
+
+        const totalReturn = monthlyReturn * selectedPlan.duration;
+
+        document.getElementById("returnAmount").textContent =
+          "₦" + totalReturn.toLocaleString();
+
+        document.getElementById("expectedReturn").classList.remove("hidden");
+      }
+
+      document.getElementById("slots").addEventListener("input", updateReturn);
+
+      document
+        .getElementById("investForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const token = localStorage.getItem("accessToken");
+          const planId = document.getElementById("planId").value;
+          const slots = document.getElementById("slots").value;
+          const proof = document.getElementById("proof").files[0];
+
+          // Validate fields
+          if (!planId) {
+            alert("Please select an investment plan.");
+            return;
+          }
+
+          if (!slots || Number(slots) < 1) {
+            alert("Please enter a valid number of slots.");
+            return;
+          }
+
+          if (!proof) {
+            alert("Please upload your payment proof.");
+            return;
+          }
+
+          // Disable submit button
+          const submitBtn = e.target.querySelector('button[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Submitting...";
+
+          // Create FormData
+          const formData = new FormData();
+          formData.append("plan_id", planId);
+          formData.append("slots", slots);
+          formData.append("proof", proof);
+
+          try {
+            const response = await fetch(
+              "http://localhost:3000/api/member/investments",
+              {
+                method: "POST",
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+                body: formData,
+              },
+            );
+
+            // Handle expired session
+            if (response.status === 401) {
+              alert("Session expired. Please login again.");
+              logout();
+              return;
+            }
+
+            const data = await response.json();
+
+            // Handle server errors
+            if (!response.ok) {
+              alert(data.message || "Failed to submit investment.");
+              return;
+            }
+
+            if (data.success) {
+              alert(
+                "Investment submitted successfully! Please wait for approval.",
+              );
+              closeModal();
+              window.location.href = "investments.html";
+            } else {
+              alert(data.message || "Failed to submit investment.");
+            }
+          } catch (error) {
+            console.error(error);
+            alert("An error occurred while submitting your investment.");
+          } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Submit Investment";
+          }
+        });
+
+      function logout() {
+        localStorage.clear();
+        window.location.href = "login.html";
+      }
+
+      checkAuth();
+      fetchPlans();
+    </script>
+  </body>
+</html>

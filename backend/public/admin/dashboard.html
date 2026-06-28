@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DA-TEHILLAH FARM VENTURES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#14532D',
+                        accent: '#FACC15',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <aside id="sidebar" class="bg-primary w-64 min-h-screen p-6 fixed left-0 top-0 z-40">
+            <div class="mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-accent w-10 h-10 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-white font-bold">DA-TEHILLAH</h1>
+                        <p class="text-accent text-xs">FARM VENTURES</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="dashboard.html" class="flex items-center px-4 py-3 bg-primary/50 text-white rounded-lg border-l-4 border-accent">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="members.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                    </svg>
+                    Members
+                </a>
+                <a href="investments.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Investments
+                </a>
+                <a href="plans.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    Plans
+                </a>
+                <a href="payment-accounts.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                    Payment Accounts
+                </a>
+                <a href="activity-logs.html" class="flex items-center px-4 py-3 text-white/70 hover:bg-primary/30 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    Activity Logs
+                </a>
+            </nav>
+
+            <div class="absolute bottom-6 left-6 right-6">
+                <button onclick="logout()" class="w-full flex items-center px-4 py-3 text-white/70 hover:bg-red-600 hover:text-white rounded-lg transition">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="flex-1 ml-64 p-8">
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+                    <p class="text-gray-500">Welcome back, <span id="adminName">Admin</span></p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="font-semibold text-gray-800" id="userFullName">Admin</p>
+                        <p class="text-sm text-gray-500">Administrator</p>
+                    </div>
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold" id="userAvatar">A</div>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Total Members</p>
+                            <p class="text-3xl font-bold text-gray-800" id="totalUsers">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Pending Approval</p>
+                            <p class="text-3xl font-bold text-accent" id="pendingUsers">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Total Investments</p>
+                            <p class="text-3xl font-bold text-gray-800" id="totalInvestments">0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Total Invested</p>
+                            <p class="text-3xl font-bold text-primary" id="totalValue">₦0</p>
+                        </div>
+                        <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">User Status Overview</h2>
+                    <canvas id="userChart"></canvas>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Investment Statistics</h2>
+                    <canvas id="investmentChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">Pending Investment Approvals</h2>
+                    <a href="investments.html" class="text-primary hover:underline text-sm">View All</a>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 px-4 text-gray-600 font-semibold">Member</th>
+                                <th class="text-left py-3 px-4 text-gray-600 font-semibold">Plan</th>
+                                <th class="text-left py-3 px-4 text-gray-600 font-semibold">Amount</th>
+                                <th class="text-left py-3 px-4 text-gray-600 font-semibold">Date</th>
+                                <th class="text-left py-3 px-4 text-gray-600 font-semibold">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pendingInvestmentsTable">
+                            <tr>
+                                <td colspan="5" class="text-center py-8 text-gray-500">No pending investments</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const token = localStorage.getItem('accessToken');
+            if (!user || !token || user.role !== 'admin') {
+                window.location.href = 'login.html';
+            }
+            document.getElementById('userFullName').textContent = user.full_name;
+            document.getElementById('adminName').textContent = user.full_name.split(' ')[0];
+            document.getElementById('userAvatar').textContent = user.full_name.charAt(0).toUpperCase();
+        }
+
+        async function fetchDashboard() {
+            try {
+                const token = localStorage.getItem('accessToken');
+                const response = await fetch('http://localhost:3000/api/admin/dashboard', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById('totalUsers').textContent = data.data.totalUsers || 0;
+                    document.getElementById('pendingUsers').textContent = data.data.pendingUsers || 0;
+                    document.getElementById('totalInvestments').textContent = data.data.totalInvestments || 0;
+                    document.getElementById('totalValue').textContent = '₦' + (data.data.totalInvestmentValue || 0).toLocaleString();
+
+                    const ctx1 = document.getElementById('userChart').getContext('2d');
+                    new Chart(ctx1, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Approved', 'Pending', 'Suspended'],
+                            datasets: [{
+                                data: [data.data.approvedUsers || 0, data.data.pendingUsers || 0, data.data.suspendedUsers || 0],
+                                backgroundColor: ['#14532D', '#FACC15', '#EF4444']
+                            }]
+                        }
+                    });
+
+                    renderPendingInvestments(data.data.recentPendingInvestments || []);
+                }
+            } catch (error) {
+                console.error('Error fetching dashboard:', error);
+            }
+        }
+
+        function renderPendingInvestments(investments) {
+            const tbody = document.getElementById('pendingInvestmentsTable');
+            if (investments.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center py-8 text-gray-500">No pending investments</td></tr>';
+                return;
+            }
+            tbody.innerHTML = investments.map(inv => `
+                <tr class="border-b border-gray-100">
+                    <td class="py-3 px-4">${inv.users?.full_name || 'N/A'}<br><span class="text-sm text-gray-500">${inv.users?.email || ''}</span></td>
+                    <td class="py-3 px-4">${inv.investment_plans?.title || 'N/A'}</td>
+                    <td class="py-3 px-4 font-semibold text-primary">₦${parseFloat(inv.amount).toLocaleString()}</td>
+                    <td class="py-3 px-4 text-gray-500">${new Date(inv.created_at).toLocaleDateString()}</td>
+                    <td class="py-3 px-4">
+                        <a href="investments.html" class="text-primary hover:underline">Review</a>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function logout() {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
+
+        checkAuth();
+        fetchDashboard();
+    </script>
+</body>
+</html>

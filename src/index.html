@@ -2152,74 +2152,104 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(document.querySelector(".reveal"));
 
 
+// ==========================================
+// COMMENT SYSTEM
+// ==========================================
+
 let comments = [];
 
-function addComment(){
+// Add Comment
+function addComment() {
 
-    const name=document.getElementById("commentName").value.trim();
-    const text=document.getElementById("commentText").value.trim();
+    const nameInput = document.getElementById("commentName");
+    const textInput = document.getElementById("commentText");
 
-    if(name===""||text===""){
+    const name = nameInput.value.trim();
+    const text = textInput.value.trim();
+
+    if (!name || !text) {
         alert("Please enter your name and comment.");
         return;
     }
 
     comments.unshift({
-        id:Date.now(),
-        name,
-        text,
-        replies:[]
+        id: Date.now(),
+        name: name,
+        text: text,
+        createdAt: new Date(),
+        replies: []
     });
 
-    document.getElementById("commentName").value="";
-    document.getElementById("commentText").value="";
+    nameInput.value = "";
+    textInput.value = "";
 
     renderComments();
 
 }
 
-function replyComment(id){
+// Reply
+function replyComment(commentId) {
 
-    const input=document.getElementById("reply-"+id);
+    const input = document.getElementById(`reply-${commentId}`);
 
-    const value=input.value.trim();
+    if (!input) return;
 
-    if(value==="") return;
+    const replyText = input.value.trim();
 
-    const comment=comments.find(c=>c.id===id);
+    if (!replyText) {
+        alert("Please enter a reply.");
+        return;
+    }
+
+    const comment = comments.find(c => c.id === commentId);
+
+    if (!comment) return;
 
     comment.replies.push({
-        id:Date.now(),
-        text:value
+
+        id: Date.now(),
+
+        text: replyText,
+
+        createdAt: new Date()
+
     });
 
-    input.value="";
+    input.value = "";
 
     renderComments();
 
 }
 
-function deleteComment(id){
+// Delete Comment
+function deleteComment(commentId) {
 
-    comments=comments.filter(c=>c.id!==id);
+    if (!confirm("Delete this comment?")) return;
+
+    comments = comments.filter(comment => comment.id !== commentId);
 
     renderComments();
 
 }
 
-function renderComments(){
+// Render All Comments
+function renderComments() {
 
-    const container=document.getElementById("commentsContainer");
+    const container = document.getElementById("commentsContainer");
 
-    if(comments.length===0){
+    if (!container) return;
 
-        container.innerHTML=`
+    container.innerHTML = "";
 
-        <div class="text-center text-gray-500 py-16">
+    if (comments.length === 0) {
 
-            No comments yet.
+        container.innerHTML = `
 
-        </div>
+            <div class="text-center py-10 text-gray-500">
+
+                No comments yet.
+
+            </div>
 
         `;
 
@@ -2227,105 +2257,111 @@ function renderComments(){
 
     }
 
-    container.innerHTML="";
+    comments.forEach(comment => {
 
-    comments.forEach(comment=>{
+        let repliesHTML = "";
 
-        let repliesHTML="";
+        comment.replies.forEach(reply => {
 
-        comment.replies.forEach(reply=>{
+            repliesHTML += `
 
-            repliesHTML+=`
+                <div class="ml-12 mt-4 border-l-4 border-green-600 pl-4">
 
-            <div class="ml-12 mt-4 bg-green-50 rounded-xl p-4">
+                    <div class="font-semibold text-green-700">
 
-                <div class="font-semibold text-green-800">
+                        Reply
 
-                    Reply
+                    </div>
+
+                    <div class="text-gray-700 mt-1">
+
+                        ${reply.text}
+
+                    </div>
 
                 </div>
-
-                <p class="text-gray-700 mt-2">
-
-                    ${reply.text}
-
-                </p>
-
-            </div>
 
             `;
 
         });
 
-        container.innerHTML+=`
+        container.innerHTML += `
 
-        <div class="bg-white rounded-3xl shadow-lg p-6 border">
+            <div class="bg-white shadow-lg rounded-2xl p-6 border mb-6">
 
-            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-4">
 
-                <div class="w-12 h-12 rounded-full bg-green-700 text-white flex items-center justify-center font-bold">
+                    <div class="w-12 h-12 rounded-full bg-green-700 text-white flex items-center justify-center font-bold text-lg">
 
-                    ${comment.name.charAt(0).toUpperCase()}
+                        ${comment.name.charAt(0).toUpperCase()}
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-bold text-lg">
+
+                            ${comment.name}
+
+                        </h3>
+
+                        <p class="text-sm text-gray-500">
+
+                            ${comment.createdAt.toLocaleString()}
+
+                        </p>
+
+                    </div>
 
                 </div>
 
-                <div>
+                <p class="mt-5 text-gray-700 leading-8">
 
-                    <h3 class="font-bold text-lg">
+                    ${comment.text}
 
-                        ${comment.name}
+                </p>
 
-                    </h3>
+                <div class="flex gap-6 mt-6">
 
-                    <p class="text-sm text-gray-500">
+                    <button
 
-                        Just now
+                        onclick="deleteComment(${comment.id})"
 
-                    </p>
+                        class="text-red-600 hover:text-red-800 font-semibold">
+
+                        Delete
+
+                    </button>
 
                 </div>
 
-            </div>
+                <div class="mt-6">
 
-            <p class="mt-5 text-gray-700 leading-8">
+                    <textarea
 
-                ${comment.text}
+                        id="reply-${comment.id}"
 
-            </p>
+                        rows="2"
 
-            <div class="flex gap-3 mt-6">
+                        class="w-full border rounded-xl p-3 resize-none"
 
-                <button
-                onclick="deleteComment(${comment.id})"
-                class="text-red-600 hover:underline">
+                        placeholder="Write a reply..."></textarea>
 
-                Delete
+                    <button
 
-                </button>
+                        onclick="replyComment(${comment.id})"
 
-            </div>
+                        class="mt-3 px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
 
-            <div class="mt-6">
+                        Reply
 
-                <textarea
-                id="reply-${comment.id}"
-                rows="2"
-                placeholder="Write a reply..."
-                class="w-full p-3 rounded-xl border resize-none"></textarea>
+                    </button>
 
-                <button
-                onclick="replyComment(${comment.id})"
-                class="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg">
+                </div>
 
-                Reply
-
-                </button>
+                ${repliesHTML}
 
             </div>
-
-            ${repliesHTML}
-
-        </div>
 
         `;
 
@@ -2334,7 +2370,6 @@ function renderComments(){
 }
 
 renderComments();
-
 
 </script>
 </body>

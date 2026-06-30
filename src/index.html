@@ -1783,37 +1783,48 @@ Invest Now
 
                 </small>
 
-                <button
-                id="postCommentBtn"
-                class="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-semibold transition">
+               <button
+                    id="postCommentBtn"
+                    class="group relative overflow-hidden bg-green-700 hover:bg-green-800 active:scale-95 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-2xl">
 
-                    Post Comment
+                        <span class="relative z-10 flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Post Comment
+                        </span>
+                    
+                        <span class="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
 
                 </button>
-
             </div>
 
         </div>
 
         <!-- Total -->
 
-        <div class="mt-10 flex justify-between items-center">
+        <div class="mt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
 
-            <h3 class="text-2xl font-bold">
+    <h3 class="text-2xl font-bold text-gray-800">
+        Comments
+    </h3>
 
-                Comments
+    <div
+        class="inline-flex items-center gap-3 bg-gradient-to-r from-green-600 to-emerald-500 text-white px-6 py-3 rounded-full shadow-xl">
 
-            </h3>
 
-            <span
-            id="totalComments"
-            class="bg-green-100 text-green-700 px-4 py-2 rounded-full">
+        
+        <span
+            id="counter"
+            class="font-bold text-lg md:text-xl tracking-wide font-mono">
+            1m
+        </span>
 
-                0 Comments
+        <span class="font-semibold whitespace-nowrap">
+            Comments
+        </span>
 
-            </span>
+    </div>
 
-        </div>
+</div>
 
         <!-- Comment Container -->
 
@@ -2210,6 +2221,105 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(document.querySelector(".reveal"));
 
+const btn = document.getElementById("postCommentBtn");
+
+btn.addEventListener("click", sendComment);
+
+function sendComment(){
+
+    const name = document.getElementById("commentName").value.trim();
+
+    const email = document.getElementById("commentEmail").value.trim();
+
+    const comment = document.getElementById("commentText").value.trim();
+
+    if(name==="" || comment===""){
+
+        alert("Please enter your name and comment.");
+
+        return;
+
+    }
+
+    btn.disabled = true;
+
+    btn.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Sending...
+    `;
+
+    setTimeout(()=>{
+
+        const message =
+
+`🌿 *NEW WEBSITE COMMENT*
+
+👤 Name:
+${name}
+
+📧 Email:
+${email || "Not provided"}
+
+💬 Comment:
+${comment}
+
+-------------------------
+Sent from DA-TEHILLAH FARM Website`;
+
+        const whatsapp =
+`https://wa.me/2349138774140?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsapp,"_blank");
+
+        btn.disabled = false;
+
+        btn.innerHTML = `
+            <i class="fa-solid fa-check"></i>
+            Comment Sent
+        `;
+
+        setTimeout(()=>{
+
+            btn.innerHTML=`
+                <i class="fa-solid fa-paper-plane"></i>
+                Post Comment
+            `;
+
+        },2500);
+
+        document.getElementById("commentName").value="";
+
+        document.getElementById("commentEmail").value="";
+
+        document.getElementById("commentText").value="";
+
+        document.getElementById("characterCounter").innerHTML="0 / 500";
+
+    },1500);
+
+}
+
+const counter = document.getElementById("counter");
+
+let value = 1000000; // 1,000,000
+
+function formatNumber(num) {
+    if (num >= 1000000000) {
+        return (num / 1000000000).toFixed(1) + "B";
+    }
+
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + "M";
+    }
+
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1) + "K";
+    }
+
+    return num.toString();
+}
+
+counter.textContent = formatNumber(value);
 
 </script>
 </body>

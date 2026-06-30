@@ -19,5 +19,21 @@
   "scripts": {
     "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
     "start": "node backend/server.js"
-  }
+  },
+  "name": "da-tehillah-farm-ventures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samuelore67/DAH-TEHILLAH-FARM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Samuelore67/DAH-TEHILLAH-FARM/issues"
+  },
+  "homepage": "https://github.com/Samuelore67/DAH-TEHILLAH-FARM#readme"
 }

@@ -302,7 +302,7 @@
         async function fetchDashboard() {
             try {
                 const token = localStorage.getItem('accessToken');
-                const response = await fetch('http://localhost:3000/api/admin/dashboard', {
+                const response = await fetch('http://dah-tehillah-farm.onrender.com/api/admin/dashboard', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();

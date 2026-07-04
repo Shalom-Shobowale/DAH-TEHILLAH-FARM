@@ -151,7 +151,7 @@ onclick="closeSidebar()"></div>
         async function fetchNotifications() {
             const token = localStorage.getItem('accessToken');
             try {
-                const response = await fetch('http://localhost:3000/api/member/notifications', {
+                const response = await fetch('http://dah-tehillah-farm.onrender.com/api/member/notifications', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
@@ -197,7 +197,7 @@ onclick="closeSidebar()"></div>
         async function markRead(id) {
             const token = localStorage.getItem('accessToken');
             try {
-                await fetch(`http://localhost:3000/api/member/notifications/${id}/read`, {
+                await fetch(`http://dah-tehillah-farm.onrender.com/api/member/notifications/${id}/read`, {
                     method: 'PATCH',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
@@ -210,7 +210,7 @@ onclick="closeSidebar()"></div>
         async function markAllRead() {
             const token = localStorage.getItem('accessToken');
             try {
-                await fetch('http://localhost:3000/api/member/notifications/read-all', {
+                await fetch('http://dah-tehillah-farm.onrender.com/api/member/notifications/read-all', {
                     method: 'PATCH',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });

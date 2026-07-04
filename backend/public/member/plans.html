@@ -341,10 +341,10 @@ onclick="closeSidebar()"></div>
         const token = localStorage.getItem("accessToken");
         try {
           const [plansRes, accountRes] = await Promise.all([
-            fetch("http://localhost:3000/api/plans", {
+            fetch("http://dah-tehillah-farm.onrender.com/api/plans", {
               headers: { Authorization: `Bearer ${token}` },
             }),
-            fetch("http://localhost:3000/api/member/payment-account", {
+            fetch("http://dah-tehillah-farm.onrender.com/api/member/payment-account", {
               headers: { Authorization: `Bearer ${token}` },
             }),
           ]);
@@ -510,7 +510,7 @@ class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-green
 
           try {
             const response = await fetch(
-              "http://localhost:3000/api/member/investments",
+              "http://dah-tehillah-farm.onrender.com/api/member/investments",
               {
                 method: "POST",
                 headers: {

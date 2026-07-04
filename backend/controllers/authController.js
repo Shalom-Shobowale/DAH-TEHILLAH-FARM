@@ -46,7 +46,7 @@ const register = async (req, res) => {
       return error(res, "Failed to create user", 500);
     }
 
-    const verifyUrl = `http://localhost:3000/api/auth/verify-email/${verificationToken}`;
+    const verifyUrl = `http://dah-tehillah-farm.onrender.com/api/auth/verify-email/${verificationToken}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL,

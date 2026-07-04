@@ -321,7 +321,7 @@
           if (status !== "all") params.append("status", status);
 
           const response = await fetch(
-            `http://localhost:3000/api/admin/users?${params.toString()}`,
+            `http://dah-tehillah-farm.onrender.com/api/admin/users?${params.toString()}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             },
@@ -395,7 +395,7 @@
         if (!confirm("Approve this member?")) return;
         const token = localStorage.getItem("accessToken");
         try {
-          const response = await fetch(`http://localhost:3000/api/admin/users/${id}/approve`, {
+          const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/users/${id}/approve`, {
             method: "PATCH",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -415,7 +415,7 @@
         if (!confirm("Suspend this member?")) return;
         const token = localStorage.getItem("accessToken");
         try {
-          const response = await fetch(`http://localhost:3000/api/admin/users/${id}/suspend`, {
+          const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/users/${id}/suspend`, {
             method: "PATCH",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -436,7 +436,7 @@
           return;
         const token = localStorage.getItem("accessToken");
         try {
-          const response = await fetch(`http://localhost:3000/api/admin/users/${id}`, {
+          const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/users/${id}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
           });

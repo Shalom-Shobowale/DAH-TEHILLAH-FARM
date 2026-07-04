@@ -214,7 +214,7 @@
                 const params = new URLSearchParams();
                 if (status !== 'all') params.append('status', status);
 
-                const response = await fetch(`http://localhost:3000/api/admin/investments?${params.toString()}`, {
+                const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/investments?${params.toString()}`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
@@ -307,7 +307,7 @@
             if (!confirm('Approve this investment?')) return;
             const token = localStorage.getItem('accessToken');
             try {
-                const response = await fetch(`http://localhost:3000/api/admin/investments/${id}/approve`, {
+                const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/investments/${id}/approve`, {
                     method: 'PATCH',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
@@ -327,7 +327,7 @@
             if (!confirm('Reject this investment?')) return;
             const token = localStorage.getItem('accessToken');
             try {
-                const response = await fetch(`http://localhost:3000/api/admin/investments/${id}/reject`, {
+                const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/investments/${id}/reject`, {
                     method: 'PATCH',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });

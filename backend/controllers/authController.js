@@ -46,7 +46,7 @@ const register = async (req, res) => {
       return error(res, "Failed to create user", 500);
     }
 
-    const verifyUrl = `http://dah-tehillah-farm.onrender.com/api/auth/verify-email/${verificationToken}`;
+    const verifyUrl = `https://dah-tehillah-farm.onrender.com/api/auth/verify-email/${verificationToken}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL,
@@ -107,7 +107,7 @@ const verifyEmail = async (req, res) => {
   console.log("Redirecting...");
 
   return res.redirect(
-    "http://localhost:5500/backend/public/member/login.html?verified=true",
+    "https://da-tehillah-farm-sammys-projects-be881650.vercel.app/member/login.html?verified=true",
   );
 };
 

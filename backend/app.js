@@ -16,10 +16,19 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: "*",
+    origin: [
+      "https://da-tehillah-farm-sammys-projects-be881650.vercel.app",
+      "http://127.0.0.1:5500",
+      "http://localhost:5500",
+    ],
     credentials: true,
   }),
 );
+
+app.use((req, res, next) => {
+  console.log(req.method, req.originalUrl);
+  next();
+});
 
 app.use(morgan("combined"));
 

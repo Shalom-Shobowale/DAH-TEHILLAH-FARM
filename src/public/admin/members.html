@@ -51,8 +51,9 @@
 
         <!-- Close Button -->
         <button
-            onclick="closeSidebar()"
-            class="lg:hidden text-white">
+      id="closeBtn"
+      onclick="closeSidebar()"
+      class="lg:hidden text-white">
 
             <svg xmlns="http://www.w3.org/2000/svg"
                 class="w-7 h-7"
@@ -321,7 +322,7 @@
           if (status !== "all") params.append("status", status);
 
           const response = await fetch(
-            `http://dah-tehillah-farm.onrender.com/api/admin/users?${params.toString()}`,
+            `https://dah-tehillah-farm.onrender.com/api/admin/users?${params.toString()}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             },
@@ -395,7 +396,7 @@
         if (!confirm("Approve this member?")) return;
         const token = localStorage.getItem("accessToken");
         try {
-          const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/users/${id}/approve`, {
+          const response = await fetch(`https://dah-tehillah-farm.onrender.com/api/admin/users/${id}/approve`, {
             method: "PATCH",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -415,7 +416,7 @@
         if (!confirm("Suspend this member?")) return;
         const token = localStorage.getItem("accessToken");
         try {
-          const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/users/${id}/suspend`, {
+          const response = await fetch(`https://dah-tehillah-farm.onrender.com/api/admin/users/${id}/suspend`, {
             method: "PATCH",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -436,7 +437,7 @@
           return;
         const token = localStorage.getItem("accessToken");
         try {
-          const response = await fetch(`http://dah-tehillah-farm.onrender.com/api/admin/users/${id}`, {
+          const response = await fetch(`https://dah-tehillah-farm.onrender.com/api/admin/users/${id}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
           });

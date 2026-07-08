@@ -246,7 +246,7 @@
                         <p class="font-semibold">${inv.investment_plans?.title || 'N/A'}</p>
                         <p class="text-sm text-gray-500">${inv.investment_plans?.duration_months} months - ${inv.investment_plans?.roi_percentage}% ROI</p>
                     </td>
-                    <td class="py-4 px-4 font-semibold text-primary">₦${parseFloat(inv.amount).toLocaleString()}</td>
+                    <td class="py-4 px-4 font-semibold text-primary">₦${parseFloat(inv.slot_price).toLocaleString()}</td>
                     <td class="py-4 px-4 font-semibold text-accent">₦${parseFloat(inv.expected_return).toLocaleString()}</td>
                     <td class="py-4 px-4"><span class="px-3 py-1 rounded-full text-xs font-semibold ${getPaymentStatusClass(inv.payment_status)}">${inv.payment_status}</span></td>
                     <td class="py-4 px-4"><span class="px-3 py-1 rounded-full text-xs font-semibold ${getInvestmentStatusClass(inv.investment_status)}">${inv.investment_status}</span></td>

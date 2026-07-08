@@ -249,7 +249,8 @@ const getInvestments = async (req, res) => {
     const { data: investments, error: invError } = await query;
 
     if (invError) {
-      return error(res, "Failed to retrieve investments", 500);
+      console.error("Supabase investments error:", invError);
+      return error(res, invError.message, 500);
     }
 
     return success(res, investments, "Investments retrieved");

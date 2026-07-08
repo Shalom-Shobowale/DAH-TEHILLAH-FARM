@@ -3,7 +3,7 @@ const supabase = require("../config/database");
 const { error } = require("../utils/responseHandler");
 
 const protect = async (req, res, next) => {
-  onsole.log("🔥 PROTECT MIDDLEWARE HIT");
+  console.log("🔥 PROTECT MIDDLEWARE HIT");
   try {
     let token;
 

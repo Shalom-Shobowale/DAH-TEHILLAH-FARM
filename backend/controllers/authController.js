@@ -43,25 +43,27 @@ const register = async (req, res) => {
       .single();
 
     if (insertError) {
-      return error(res, "Failed to create user", 500);
+      console.error("Insert Error:", insertError);
+      return error(res, insertError.message, 500);
     }
 
-    const verifyUrl = `https://dah-tehillah-farm.onrender.com/api/auth/verify-email/${verificationToken}`;
+    const verifyUrl = `http://localhost:3000/api/auth/verify-email/${verificationToken}`;
 
-    await transporter.sendMail({
-      from: process.env.EMAIL,
-      to: email,
-      subject: "Verify your email",
-      html: `
-        <h2>Welcome to DA-TEHILLAH FARM VENTURES</h2>
-
-        <p>Click the button below to verify your email.</p>
-
-        <a href="${verifyUrl}">
-            Verify Email
-        </a>
+    try {
+      await transporter.sendMail({
+        from: process.env.EMAIL,
+        to: email,
+        subject: "Verify your email",
+        html: `
+      <h2>Welcome to DA-TEHILLAH FARM VENTURES</h2>
+      <p>Click the button below to verify your email.</p>
+      <a href="${verifyUrl}">Verify Email</a>
     `,
-    });
+      });
+    } catch (mailError) {
+      console.error("MAIL ERROR:", mailError);
+      throw mailError;
+    }
 
     return success(
       res,

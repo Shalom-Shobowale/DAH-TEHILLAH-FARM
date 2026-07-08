@@ -17,7 +17,7 @@ app.use(helmet());
 app.use(
   cors({
     origin: [
-      "https://da-tehillah-farm-sammys-projects-be881650.vercel.app",
+      "https://da-tehillah-farm-ventures.vercel.app",
       "http://127.0.0.1:5500",
       "http://localhost:5500",
     ],
@@ -41,7 +41,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(apiLimiter);
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../src/public/open.html"));
+  res.sendFile(path.join(__dirname, "../src/public/index.html"));
 });
 
 app.get("/api/health", (req, res) => {

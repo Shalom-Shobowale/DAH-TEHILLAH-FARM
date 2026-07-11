@@ -50,7 +50,7 @@ const register = async (req, res) => {
     const verifyUrl = `https://dah-tehillah-farm.onrender.com/api/auth/verify-email/${verificationToken}`;
 
     try {
-      await transporter.emails.send({
+      const result = await transporter.emails.send({
         from: "DA-TEHILLAH FARM <onboarding@resend.dev>",
         to: email,
         subject: "Verify your email",
@@ -60,8 +60,11 @@ const register = async (req, res) => {
     <a href="${verifyUrl}">Verify Email</a>
   `,
       });
+
+      console.log("RESEND RESULT:", result);
     } catch (mailError) {
       console.error("MAIL ERROR:", mailError);
+      console.error("MAIL ERROR JSON:", JSON.stringify(mailError, null, 2));
       throw mailError;
     }
 

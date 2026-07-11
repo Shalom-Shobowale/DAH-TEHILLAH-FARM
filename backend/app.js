@@ -11,6 +11,7 @@ const memberRoutes = require("./routes/memberRoutes");
 const planRoutes = require("./routes/planRoutes");
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.use(helmet());
 

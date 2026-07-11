@@ -47,7 +47,7 @@ const register = async (req, res) => {
       return error(res, insertError.message, 500);
     }
 
-    const verifyUrl = `https://dah-tehillah-farm.onrender.com/api/auth/verify-email/${verificationToken}`;
+    const verifyUrl = `https://api.da-tehillah-farms.com/api/auth/verify-email/${verificationToken}`;
 
     try {
       const result = await transporter.emails.send({
@@ -112,7 +112,7 @@ const verifyEmail = async (req, res) => {
   console.log("Redirecting...");
 
   return res.redirect(
-    "https://da-tehillah-farm-sammys-projects-be881650.vercel.app/member/login.html?verified=true",
+    "https://da-tehillah-farms.com//member/login.html?verified=true",
   );
 };
 

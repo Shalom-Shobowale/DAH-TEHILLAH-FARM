@@ -170,7 +170,7 @@
         async function fetchLogs() {
             const token = localStorage.getItem('accessToken');
             try {
-                const response = await fetch('https://dah-tehillah-farm.onrender.com/api/admin/activity-logs', {
+                const response = await fetch('https://api.da-tehillah-farms.com/api/admin/activity-logs', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();

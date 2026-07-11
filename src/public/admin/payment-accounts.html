@@ -223,7 +223,7 @@
         async function fetchAccounts() {
             const token = localStorage.getItem('accessToken');
             try {
-                const response = await fetch('https://dah-tehillah-farm.onrender.com/api/admin/payment-accounts', {
+                const response = await fetch('https://api.da-tehillah-farms.com/api/admin/payment-accounts', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
@@ -290,7 +290,7 @@
         async function editAccount(id) {
             const token = localStorage.getItem('accessToken');
             try {
-                const response = await fetch('https://dah-tehillah-farm.onrender.com/api/admin/payment-accounts', {
+                const response = await fetch('https://api.da-tehillah-farms.com/api/admin/payment-accounts', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
@@ -308,7 +308,7 @@
             const token = localStorage.getItem('accessToken');
 
             try {
-                const response = await fetch(`https://dah-tehillah-farm.onrender.com/api/admin/payment-accounts/${id}`, {
+                const response = await fetch(`https://api.da-tehillah-farms.com/api/admin/payment-accounts/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -341,7 +341,7 @@
             };
 
             try {
-                const url = accountId ? `https://dah-tehillah-farm.onrender.com/api/admin/payment-accounts/${accountId}` : 'https://dah-tehillah-farm.onrender.com/api/admin/payment-accounts';
+                const url = accountId ? `https://api.da-tehillah-farms.com/api/admin/payment-accounts/${accountId}` : 'https://api.da-tehillah-farms.com/api/admin/payment-accounts';
                 const method = accountId ? 'PUT' : 'POST';
 
                 const response = await fetch(url, {

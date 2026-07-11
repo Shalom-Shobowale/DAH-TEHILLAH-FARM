@@ -18,7 +18,9 @@ app.use(helmet());
 app.use(
   cors({
     origin: [
-      "https://da-tehillah-farm-ventures.vercel.app",
+      "https://da-tehillah-farms.com",
+      "https://www.da-tehillah-farms.com",
+      "https://da-tehillah-farm-ventures.vercel.app", // keep temporarily
       "http://127.0.0.1:5500",
       "http://localhost:5500",
     ],

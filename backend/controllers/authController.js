@@ -47,7 +47,7 @@ const register = async (req, res) => {
       return error(res, insertError.message, 500);
     }
 
-    const verifyUrl = `http://localhost:3000/api/auth/verify-email/${verificationToken}`;
+    const verifyUrl = `https://dah-tehillah-farm.onrender.com/api/auth/verify-email/${verificationToken}`;
 
     try {
       await transporter.sendMail({

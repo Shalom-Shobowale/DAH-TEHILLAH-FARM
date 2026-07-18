@@ -103,17 +103,21 @@ const getPaymentAccount = async (req, res) => {
 
 const createInvestment = async (req, res) => {
   try {
+    console.log("CREATE INVESTMENT HIT");
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
+
     const userId = req.user.id;
     const { plan_id, slots } = req.body;
 
     const slotCount = Number(slots);
 
-    // validate
+    // Validate slots
     if (!Number.isInteger(slotCount) || slotCount <= 0) {
       return error(res, "Slots must be a positive whole number", 400);
     }
 
-    // get plan
+    // Get investment plan
     const { data: plan, error: planError } = await supabase
       .from("investment_plans")
       .select("*")
@@ -122,49 +126,71 @@ const createInvestment = async (req, res) => {
       .single();
 
     if (planError || !plan) {
+      console.error("PLAN ERROR:", planError);
       return error(res, "Investment plan not found", 404);
     }
 
+    // Check slot limit
     if (plan.max_slots && slotCount > plan.max_slots) {
       return error(res, "Exceeds maximum slots allowed", 400);
     }
 
-    const totalInvested = slotCount * plan.slot_price;
-    const totalAdminFee = slotCount * plan.admin_fee;
+    // Calculations
+    const totalInvested = slotCount * Number(plan.slot_price);
 
-    const monthlyReturn = totalInvested * (plan.roi_percentage / 100);
-    const totalReturn = monthlyReturn * plan.duration_months;
+    const totalAdminFee = slotCount * Number(plan.admin_fee || 0);
+
+    const monthlyReturn = totalInvested * (Number(plan.roi_percentage) / 100);
+
+    const totalReturn = monthlyReturn * Number(plan.duration_months);
 
     const maturityDate = new Date();
-    maturityDate.setMonth(maturityDate.getMonth() + plan.duration_months);
+    maturityDate.setMonth(
+      maturityDate.getMonth() + Number(plan.duration_months),
+    );
+
+    // Data being inserted
+    const investmentData = {
+      user_id: userId,
+      plan_id,
+      slots: slotCount,
+      slot_price: plan.slot_price,
+      total_invested: totalInvested,
+      admin_fee: totalAdminFee,
+      expected_monthly_return: monthlyReturn,
+      total_expected_return: totalReturn,
+
+      // uploaded payment proof
+      proof_of_payment: req.file ? req.file.path : null,
+
+      start_date: new Date().toISOString(),
+      maturity_date: maturityDate.toISOString(),
+
+      payment_status: "pending",
+      investment_status: "pending",
+    };
+
+    console.log("INSERT DATA:", investmentData);
 
     const { data: investment, error: invError } = await supabase
       .from("investments")
-      .insert({
-        user_id: userId,
-        plan_id,
-        slots: slotCount,
-        slot_price: plan.slot_price,
-        total_invested: totalInvested,
-        admin_fee: totalAdminFee,
-        expected_monthly_return: monthlyReturn,
-        total_expected_return: totalReturn,
-        start_date: new Date().toISOString(),
-        maturity_date: maturityDate.toISOString(),
-        payment_status: "pending",
-        investment_status: "pending",
-      })
+      .insert(investmentData)
       .select()
       .single();
 
     if (invError) {
-      console.error("Investment insert error:", invError);
-      return error(res, "Failed to create investment", 500);
+      console.error(
+        "INVESTMENT INSERT ERROR:",
+        JSON.stringify(invError, null, 2),
+      );
+
+      return error(res, invError.message || "Failed to create investment", 500);
     }
 
     return success(res, investment, "Investment created successfully");
   } catch (err) {
-    console.error(err);
+    console.error("CREATE INVESTMENT SERVER ERROR:", err);
+
     return error(res, "Server error", 500);
   }
 };

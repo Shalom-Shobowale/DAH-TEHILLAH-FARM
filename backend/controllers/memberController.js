@@ -158,6 +158,7 @@ const createInvestment = async (req, res) => {
       .single();
 
     if (invError) {
+      console.error("Investment insert error:", invError);
       return error(res, "Failed to create investment", 500);
     }
 
@@ -369,5 +370,3 @@ module.exports = {
   updateProfile,
   changePassword,
 };
-
-

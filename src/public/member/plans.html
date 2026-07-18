@@ -341,7 +341,7 @@ onclick="closeSidebar()"></div>
         const token = localStorage.getItem("accessToken");
         try {
           const [plansRes, accountRes] = await Promise.all([
-            fetch("https://api.da-tehillah-farms.com/api/plans", {
+            fetch("https://api.da-tehillah-farms.com/api/member/plans", {
               headers: { Authorization: `Bearer ${token}` },
             }),
             fetch("https://api.da-tehillah-farms.com/api/member/payment-account", {

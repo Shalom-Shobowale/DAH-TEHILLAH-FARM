@@ -232,26 +232,47 @@ transition-transform duration-300 ease-in-out shadow-2xl">
 
         let allInvestments = [];
 
-        async function fetchInvestments() {
-            const token = localStorage.getItem('accessToken');
-            try {
-                const response = await fetch('https://api.da-tehillah-farms.com/api/member/investments', {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
-                const data = await response.json();
-                if (data.success) {
-                    allInvestments = data.data;
-                    updateStats(data.data);
-                    renderInvestments(data.data);
+    async function fetchInvestments() {
+    const token = localStorage.getItem("accessToken");
+
+    try {
+        const response = await fetch(
+            "https://api.da-tehillah-farms.com/api/member/investments",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
                 }
-            } catch (error) {
-                console.error('Error fetching investments:', error);
             }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.error("Fetch investments failed:", data);
+            alert(data.message || "Failed to load investments.");
+            return;
         }
 
+        allInvestments = data.data || [];
+        updateStats(allInvestments);
+        renderInvestments(allInvestments);
+
+    } catch (err) {
+        console.error(err);
+        alert("Network error while loading investments.");
+    }
+}
+
         function updateStats(investments) {
-            const totalInvested = investments.reduce((sum, inv) => sum + parseFloat(inv.slot_price), 0);
-            const expectedReturns = investments.reduce((sum, inv) => sum + parseFloat(inv.expected_return), 0);
+            const totalInvested = investments.reduce(
+    (sum, inv) => sum + Number(inv.slot_price || 0),
+    0
+);
+
+const expectedReturns = investments.reduce(
+    (sum, inv) => sum + Number(inv.expected_return || 0),
+    0
+);
 
             document.getElementById('totalInvested').textContent = '₦' + totalInvested.toLocaleString();
             document.getElementById('expectedReturns').textContent = '₦' + expectedReturns.toLocaleString();
@@ -275,11 +296,20 @@ transition-transform duration-300 ease-in-out shadow-2xl">
             tbody.innerHTML = filtered.map(inv => `
                 <tr class="border-b border-gray-100 hover:bg-gray-50">
                     <td class="py-4 px-4">
-                        <p class="font-semibold text-gray-800">${inv.investment_plans?.name || 'N/A'}</p>
-                        <p class="text-sm text-gray-500">${inv.investment_plans?.duration_months} months - ${inv.investment_plans?.roi_percentage}% ROI</p>
+                        <p class="font-semibold text-gray-800">
+    ${inv.investment_plans?.name || "N/A"}
+</p>
+
+<p class="text-sm text-gray-500">
+    ${
+        inv.investment_plans
+            ? `${inv.investment_plans.duration_months} months - ${inv.investment_plans.roi_percentage}% ROI`
+            : "-"
+    }
+</p>
                     </td>
-                    <td class="py-4 px-4 font-semibold text-primary">₦${parseFloat(inv.slot_price).toLocaleString()}</td>
-                    <td class="py-4 px-4 font-semibold text-accent">₦${parseFloat(inv.expected_return).toLocaleString()}</td>
+                    <td class="py-4 px-4 font-semibold text-primary">₦${Number(inv.total_invested || 0).toLocaleString()}</td>
+                    <td class="py-4 px-4 font-semibold text-accent">₦${Number(inv.total_expected_return || 0).toLocaleString()}</td>
                     <td class="py-4 px-4">
                         <span class="px-3 py-1 rounded-full text-xs font-semibold ${getPaymentStatusClass(inv.payment_status)}">${inv.payment_status}</span>
                     </td>

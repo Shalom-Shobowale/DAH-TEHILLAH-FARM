@@ -29,12 +29,12 @@ const getDashboardStats = async (req, res) => {
 
     const { data: investmentData } = await supabase
       .from("investments")
-      .select("slot_price")
+      .select("total_invested")
       .eq("payment_status", "verified");
 
     const totalInvestmentValue =
       investmentData?.reduce(
-        (sum, inv) => sum + parseFloat(inv.slot_price),
+        (sum, inv) => sum + Number(inv.total_invested),
         0,
       ) || 0;
 
@@ -238,7 +238,7 @@ const getInvestments = async (req, res) => {
     let query = supabase
       .from("investments")
       .select(
-        "id, slot_price, expected_return, payment_status, investment_status, proof_of_payment, created_at, updated_at, users(id, full_name, email), investment_plans(id, name, roi_percentage, duration_months)",
+        "id, slots, slot_price, total_invested, admin_fee, expected_monthly_return, total_expected_return, payment_status, investment_status, proof_of_payment, created_at, updated_at, users(id, full_name, email), investment_plans(id, name, roi_percentage, duration_months)",
       )
       .order("created_at", { ascending: false });
 
@@ -267,7 +267,7 @@ const approveInvestment = async (req, res) => {
     const { data: investment, error: invError } = await supabase
       .from("investments")
       .select(
-        "id, payment_status, investment_status, user_id, slot_price, expected_return, users(full_name, email), investment_plans(name)",
+        "id, payment_status, investment_status, user_id, slots, slot_price, total_invested, expected_monthly_return, total_expected_return, users(full_name, email), investment_plans(name)",
       )
       .eq("id", id)
       .single();
@@ -298,7 +298,7 @@ const approveInvestment = async (req, res) => {
     await supabase.from("notifications").insert({
       user_id: investment.user_id,
       name: "Investment Approved",
-      message: `Your investment of ₦${parseFloat(investment.slot_price).toLocaleString()} in ${investment.investment_plans.name} has been approved and is now active.`,
+      message: `Your investment of ₦${Number(investment.total_invested).toLocaleString()} in ${investment.investment_plans.name} has been approved and is now active.`,
     });
 
     await supabase.from("activity_logs").insert({

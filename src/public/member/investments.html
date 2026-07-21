@@ -270,7 +270,7 @@ transition-transform duration-300 ease-in-out shadow-2xl">
 );
 
 const expectedReturns = investments.reduce(
-    (sum, inv) => sum + Number(inv.expected_return || 0),
+    (sum, inv) => sum + Number(inv.total_expected_return || 0),
     0
 );
 

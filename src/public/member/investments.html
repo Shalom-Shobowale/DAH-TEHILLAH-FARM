@@ -269,10 +269,13 @@ transition-transform duration-300 ease-in-out shadow-2xl">
     0
 );
 
-const expectedReturns = investments.reduce(
-    (sum, inv) => sum + Number(inv.total_expected_return || 0),
-    0
-);
+const expectedReturns = investments.reduce((sum, inv) => {
+    const amount = Number(inv.slot_price || 0);
+    const slots = Number(inv.number_of_slots || 1);
+    const roi = Number(inv.investment_plans?.roi_percentage || 0);
+
+    return sum + (amount * slots * roi / 100);
+}, 0);
 
             document.getElementById('totalInvested').textContent = '₦' + totalInvested.toLocaleString();
             document.getElementById('expectedReturns').textContent = '₦' + expectedReturns.toLocaleString();
@@ -309,7 +312,13 @@ const expectedReturns = investments.reduce(
 </p>
                     </td>
                     <td class="py-4 px-4 font-semibold text-primary">₦${Number(inv.total_invested || 0).toLocaleString()}</td>
-                    <td class="py-4 px-4 font-semibold text-accent">₦${Number(inv.total_expected_return || 0).toLocaleString()}</td>
+                    <td class="py-4 px-4 font-semibold text-accent">
+    ₦${(
+        Number(inv.slot_price || 0) *
+        Number(inv.number_of_slots || 1) *
+        Number(inv.investment_plans?.roi_percentage || 0) / 100
+    ).toLocaleString()}
+</td>
                     <td class="py-4 px-4">
                         <span class="px-3 py-1 rounded-full text-xs font-semibold ${getPaymentStatusClass(inv.payment_status)}">${inv.payment_status}</span>
                     </td>

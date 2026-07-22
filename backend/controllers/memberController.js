@@ -231,6 +231,7 @@ const getMyInvestments = async (req, res) => {
   id,
   slots,
   slot_price,
+  number_of_slots,
   total_invested,
   admin_fee,
   expected_monthly_return,

@@ -341,7 +341,7 @@
                 <tr class="border-b border-gray-100">
                     <td class="py-3 px-4">${inv.users?.full_name || 'N/A'}<br><span class="text-sm text-gray-500">${inv.users?.email || ''}</span></td>
                     <td class="py-3 px-4">${inv.investment_plans?.title || 'N/A'}</td>
-                    <td class="py-3 px-4 font-semibold text-primary">₦${parseFloat(inv.amount).toLocaleString()}</td>
+                    <td class="py-3 px-4 font-semibold text-primary">₦${parseFloat(inv.slot_price).toLocaleString()}</td>
                     <td class="py-3 px-4 text-gray-500">${new Date(inv.created_at).toLocaleDateString()}</td>
                     <td class="py-3 px-4">
                         <a href="investments.html" class="text-primary hover:underline">Review</a>

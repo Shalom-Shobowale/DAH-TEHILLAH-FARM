@@ -105,10 +105,6 @@ const getPaymentAccount = async (req, res) => {
 
 const createInvestment = async (req, res) => {
   try {
-    console.log("CREATE INVESTMENT HIT");
-    console.log("BODY:", req.body);
-    console.log("FILE:", req.file);
-
     const userId = req.user.id;
     const { plan_id, slots } = req.body;
 
@@ -137,14 +133,13 @@ const createInvestment = async (req, res) => {
       return error(res, "Exceeds maximum slots allowed", 400);
     }
 
-    // Calculations
     const totalInvested = slotCount * Number(plan.slot_price);
 
     const totalAdminFee = slotCount * Number(plan.admin_fee || 0);
 
-    const monthlyReturn = totalInvested * (Number(plan.roi_percentage) / 100);
+    const totalReturn = (totalInvested * Number(plan.roi_percentage)) / 100;
 
-    const totalReturn = monthlyReturn * Number(plan.duration_months);
+    const monthlyReturn = totalReturn;
 
     const maturityDate = new Date();
     maturityDate.setMonth(
@@ -231,7 +226,6 @@ const getMyInvestments = async (req, res) => {
   id,
   slots,
   slot_price,
-  number_of_slots,
   total_invested,
   admin_fee,
   expected_monthly_return,

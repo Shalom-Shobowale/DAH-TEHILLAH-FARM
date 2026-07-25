@@ -454,20 +454,18 @@ class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-green
         document.getElementById("expectedReturn").classList.add("hidden");
         selectedPlan = {};
       }
-      function updateReturn() {
-        const slots = Number(document.getElementById("slots").value) || 1;
+     function updateReturn() {
+    const slots = Number(document.getElementById("slots").value) || 1;
 
-        const investment = slots * selectedPlan.slotPrice;
+    const investment = slots * selectedPlan.slotPrice;
 
-        const monthlyReturn = (investment * selectedPlan.roi) / 100;
+    const expectedReturn = (investment * selectedPlan.roi) / 100;
 
-        const totalReturn = monthlyReturn * selectedPlan.duration;
+    document.getElementById("returnAmount").textContent =
+      "₦" + expectedReturn.toLocaleString();
 
-        document.getElementById("returnAmount").textContent =
-          "₦" + totalReturn.toLocaleString();
-
-        document.getElementById("expectedReturn").classList.remove("hidden");
-      }
+    document.getElementById("expectedReturn").classList.remove("hidden");
+}
 
       document.getElementById("slots").addEventListener("input", updateReturn);
 

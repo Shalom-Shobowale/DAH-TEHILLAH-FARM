@@ -253,7 +253,18 @@ const getInvestments = async (req, res) => {
       return error(res, invError.message, 500);
     }
 
-    return success(res, investments, "Investments retrieved");
+    // Calculate expected return using the new business rule
+    const formattedInvestments = (investments || []).map((inv) => {
+      const totalInvested = Number(inv.total_invested || 0);
+      const roi = Number(inv.investment_plans?.roi_percentage || 0);
+
+      return {
+        ...inv,
+        expected_return: (totalInvested * roi) / 100,
+      };
+    });
+
+    return success(res, formattedInvestments, "Investments retrieved");
   } catch (err) {
     console.error("Get investments error:", err);
     return error(res, "Failed to retrieve investments", 500);
@@ -267,7 +278,17 @@ const approveInvestment = async (req, res) => {
     const { data: investment, error: invError } = await supabase
       .from("investments")
       .select(
-        "id, payment_status, investment_status, user_id, slots, slot_price, total_invested, expected_monthly_return, total_expected_return, users(full_name, email), investment_plans(name)",
+        `
+id,
+payment_status,
+investment_status,
+user_id,
+slots,
+slot_price,
+total_invested,
+users(full_name,email),
+investment_plans(name, roi_percentage)
+`,
       )
       .eq("id", id)
       .single();

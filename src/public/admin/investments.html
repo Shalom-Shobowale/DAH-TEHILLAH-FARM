@@ -166,7 +166,7 @@
                                 <th class="text-left py-3 px-4 text-gray-600 font-semibold">Member</th>
                                 <th class="text-left py-3 px-4 text-gray-600 font-semibold">Plan</th>
                                 <th class="text-left py-3 px-4 text-gray-600 font-semibold">Amount</th>
-                                <th class="text-left py-3 px-4 text-gray-600 font-semibold">Monthly Return</th>
+                                <th class="text-left py-3 px-4 text-gray-600 font-semibold">Expected Return</th>
                                 <th class="text-left py-3 px-4 text-gray-600 font-semibold">Payment Status</th>
                                 <th class="text-left py-3 px-4 text-gray-600 font-semibold">Investment Status</th>
                                 <th class="text-left py-3 px-4 text-gray-600 font-semibold">Proof</th>
@@ -243,17 +243,23 @@
                         <p class="text-sm text-gray-500">${inv.users?.email || ''}</p>
                     </td>
                     <td class="py-4 px-4">
-                        <p class="font-semibold">${inv.investment_plans?.title || 'N/A'}</p>
+                        <p class="font-semibold">${inv.investment_plans?.name || 'N/A'}</p>
                         <p class="text-sm text-gray-500">${inv.investment_plans?.duration_months} months - ${inv.investment_plans?.roi_percentage}% ROI</p>
                     </td>
-                    <td class="py-4 px-4 font-semibold text-primary">₦${parseFloat(inv.total_invested).toLocaleString()}</td>
-                    <td class="py-4 px-4 font-semibold text-accent">₦${parseFloat(inv.expected_monthly_return).toLocaleString()}</td>
+                    <td class="py-4 px-4 font-semibold text-primary">₦${Number(inv.total_invested || 0).toLocaleString()}</td>
+                   <td class="py-4 px-4 font-semibold text-accent">
+   ₦${(
+    Number(inv.total_invested || 0) *
+    Number(inv.investment_plans?.roi_percentage || 0) /
+    100
+).toLocaleString()}
+</td>
                     <td class="py-4 px-4"><span class="px-3 py-1 rounded-full text-xs font-semibold ${getPaymentStatusClass(inv.payment_status)}">${inv.payment_status}</span></td>
                     <td class="py-4 px-4"><span class="px-3 py-1 rounded-full text-xs font-semibold ${getInvestmentStatusClass(inv.investment_status)}">${inv.investment_status}</span></td>
                     <td class="py-4 px-4">
                         ${inv.proof_of_payment ? `<button onclick="viewProof('${inv.proof_of_payment}')" class="text-primary hover:underline text-sm">View</button>` : '<span class="text-gray-400">No proof</span>'}
                     </td>
-                    <td class="py-4 px-4 text-gray-600">${new Date(inv.created_at).toLocaleDateString()}</td>
+                    <td class="py-4 px-4 text-gray-600">${new Date(inv.created_at).toLocaleDateString("en-NG")}</td>
                     <td class="py-4 px-4">
                         ${inv.payment_status === 'pending' ? `
                             <div class="flex space-x-2">
